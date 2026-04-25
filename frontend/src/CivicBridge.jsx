@@ -52,6 +52,8 @@ export default function CivicBridgeOnboarding() {
   const [form, setForm] = useState({ name: "", email: "", city: "", state: "", age: "", topics: [] });
   const [submitted, setSubmitted] = useState(false);
   const [focused, setFocused] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
 
   /* Inject Google Fonts at runtime (works in most environments) */
   useEffect(() => {
@@ -77,6 +79,8 @@ export default function CivicBridgeOnboarding() {
 
   const handleSubmit = async () => { 
     if (canSubmit) {
+      setIsLoading(true);
+      setErrorMsg("");
       try {
         const response = await fetch("http://localhost:3001/api/users", {
           method: "POST",
@@ -86,11 +90,16 @@ export default function CivicBridgeOnboarding() {
         
         if (response.ok) {
           setSubmitted(true);
+        } else if (response.status === 409) {
+          setErrorMsg("This email is already registered. Please use a different one.");
         } else {
-          console.error("Server returned an error");
+          setErrorMsg("Server returned an error");
         }
       } catch (error) {
+        setErrorMsg("Failed to connect to server.");
         console.error("Failed to submit:", error);
+      } finally {
+        setIsLoading(false);
       }
     } 
   };
@@ -292,7 +301,7 @@ export default function CivicBridgeOnboarding() {
             </p>
             <button
               onClick={handleSubmit}
-              disabled={!canSubmit}
+              disabled={!canSubmit || isLoading}
               style={{
                 backgroundColor: canSubmit ? C.red : "transparent",
                 border: `1px solid ${canSubmit ? C.red : C.border}`,
@@ -303,17 +312,23 @@ export default function CivicBridgeOnboarding() {
                 letterSpacing: "0.18em",
                 textTransform: "uppercase",
                 padding: "16px 40px",
-                cursor: canSubmit ? "pointer" : "not-allowed",
+                cursor: canSubmit && !isLoading ? "pointer" : "not-allowed",
                 borderRadius: "2px",
                 transition: "all 0.2s",
                 whiteSpace: "nowrap",
+                opacity: isLoading ? 0.7 : 1,
               }}
-              onMouseEnter={e => { if (canSubmit) e.currentTarget.style.backgroundColor = C.redDim; }}
-              onMouseLeave={e => { if (canSubmit) e.currentTarget.style.backgroundColor = C.red; }}
+              onMouseEnter={e => { if (canSubmit && !isLoading) e.currentTarget.style.backgroundColor = C.redDim; }}
+              onMouseLeave={e => { if (canSubmit && !isLoading) e.currentTarget.style.backgroundColor = C.red; }}
             >
-              Submit &amp; Continue →
+              {isLoading ? "Processing..." : "Submit & Continue →"}
             </button>
           </div>
+          {errorMsg && (
+            <div style={{ color: C.red, fontFamily: F.ui, fontSize: "14px", marginTop: "16px", textAlign: "right" }}>
+              {errorMsg}
+            </div>
+          )}
 
         </div>
 
