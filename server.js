@@ -49,7 +49,7 @@ app.post('/api/users', async (req, res) => {
 
     res.status(201).json({ 
       message: 'User registered successfully and email dispatched', 
-      userId: info.lastInsertRowid,
+      // userId: info.lastInsertRowid,
       previewUrl: previewUrl,
       aiResult: aiResult
     });
