@@ -1,19 +1,40 @@
 const nodemailer = require('nodemailer');
 
 async function sendEmail(userEmail, userName, aiResult) {
-  // Generate test SMTP service account from ethereal.email
   let testAccount = await nodemailer.createTestAccount();
 
-  // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
     host: "smtp.ethereal.email",
     port: 587,
-    secure: false, // true for 465, false for other ports
+    secure: false,
     auth: {
-      user: testAccount.user, // generated ethereal user
-      pass: testAccount.pass, // generated ethereal password
+      user: testAccount.user,
+      pass: testAccount.pass,
     },
   });
+
+  // Build a card for each bill
+  const billCards = aiResult.map(bill => `
+    <div style="margin-bottom: 24px; padding: 20px; border: 1px solid #eaeaea; border-radius: 8px;">
+      <p style="font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #888; margin: 0 0 6px;">
+        ${bill.billTitle}
+      </p>
+      <h3 style="color: #d63426; font-size: 18px; margin: 0 0 10px;">
+        ${bill.impactHeadline}
+      </h3>
+      <p style="font-size: 15px; line-height: 1.6; color: #333; margin: 0;">
+        ${bill.summary}
+      </p>
+    </div>
+  `).join('');
+
+  // Use first bill's headline as email subject
+  const emailSubject = aiResult[0]?.impactHeadline || 'Your Polis Civic Update';
+
+  // Plain text fallback
+  const plainText = aiResult.map(bill => 
+    `${bill.billTitle}\n${bill.impactHeadline}\n${bill.summary}`
+  ).join('\n\n---\n\n');
 
   const htmlTemplate = `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #eaeaea; border-radius: 8px; overflow: hidden;">
@@ -23,24 +44,23 @@ async function sendEmail(userEmail, userName, aiResult) {
       </div>
       <div style="padding: 30px 20px;">
         <h2 style="margin-top: 0; font-size: 20px;">Hi ${userName},</h2>
-        <h3 style="color: #d63426; font-size: 18px; margin-bottom: 10px;">${aiResult.impactHeadline}</h3>
-        <p style="font-size: 16px; line-height: 1.6; color: #333;">
-          ${aiResult.summary}
+        <p style="color: #555; font-size: 14px; margin-bottom: 24px;">
+          Here are the bills that matter most to you this week.
         </p>
+        ${billCards}
       </div>
       <div style="background-color: #f4f4f4; padding: 15px; text-align: center; font-size: 12px; color: #888;">
-        This is a personalized summary based on your CivicBridge profile.
+        This is a personalized summary based on your Polis profile.
       </div>
     </div>
   `;
 
-  // send mail with defined transport object
   const info = await transporter.sendMail({
-    from: '"Polis Civic Intelligence" <alert@polis.civic>', // sender address
-    to: userEmail, // list of receivers
-    subject: `Polis Alert: ${aiResult.impactHeadline}`, // Subject line
-    text: `${aiResult.impactHeadline}\n\n${aiResult.summary}`, // plain text body
-    html: htmlTemplate, // html body
+    from: '"Polis Civic Intelligence" <alert@polis.civic>',
+    to: userEmail,
+    subject: `Polis Alert: ${emailSubject}`,
+    text: plainText,
+    html: htmlTemplate,
   });
 
   console.log("====================================");
