@@ -24,12 +24,14 @@ app.post('/api/users', async (req, res) => {
       {
         billTitle: "SB 567 - Tenant Protection Act",
         impactHeadline: "Your rent increases capped at 8%",
-        summary: "As a renter in California, SB 567 limits how much your landlord can raise your rent each year — no more than 8% or 5% plus inflation, whichever is lower. Starting January 2027, you're also protected from eviction without just cause after living somewhere for 12 months, giving you significantly more housing stability."
+        summary: "As a renter in California, SB 567 limits how much your landlord can raise your rent each year — no more than 8% or 5% plus inflation, whichever is lower. Starting January 2027, you're also protected from eviction without just cause after living somewhere for 12 months, giving you significantly more housing stability.",
+        action: "Review your current lease and note your move-in date — if you've lived there over 12 months, you are already protected from no-fault eviction starting January 2027."
       },
       {
         billTitle: "SB 567 - Renter Tax Credit",
         impactHeadline: "You may qualify for $1,000 tax credit",
-        summary: "If your adjusted gross income is under $50,000, you could receive a $1,000 renter's tax credit starting in the 2027 tax year. If you have dependent children, you can receive an additional $500 per child, up to two children."
+        summary: "If your adjusted gross income is under $50,000, you could receive a $1,000 renter's tax credit starting in the 2027 tax year. If you have dependent children, you can receive an additional $500 per child, up to two children.",
+        action: "Set a reminder to claim the Renter's Tax Credit when filing your 2027 state taxes — no application needed, just file with your income and rental info."
       }
     ];
 

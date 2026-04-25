@@ -22,9 +22,14 @@ async function sendEmail(userEmail, userName, aiResult) {
       <h3 style="color: #d63426; font-size: 18px; margin: 0 0 10px;">
         ${bill.impactHeadline}
       </h3>
-      <p style="font-size: 15px; line-height: 1.6; color: #333; margin: 0;">
+      <p style="font-size: 15px; line-height: 1.6; color: #333; margin: 0 0 16px;">
         ${bill.summary}
       </p>
+      <div style="background-color: #fff8f0; border-left: 4px solid #d63426; padding: 12px 16px; border-radius: 4px;">
+        <p style="margin: 0; font-size: 13px; color: #555;">
+          <strong style="color: #d63426;">Action: </strong>${bill.action}
+        </p>
+      </div>
     </div>
   `).join('');
 
