@@ -6,28 +6,15 @@ import { useState, useEffect } from "react";
    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 */
 
-const US_STATES = [
-  "Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware",
-  "Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky",
-  "Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi",
-  "Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico",
-  "New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania",
-  "Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont",
-  "Virginia","Washington","West Virginia","Wisconsin","Wyoming",
-];
+const HOUSING_OPTIONS = ["🏠 I own my home", "🏢 I rent my home", "🛋️ I live with family or friends", "📦 Other / Temporary housing"];
+const INCOME_OPTIONS = ["Under $25,000", "$25,000 – $50,000", "$50,000 – $100,000", "$100,000 – $200,000", "Over $200,000"];
+const EMPLOYMENT_OPTIONS = ["💼 Full-time employee", "🧾 Self-employed or freelancer", "🚗 Gig worker (Uber, DoorDash, etc.)", "🎓 Student", "🔍 Currently unemployed", "🏖️ Retired"];
+const DEPENDENTS_OPTIONS = ["No dependents", "1 child", "2 children", "3 or more children", "I care for an elderly parent or family member"];
+const INSURANCE_OPTIONS = ["🏢 Through my employer", "🛒 I buy my own (Marketplace/ACA)", "🏥 Medicaid or Medicare", "⚔️ VA / Military benefits", "❌ I'm currently uninsured"];
 
-const AGE_RANGES = ["Under 50", "50 – 60", "61 – 70", "71 – 80", "80 and above"];
+const AGE_RANGES = ["Under 26", "26 – 40", "41 – 60", "61 – 64", "65 or older"];
 
-const TOPICS = [
-  { id: "healthcare",  label: "Healthcare & Medicare" },
-  { id: "housing",     label: "Housing & Rent" },
-  { id: "taxes",       label: "Taxes & Benefits" },
-  { id: "education",   label: "Education" },
-  { id: "immigration", label: "Immigration & Visas" },
-  { id: "retirement",  label: "Social Security" },
-  { id: "business",    label: "Small Business" },
-  { id: "safety",      label: "Community Safety" },
-];
+
 
 /* ─── TOKENS ─────────────────────────────────────────────────────────── */
 const C = {
@@ -49,7 +36,12 @@ const F = {
 };
 
 export default function CivicBridgeOnboarding() {
-  const [form, setForm] = useState({ name: "", email: "", city: "", state: "", age: "", topics: [] });
+  const [form, setForm] = useState({ 
+    name: "", email: "", zip: "", 
+    housing: "", income: "", employment: "", 
+    dependents: "", health_insurance: "", 
+    age: ""
+  });
   const [submitted, setSubmitted] = useState(false);
   const [focused, setFocused] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -68,14 +60,7 @@ export default function CivicBridgeOnboarding() {
 
   const set = (k, v) => setForm(f => ({ ...f, [k]: v }));
 
-  const toggleTopic = (id) => {
-    setForm(f => ({
-      ...f,
-      topics: f.topics.includes(id) ? f.topics.filter(t => t !== id) : [...f.topics, id],
-    }));
-  };
-
-  const canSubmit = form.name.trim() && form.email.includes("@") && form.city.trim() && form.state && form.age && form.topics.length > 0;
+  const canSubmit = form.name.trim() && form.email.includes("@") && form.zip.trim().length >= 5 && form.housing && form.income && form.employment && form.dependents && form.health_insurance && form.age;
 
   const handleSubmit = async () => { 
     if (canSubmit) {
@@ -128,7 +113,7 @@ export default function CivicBridgeOnboarding() {
     fontWeight: 500,
     letterSpacing: "0.16em",
     textTransform: "uppercase",
-    color: C.mid,
+    color: C.white,
     marginBottom: "6px",
   };
 
@@ -235,24 +220,15 @@ export default function CivicBridgeOnboarding() {
               />
             </div>
             <div style={fieldWrap}>
-              <span style={monoLabel}>City / Town</span>
+              <span style={monoLabel}>ZIP Code</span>
               <input
-                value={form.city} onChange={e => set("city", e.target.value)}
-                onFocus={() => setFocused("city")} onBlur={() => setFocused(null)}
-                placeholder="Los Angeles"
-                style={inputBase("city")}
+                value={form.zip} onChange={e => set("zip", e.target.value)}
+                onFocus={() => setFocused("zip")} onBlur={() => setFocused(null)}
+                placeholder="12345"
+                maxLength={5}
+                style={inputBase("zip")}
               />
-            </div>
-            <div style={fieldWrap}>
-              <span style={monoLabel}>State</span>
-              <select
-                value={form.state} onChange={e => set("state", e.target.value)}
-                onFocus={() => setFocused("state")} onBlur={() => setFocused(null)}
-                style={{ ...inputBase("state"), cursor: "pointer", appearance: "none", WebkitAppearance: "none" }}
-              >
-                <option value="" style={{ backgroundColor: "#1a1a1a", color: C.mid }}>Select state...</option>
-                {US_STATES.map(s => <option key={s} value={s} style={{ backgroundColor: "#1a1a1a", color: C.white }}>{s}</option>)}
-              </select>
+              <div style={{ fontSize: "11px", color: C.mid, marginTop: "6px" }}>We use this to find bills in your area</div>
             </div>
           </div>
 
@@ -262,37 +238,52 @@ export default function CivicBridgeOnboarding() {
             <div style={{ flex: 1, height: "1px", backgroundColor: C.border }} />
           </div>
 
-          <div style={{ ...fieldWrap, marginBottom: "44px" }}>
-            <span style={monoLabel}>Age Range</span>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginTop: "6px" }}>
-              {AGE_RANGES.map(a => (
-                <button key={a} onClick={() => set("age", a)} style={{
-                  ...topicPill(form.age === a),
-                  fontSize: "11px",
-                  letterSpacing: "0.12em",
-                }}>
-                  {a}
-                </button>
-              ))}
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px 40px", marginBottom: "56px" }}>
+            <div>
+              <span style={monoLabel}>Housing</span>
+              <div style={{ display: "flex", flexDirection: "column", gap: "6px", marginTop: "6px" }}>
+                {HOUSING_OPTIONS.map(a => <button key={a} onClick={() => set("housing", a)} style={{ ...topicPill(form.housing === a), textAlign: "left", fontSize: "11px" }}>{a}</button>)}
+              </div>
+            </div>
+
+            <div>
+              <span style={monoLabel}>Income</span>
+              <div style={{ display: "flex", flexDirection: "column", gap: "6px", marginTop: "6px" }}>
+                {INCOME_OPTIONS.map(a => <button key={a} onClick={() => set("income", a)} style={{ ...topicPill(form.income === a), textAlign: "left", fontSize: "11px" }}>{a}</button>)}
+              </div>
+              <div style={{ fontSize: "11px", color: C.mid, marginTop: "8px", lineHeight: 1.4 }}>Used strictly to find tax credits and benefits you qualify for.</div>
+            </div>
+
+            <div>
+              <span style={monoLabel}>Employment</span>
+              <div style={{ display: "flex", flexDirection: "column", gap: "6px", marginTop: "6px" }}>
+                {EMPLOYMENT_OPTIONS.map(a => <button key={a} onClick={() => set("employment", a)} style={{ ...topicPill(form.employment === a), textAlign: "left", fontSize: "11px" }}>{a}</button>)}
+              </div>
+            </div>
+
+            <div>
+              <span style={monoLabel}>Dependents</span>
+              <div style={{ display: "flex", flexDirection: "column", gap: "6px", marginTop: "6px" }}>
+                {DEPENDENTS_OPTIONS.map(a => <button key={a} onClick={() => set("dependents", a)} style={{ ...topicPill(form.dependents === a), textAlign: "left", fontSize: "11px" }}>{a}</button>)}
+              </div>
+            </div>
+
+            <div>
+              <span style={monoLabel}>Health Insurance</span>
+              <div style={{ display: "flex", flexDirection: "column", gap: "6px", marginTop: "6px" }}>
+                {INSURANCE_OPTIONS.map(a => <button key={a} onClick={() => set("health_insurance", a)} style={{ ...topicPill(form.health_insurance === a), textAlign: "left", fontSize: "11px" }}>{a}</button>)}
+              </div>
+            </div>
+
+            <div>
+              <span style={monoLabel}>Age Range</span>
+              <div style={{ display: "flex", flexDirection: "column", gap: "6px", marginTop: "6px" }}>
+                {AGE_RANGES.map(a => <button key={a} onClick={() => set("age", a)} style={{ ...topicPill(form.age === a), textAlign: "left", fontSize: "11px" }}>{a}</button>)}
+              </div>
             </div>
           </div>
 
-          {/* Section: Topics */}
-          <div style={{ fontFamily: F.mono, fontSize: "10px", letterSpacing: "0.18em", color: C.red, textTransform: "uppercase", margin: "8px 0 12px", display: "flex", alignItems: "center", gap: "12px" }}>
-            03 &nbsp;·&nbsp; What You Want to Hear About
-            <div style={{ flex: 1, height: "1px", backgroundColor: C.border }} />
-          </div>
-          <p style={{ fontFamily: F.ui, fontWeight: 300, fontSize: "14px", color: C.mid, margin: "0 0 22px", letterSpacing: "0.01em" }}>
-            Select all that apply — we'll prioritize these in every analysis.
-          </p>
 
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginBottom: "56px" }}>
-            {TOPICS.map(t => (
-              <button key={t.id} onClick={() => toggleTopic(t.id)} style={topicPill(form.topics.includes(t.id))}>
-                {t.label}
-              </button>
-            ))}
-          </div>
 
           {/* ── SUBMIT ── */}
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "24px", flexWrap: "wrap" }}>

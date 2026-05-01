@@ -11,8 +11,12 @@ const initDB = () => {
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       name TEXT NOT NULL,
       email TEXT UNIQUE NOT NULL,
-      city TEXT,
-      state TEXT,
+      zip TEXT,
+      housing TEXT,
+      income TEXT,
+      employment TEXT,
+      dependents TEXT,
+      health_insurance TEXT,
       age TEXT,
       topics TEXT
     )

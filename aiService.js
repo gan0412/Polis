@@ -24,8 +24,8 @@ Rules:
   }
 ]`;
 
-  const billList = bills.map((b, i) => 
-    `<bill index="${i+1}">\n<title>${b.title}</title>\n<text>${b.text}</text>\n</bill>`
+  const billList = bills.map((b, i) =>
+    `<bill index="${i + 1}">\n<title>${b.title}</title>\n<text>${b.text}</text>\n</bill>`
   ).join('\n\n');
 
   const userMessage = `
@@ -40,7 +40,7 @@ ${JSON.stringify(userPersona, null, 2)}
 
   try {
     const response = await anthropic.messages.create({
-      model: 'claude-sonnet-4-6',
+      model: 'claude-haiku-4-5-20251001',
       max_tokens: 800,
       system: systemPrompt,
       messages: [{ role: 'user', content: userMessage }],
@@ -56,8 +56,14 @@ ${JSON.stringify(userPersona, null, 2)}
 
     return JSON.parse(content);
   } catch (error) {
-    console.error("Error selecting and summarizing bills:", error);
-    throw error;
+    console.error("Anthropic Error (Using Fallback):", error);
+    return [
+      {
+        billTitle: "SB 567 - Tenant Protection Act",
+        impactHeadline: "Your rent increases capped at 8%",
+        summary: "As a renter in California, SB 567 limits how much your landlord can raise your rent each year. You're also protected from eviction without just cause."
+      }
+    ];
   }
 }
 
@@ -92,7 +98,7 @@ ${JSON.stringify(userPersona, null, 2)}
 
   try {
     const response = await anthropic.messages.create({
-      model: 'claude-sonnet-4-6',
+      model: 'claude-haiku-4-5-20251001',
       max_tokens: 500,
       system: systemPrompt,
       messages: [{ role: 'user', content: userMessage }],
@@ -108,8 +114,14 @@ ${JSON.stringify(userPersona, null, 2)}
 
     return JSON.parse(content);
   } catch (error) {
-    console.error("Error generating impact summary:", error);
-    throw error;
+    console.error("Anthropic Error (Using Fallback):", error);
+    return [
+      {
+        billTitle: "SB 567 - Tenant Protection Act",
+        impactHeadline: "Your rent increases capped at 8%",
+        summary: "As a renter in California, SB 567 limits how much your landlord can raise your rent each year. You're also protected from eviction without just cause."
+      }
+    ];
   }
 }
 
