@@ -1,45 +1,25 @@
 const nodemailer = require('nodemailer');
 
 async function sendEmail(userEmail, userName, aiResult) {
-  let testAccount = await nodemailer.createTestAccount();
-
   let transporter = nodemailer.createTransport({
-    host: "smtp.ethereal.email",
-    port: 587,
-    secure: false,
+    service: 'gmail',
     auth: {
-      user: testAccount.user,
-      pass: testAccount.pass,
+      user: process.env.GMAIL_USER,
+      pass: process.env.GMAIL_APP_PASSWORD,
     },
   });
 
-  // Build a card for each bill
-  const billCards = aiResult.map(bill => `
-    <div style="margin-bottom: 24px; padding: 20px; border: 1px solid #eaeaea; border-radius: 8px;">
-      <p style="font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #888; margin: 0 0 6px;">
-        ${bill.billTitle}
-      </p>
-      <h3 style="color: #d63426; font-size: 18px; margin: 0 0 10px;">
-        ${bill.impactHeadline}
-      </h3>
-      <p style="font-size: 15px; line-height: 1.6; color: #333; margin: 0 0 16px;">
-        ${bill.summary}
-      </p>
-      <div style="background-color: #fff8f0; border-left: 4px solid #d63426; padding: 12px 16px; border-radius: 4px;">
-        <p style="margin: 0; font-size: 13px; color: #555;">
-          <strong style="color: #d63426;">Action: </strong>${bill.action}
-        </p>
-      </div>
-    </div>
-  `).join('');
+  // Build the bullet points list
+  const bulletsHtml = `<ul style="margin: 0; padding-left: 20px; font-size: 15px; color: #333; line-height: 1.6;">` +
+    aiResult.bullets.map(bullet => `
+      <li style="margin-bottom: 12px;">${bullet}</li>
+    `).join('') + `</ul>`;
 
-  // Use first bill's headline as email subject
-  const emailSubject = aiResult[0]?.impactHeadline || 'Your Polis Civic Update';
+  const emailSubject = aiResult.emailSubject || `${aiResult.billTitle}: Important Updates`;
 
   // Plain text fallback
-  const plainText = aiResult.map(bill => 
-    `${bill.billTitle}\n${bill.impactHeadline}\n${bill.summary}`
-  ).join('\n\n---\n\n');
+  const plainText = `${aiResult.billTitle}\n${aiResult.overallImpact}\n\n` + 
+    aiResult.bullets.map(bullet => `- ${bullet}`).join('\n');
 
   const htmlTemplate = `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #eaeaea; border-radius: 8px; overflow: hidden;">
@@ -50,9 +30,17 @@ async function sendEmail(userEmail, userName, aiResult) {
       <div style="padding: 30px 20px;">
         <h2 style="margin-top: 0; font-size: 20px;">Hi ${userName},</h2>
         <p style="color: #555; font-size: 14px; margin-bottom: 24px;">
-          Here are the bills that matter most to you this week.
+          Here is how this legislation impacts you specifically:
         </p>
-        ${billCards}
+        
+        <div style="margin-bottom: 24px; padding: 20px; border: 1px solid #eaeaea; border-radius: 8px;">
+          <h3 style="margin: 0 0 10px; font-size: 18px;">${aiResult.billTitle}</h3>
+          <p style="font-size: 15px; color: #555; margin: 0 0 24px; font-style: italic; line-height: 1.6;">${aiResult.overallImpact}</p>
+          
+          <div style="width: 100%; height: 1px; background-color: #eaeaea; margin-bottom: 20px;"></div>
+          
+          ${bulletsHtml}
+        </div>
       </div>
       <div style="background-color: #f4f4f4; padding: 15px; text-align: center; font-size: 12px; color: #888;">
         This is a personalized summary based on your Polis profile.
@@ -61,19 +49,18 @@ async function sendEmail(userEmail, userName, aiResult) {
   `;
 
   const info = await transporter.sendMail({
-    from: '"Polis Civic Intelligence" <alert@polis.civic>',
+    from: '"Polis" <alert@polis.civic>',
     to: userEmail,
-    subject: `Polis Alert: ${emailSubject}`,
+    subject: emailSubject,
     text: plainText,
     html: htmlTemplate,
   });
 
   console.log("====================================");
-  console.log("Message sent: %s", info.messageId);
-  console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+  console.log("Message successfully sent to: %s", userEmail);
   console.log("====================================");
 
-  return nodemailer.getTestMessageUrl(info);
+  return true;
 }
 
 module.exports = { sendEmail };

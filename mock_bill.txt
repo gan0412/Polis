@@ -1,153 +1,41 @@
-BILL NUMBER: SB 567
-TITLE: Tenant Protection, Housing Relief, and Urban Revitalization Act of 2026
+The Big Beautiful Bill Act
 
-CHAPTER 1. LEGISLATIVE INTENT AND GENERAL PROVISIONS
+💰 Taxes — What Changed
+Permanent extensions (from 2017 Tax Cuts and Jobs Act):
+Individual tax rates from 2017 are now permanent — they were set to expire end of 2025 LegiScan
 
-Section 101. Title.
-This Act shall be known and may be cited as the "Tenant Protection, Housing Relief, and Urban Revitalization Act of 2026."
+New deductions (temporary, expire 2028 unless noted):
+No tax on tips — up to $25,000/year for workers earning under $150,000 LegiScan
+No tax on overtime — deduction up to $12,500 ($25,000 if married) for overtime pay, phases out above $150,000 income LegiScan
+Auto loan interest deduction — up to $10,000/year for new US-assembled vehicles purchased 2025–2028, phases out above $100,000 income LegiScan
+SALT deduction raised from $10,000 to $40,000 for taxpayers earning under $500,000, reverting to $10,000 after five years LegiScan
+Senior deduction — up to $6,000 for seniors, phasing out above $75,000 income, expires 2028 LegiScan
+Charitable deduction for non-itemizers — up to $1,000 ($2,000 married), effective January 2026 LegiScan
 
-Section 102. Legislative Findings and Declarations.
-The Legislature finds and declares all of the following:
-(a) The ongoing housing crisis requires immediate, multi-faceted intervention.
-(b) Vulnerable renters must be protected from extreme rent increases and arbitrary evictions.
-(c) Small property owners require financial support to maintain their buildings and comply with new environmental standards.
-(d) Urban centers must be revitalized through targeted zoning changes and transit-oriented development.
-(e) The impacts of climate change necessitate urgent upgrades to existing housing stock.
-(f) Economic disparities are exacerbated by housing instability, affecting employment, education, and public health outcomes.
-(g) It is the intent of the Legislature to balance the rights of tenants with the economic realities faced by property providers.
+Child & Family:
+Child tax credit increased from $2,000 to $2,200 per child, indexed to inflation, but only for US citizens or qualifying noncitizens LegiScan
+Trump accounts created — tax-deferred savings accounts parents can open for children, expires 2028 LegiScan
+Adoption tax credit — up to $5,000 now refundable starting January 2025 LegiScan
 
-Section 103. Definitions.
-For the purposes of this Act, the following definitions apply:
-(a) "Adjusted Gross Income" means the total gross income minus specific deductions, as defined by the State Franchise Tax Board.
-(b) "At-Risk Tenant" means an individual or family whose household income is below 80% of the Area Median Income (AMI) and who spends more than 30% of their income on rent.
-(c) "Corporate Landlord" means an entity that owns more than ten residential rental units within the state.
-(d) "Covered Property" means any residential real property not explicitly exempted under Chapter 2.
-(e) "Electric Vehicle (EV) Infrastructure" means equipment used to charge electric vehicles, including Level 2 and DC fast chargers.
-(f) "Just Cause" means a legally sufficient reason to terminate a tenancy, as defined in Section 203.
-(g) "Low-Income Household" means a household whose income does not exceed 50% of the AMI.
-(h) "Primary Residence" means the dwelling where a person resides for more than 183 days in a calendar year.
-(i) "Qualified Renter" means an individual who is a party to a residential lease and meets the income requirements set forth in Chapter 3.
-(j) "Small Property Owner" means a natural person or family trust that owns no more than four residential units in total.
-(k) "Transit-Oriented Development Area" means an area within a one-half mile radius of a major transit stop.
+Other tax changes:
+1% tax on remittances sent abroad LegiScan
+EV tax credits repealed; most other clean energy credits restricted or phased out faster BEA
+Health insurance premium tax credits cut by about 20% through tighter eligibility rules BEA
 
-CHAPTER 2. RENT REGULATIONS AND TENANT PROTECTIONS
+🏥 Healthcare — Major Cuts
+Medicaid cut by approximately 12%, with the CBO estimating 10.9 million Americans will lose health insurance coverage LegiScan
+The lowest 10% of earners are projected to see incomes fall by 3.1% by 2034, primarily due to cuts to Medicaid and food aid LegiScan
 
-Section 201. Annual Rent Cap.
-(a) Commencing January 1, 2027, an owner of residential real property shall not, over the course of any 12-month period, increase the gross rental rate for a dwelling or a unit more than 5 percent plus the percentage change in the cost of living, or 8 percent, whichever is lower.
-(b) If a tenant enters into a new lease, the initial rental rate may be set at market rate, but subsequent increases are subject to the cap established in subdivision (a).
-(c) For properties owned by Corporate Landlords, the maximum allowable increase shall be 4 percent plus the percentage change in the cost of living, or 7 percent, whichever is lower.
+🍎 Food Assistance (SNAP)
+Work requirements for SNAP benefits expanded, and states are now responsible for some costs of the food assistance program LegiScan
 
-Section 202. Exemptions from Rent Cap.
-The following properties are exempt from the provisions of Section 201:
-(a) Housing accommodations in which the tenant shares bathroom or kitchen facilities with the owner who maintains their principal residence at the residential real property.
-(b) Single-family owner-occupied residences, including a residence in which the owner-occupant rents or leases no more than two units or bedrooms, including, but not limited to, an accessory dwelling unit or a junior accessory dwelling unit.
-(c) A duplex in which the owner occupied one of the units as the owner’s principal place of residence at the beginning of the tenancy.
-(d) Housing that has been issued a certificate of occupancy within the previous 15 years.
-(e) Dormitories owned and operated by an institution of higher education or a kindergarten and grades 1 to 12, inclusive, school.
+🌱 Clean Energy
+The law raises about $500 billion over a decade by reducing green energy credits by roughly half — EV credits and residential energy product credits are repealed, while others are restricted or phased out sooner BEA
 
-Section 203. Just Cause Eviction Requirements.
-(a) After a tenant has continuously and lawfully occupied a residential real property for 12 months, the owner of the residential real property shall not terminate the tenancy without just cause.
-(b) "At-fault just cause" includes, but is not limited to:
-(1) Default in the payment of rent.
-(2) A breach of a material term of the lease.
-(3) Maintaining, committing, or permitting the maintenance or commission of a nuisance.
-(4) Committing waste as described in state law.
-(5) The tenant had a written lease that terminated on or after January 1, 2027, and after a written request or demand from the owner, the tenant has refused to execute a written extension or renewal.
-(c) "No-fault just cause" includes, but is not limited to:
-(1) Intent to occupy the residential real property by the owner or their spouse, domestic partner, children, grandchildren, parents, or grandparents.
-(2) Withdrawal of the residential real property from the rental market.
-(3) The owner complying with a local ordinance, court order, or other government order that necessitates vacating the residential property.
-(4) Intent to demolish or to substantially remodel the residential real property.
+🏗️ Defense & Border
+$150 billion in new defense spending and $150 billion for border enforcement and deportations LegiScan
+ICE funding increased from $10 billion to over $100 billion by 2029, making it the single most funded federal law enforcement agency LegiScan
 
-Section 204. Relocation Assistance.
-(a) If an owner issues a notice to terminate a tenancy for no-fault just cause, the owner shall, regardless of the tenant’s income, at the owner’s option, do one of the following:
-(1) Assist the tenant to relocate by providing a direct payment to the tenant as described in subdivision (b).
-(2) Waive in writing the payment of rent for the final month of the tenancy, prior to the rent becoming due.
-(b) The amount of relocation assistance or rent waiver shall be equal to two months of the tenant’s rent that was in effect when the notice was issued.
-(c) If a tenant fails to vacate after the expiration of the notice to terminate the tenancy, the actual amount of any relocation assistance or rent waiver provided pursuant to this section shall be recoverable as damages in an action to recover possession.
-
-CHAPTER 3. ECONOMIC RELIEF AND TAX CREDITS
-
-Section 301. Renter Tax Credit Program.
-(a) For taxable years beginning on or after January 1, 2027, there shall be allowed as a credit against the "net tax" a renter's tax credit.
-(b) The maximum credit amount shall be:
-(1) $1,000 for a qualified renter filing a single return with an AGI of $50,000 or less.
-(2) $2,000 for qualified renters filing a joint return with an AGI of $100,000 or less.
-(c) Qualified renters with at least one dependent child shall receive an additional $500 credit per child, capped at two children.
-
-Section 302. Property Tax Relief for Small Owners.
-(a) A Small Property Owner may apply for a deferral of up to 50% of their annual property taxes for a Covered Property, provided they have not increased the rent on any unit in that property by more than 2% in the preceding 12 months.
-(b) Deferred property taxes under this section shall accrue interest at a rate of 1% per annum.
-(c) The deferred amount and accrued interest shall become due upon the sale or transfer of the property, or if the property ceases to be a Covered Property.
-
-Section 303. Emergency Rental Assistance Fund.
-(a) There is hereby established the Emergency Rental Assistance Fund (ERAF) in the State Treasury.
-(b) The ERAF shall be funded by an annual appropriation of $500 million from the General Fund.
-(c) Funds from the ERAF shall be distributed to local housing authorities to provide short-term rental assistance to At-Risk Tenants facing imminent eviction due to temporary financial hardship, such as medical emergencies or unexpected job loss.
-
-CHAPTER 4. ENVIRONMENTAL AND INFRASTRUCTURE UPGRADES
-
-Section 401. Mandatory Energy Disclosures.
-(a) Commencing January 1, 2028, prior to the execution of a new residential lease, the property owner shall provide the prospective tenant with a complete energy efficiency disclosure report.
-(b) The report shall include the average monthly utility costs for the unit over the previous 12 months and an energy performance rating.
-
-Section 402. Retrofitting Subsidy Program.
-(a) The State Energy Commission shall establish a grant program to assist property owners in upgrading the energy efficiency of Covered Properties.
-(b) Eligible upgrades include, but are not limited to:
-(1) Installation of high-efficiency HVAC systems.
-(2) Upgrades to insulation and weatherization.
-(3) Installation of solar photovoltaic panels.
-(4) Replacement of gas appliances with electric appliances.
-(c) Grants shall cover up to 40% of the total project cost, not to exceed $15,000 per property.
-(d) To qualify for the grant, the property owner must agree in writing not to pass any remaining costs of the upgrades to the tenants through rent increases.
-
-Section 403. Electric Vehicle (EV) Infrastructure Mandate.
-(a) By January 1, 2030, all residential properties with five or more units and designated parking areas must install at least one Level 2 EV charging station for every five parking spaces.
-(b) The State shall provide a tax credit covering 50% of the installation costs for EV infrastructure required under this section.
-(c) Property owners may charge tenants a reasonable fee for the use of the EV charging stations, provided the fee does not exceed the actual cost of electricity plus a 5% administrative markup.
-
-CHAPTER 5. ZONING AND LOCAL GOVERNMENT MANDATES
-
-Section 501. Transit-Oriented Development By-Right Approval.
-(a) Notwithstanding any local ordinance, a proposed housing development project shall be subject to a streamlined, ministerial approval process if it is located within a Transit-Oriented Development Area and meets all of the following criteria:
-(1) The project reserves at least 20% of its units for Low-Income Households.
-(2) The project complies with objective zoning and design review standards in effect at the time the application is submitted.
-(3) The project pays prevailing wages for all construction work.
-
-Section 502. Limitation on Parking Minimums.
-Local governments shall not impose minimum parking requirements on new residential developments located within a Transit-Oriented Development Area or within one-quarter mile of a high-quality transit corridor.
-
-Section 503. Reporting and Compliance.
-(a) Each local government shall submit an annual report to the Department of Housing and Community Development detailing the number of units approved under the streamlined process established in Section 501.
-(b) Local governments that fail to comply with the provisions of this Chapter shall be ineligible for state transit infrastructure grants.
-
-CHAPTER 6. ENFORCEMENT, PENALTIES, AND OVERSIGHT
-
-Section 601. Tenant Rights to Civil Action.
-(a) A tenant may bring a civil action for injunctive relief or damages against an owner who violates any provision of Chapter 2.
-(b) In an action brought under this section, the court shall award a prevailing tenant reasonable attorney’s fees and costs.
-(c) If the court finds that the owner’s violation was willful, the court shall award treble damages.
-
-Section 602. Establishment of the Housing Oversight Board.
-(a) The State Housing Oversight Board is hereby established to monitor compliance with this Act, investigate complaints of systemic violations, and issue guidance on the implementation of its provisions.
-(b) The Board shall be composed of seven members, including representatives from tenant advocacy organizations, property owner associations, and state housing agencies.
-
-Section 603. Administrative Penalties.
-(a) The Housing Oversight Board may impose administrative penalties of up to $5,000 per violation against owners who repeatedly violate the rent cap or just cause eviction provisions of this Act.
-(b) Revenue generated from administrative penalties shall be deposited into the Emergency Rental Assistance Fund established in Section 303.
-
-CHAPTER 7. MISCELLANEOUS PROVISIONS
-
-Section 701. Severability.
-If any provision of this Act or its application is held invalid, that invalidity shall not affect other provisions or applications that can be given effect without the invalid provision or application. To this end, the provisions of this Act are severable.
-
-Section 702. Appropriation.
-The sum of fifty million dollars ($50,000,000) is hereby appropriated from the General Fund to the Department of Housing and Community Development and the State Energy Commission to implement the administrative provisions of this Act for the 2026-2027 fiscal year.
-
-Section 703. Effective Date.
-This Act shall take effect immediately as an urgency statute necessary for the immediate preservation of the public peace, health, or safety within the meaning of Article IV of the Constitution and shall go into immediate effect. The facts constituting the necessity are: In order to address the immediate and escalating housing crisis and prevent a wave of evictions and unsustainable rent increases, it is necessary that this act take effect immediately.
-
-Section 704. Sunset Clause.
-The provisions of Chapter 2 of this Act shall remain in effect until January 1, 2036, and as of that date are repealed, unless a later enacted statute, that is enacted before January 1, 2036, deletes or extends that date.
-
-[END OF BILL]
+📊 Big Picture
+The CBO estimates the law will increase the budget deficit by $2.8 trillion by 2034 LegiScan
+The highest 10% of earners are projected to see incomes rise by 2.7% by 2034 due to tax cuts, while the lowest 10% see incomes fall 3.1% due to program cuts
