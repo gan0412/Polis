@@ -37,7 +37,7 @@ const F = {
 
 export default function CivicBridgeOnboarding() {
   const [form, setForm] = useState({ 
-    name: "", email: "", zip: "", 
+    name: "", email: "", 
     housing: "", income: "", employment: "", 
     dependents: "", health_insurance: "", 
     age: ""
@@ -60,14 +60,14 @@ export default function CivicBridgeOnboarding() {
 
   const set = (k, v) => setForm(f => ({ ...f, [k]: v }));
 
-  const canSubmit = form.name.trim() && form.email.includes("@") && form.zip.trim().length >= 5 && form.housing && form.income && form.employment && form.dependents && form.health_insurance && form.age;
+  const canSubmit = form.name.trim() && form.email.includes("@") && form.housing && form.income && form.employment && form.dependents && form.health_insurance && form.age;
 
   const handleSubmit = async () => { 
     if (canSubmit) {
       setIsLoading(true);
       setErrorMsg("");
       try {
-        const response = await fetch("http://localhost:3001/api/users", {
+        const response = await fetch("/api/users", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(form)
@@ -157,7 +157,7 @@ export default function CivicBridgeOnboarding() {
 
       {/* ── TOP BAR ── */}
       <div style={{ borderBottom: `1px solid ${C.border}`, padding: "18px 40px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-        <div style={{ fontFamily: F.display, fontSize: "22px", letterSpacing: "0.06em", color: C.white }}>CIVICBRIDGE</div>
+        <div style={{ fontFamily: F.display, fontSize: "22px", letterSpacing: "0.06em", color: C.white }}>POLIS</div>
         <div style={{ fontFamily: F.mono, fontSize: "10px", letterSpacing: "0.16em", color: C.mid, textTransform: "uppercase" }}>
           Civic Intelligence Platform
         </div>
@@ -219,17 +219,7 @@ export default function CivicBridgeOnboarding() {
                 style={inputBase("email")}
               />
             </div>
-            <div style={fieldWrap}>
-              <span style={monoLabel}>ZIP Code</span>
-              <input
-                value={form.zip} onChange={e => set("zip", e.target.value)}
-                onFocus={() => setFocused("zip")} onBlur={() => setFocused(null)}
-                placeholder="12345"
-                maxLength={5}
-                style={inputBase("zip")}
-              />
-              <div style={{ fontSize: "11px", color: C.mid, marginTop: "6px" }}>We use this to find bills in your area</div>
-            </div>
+
           </div>
 
           {/* Section: Background */}
@@ -326,7 +316,7 @@ export default function CivicBridgeOnboarding() {
         {/* ── FOOTER NOTE ── */}
         <div style={{ marginTop: "40px", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "12px" }}>
           <span style={{ fontFamily: F.mono, fontSize: "10px", letterSpacing: "0.14em", color: C.mid, textTransform: "uppercase" }}>
-            © 2025 CivicBridge
+            © 2025 Polis
           </span>
           <span style={{ fontFamily: F.serif, fontStyle: "italic", fontSize: "14px", color: C.mid }}>
             Built for the communities America forgets to translate for.

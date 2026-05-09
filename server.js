@@ -5,11 +5,16 @@ const db = require('./db');
 const { generatePersonalizedImpact } = require('./aiService');
 const { sendEmail } = require('./emailService');
 
+const path = require('path');
+
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 app.use(cors());
 app.use(express.json());
+
+// Serve the built React frontend
+app.use(express.static(path.join(__dirname, 'frontend/dist')));
 
 app.post('/api/users', async (req, res) => {
   const { name, email, zip, housing, income, employment, dependents, health_insurance, age, topics } = req.body;
@@ -67,6 +72,11 @@ app.get('/api/users', (req, res) => {
     console.error("Database error:", err);
     res.status(500).json({ error: 'Internal server error' });
   }
+});
+
+// Catch-all to serve React app for unknown routes
+app.use((req, res) => {
+  res.sendFile(path.join(__dirname, 'frontend/dist', 'index.html'));
 });
 
 app.listen(PORT, () => {
