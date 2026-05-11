@@ -37,7 +37,7 @@ const F = {
 
 export default function CivicBridgeOnboarding() {
   const [form, setForm] = useState({ 
-    name: "", email: "", 
+    name: "", email: "", state: "",
     housing: "", income: "", employment: "", 
     dependents: "", health_insurance: "", 
     age: ""
@@ -60,7 +60,7 @@ export default function CivicBridgeOnboarding() {
 
   const set = (k, v) => setForm(f => ({ ...f, [k]: v }));
 
-  const canSubmit = form.name.trim() && form.email.includes("@") && form.housing && form.income && form.employment && form.dependents && form.health_insurance && form.age;
+  const canSubmit = form.name.trim() && form.email.includes("@") && form.state && form.housing && form.income && form.employment && form.dependents && form.health_insurance && form.age;
 
   const handleSubmit = async () => { 
     if (canSubmit) {
@@ -219,7 +219,22 @@ export default function CivicBridgeOnboarding() {
                 style={inputBase("email")}
               />
             </div>
-
+            <div style={fieldWrap}>
+              <span style={monoLabel}>State</span>
+              <select
+                value={form.state} onChange={e => set("state", e.target.value)}
+                onFocus={() => setFocused("state")} onBlur={() => setFocused(null)}
+                style={{ ...inputBase("state"), WebkitAppearance: "none", borderRadius: 0 }}
+              >
+                <option value="" disabled style={{color: "black"}}>Select your state...</option>
+                <option value="NY" style={{color: "black"}}>New York</option>
+                <option value="CA" style={{color: "black"}}>California</option>
+                <option value="TX" style={{color: "black"}}>Texas</option>
+                <option value="FL" style={{color: "black"}}>Florida</option>
+                <option value="IL" style={{color: "black"}}>Illinois</option>
+                <option value="PA" style={{color: "black"}}>Pennsylvania</option>
+              </select>
+            </div>
           </div>
 
           {/* Section: Background */}

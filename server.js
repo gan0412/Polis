@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const fs = require('fs');
 const db = require('./db');
+const billsDb = require('./billsDb');
 const { generatePersonalizedImpact } = require('./aiService');
 const { sendEmail } = require('./emailService');
 
@@ -36,8 +37,22 @@ app.post('/api/users', async (req, res) => {
       console.log(`User ${email} already exists in DB. Proceeding with demo generation...`);
     }
 
-    // 2. Read Mock Bill
-    const billText = fs.readFileSync('./mock_bill.txt', 'utf8');
+    // 2. Get relevant bills from NoSQL Database
+    const userState = req.body.state; // e.g. "NY" or "CA" (to be added on frontend later)
+    const stateBills = userState ? billsDb.get(userState) : [];
+    const federalBills = billsDb.get('federal');
+    
+    const relevantBills = [...stateBills, ...federalBills];
+    let billText;
+    
+    if (relevantBills.length > 0) {
+      // For this demo, pick the first relevant bill to summarize
+      const firstBill = relevantBills[0];
+      billText = firstBill.text || firstBill.summary || JSON.stringify(firstBill);
+    } else {
+      // Fallback to the local mock file if the DB is completely empty
+      billText = fs.readFileSync('./mock_bill.txt', 'utf8');
+    }
 
     // 3. Generate Claude Summary
     console.log(`Generating AI summary for ${name}...`);
