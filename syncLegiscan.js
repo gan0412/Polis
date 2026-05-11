@@ -1,3 +1,4 @@
+require('dotenv').config();
 const billsDb = require('./billsDb');
 
 // In production, this should be set in your .env file
