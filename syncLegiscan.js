@@ -9,8 +9,8 @@ async function fetchBillsForState(stateAbbr) {
   // stateAbbr: "NY", "CA", or "US" (for federal)
   console.log(`Fetching bills for ${stateAbbr}...`);
   try {
-    // You can use fetch natively in modern Node.js
-    const response = await fetch(`${BASE_URL}?key=${API_KEY}&op=getSearch&state=${stateAbbr}&query=year:2025`);
+    // Query for 2026 to get the most recent bills
+    const response = await fetch(`${BASE_URL}?key=${API_KEY}&op=getSearch&state=${stateAbbr}&query=year:2026`);
     const data = await response.json();
     
     if (data.status === 'ERROR') {
