@@ -92,6 +92,9 @@ app.get('/api/users', (req, res) => {
   }
 });
 
+// Serve static files from the React frontend build
+app.use(express.static(path.join(__dirname, 'frontend/dist')));
+
 // Catch-all to serve React app for unknown routes
 app.use((req, res) => {
   res.sendFile(path.join(__dirname, 'frontend/dist', 'index.html'));
