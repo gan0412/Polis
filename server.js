@@ -42,7 +42,10 @@ app.post('/api/users', async (req, res) => {
     const stateBills = userState ? billsDb.get(userState) : [];
     const federalBills = billsDb.get('federal');
     
-    const relevantBills = [...stateBills, ...federalBills];
+    // Filter out placeholder "Reserved for the Speaker" bills
+    const relevantBills = [...stateBills, ...federalBills].filter(
+      bill => bill.title && !bill.title.includes("Reserved for the Speaker")
+    );
     let billText;
     
     if (relevantBills.length > 0) {

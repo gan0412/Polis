@@ -20,17 +20,33 @@ async function fetchBillsForState(stateAbbr) {
 
     const results = data.searchresult;
     
-    // LegiScan returns an object with numbered keys (0, 1, 2...) and a 'summary' key
+    // Load old bills to compare change_hash
+    const stateKey = stateAbbr === 'US' ? 'federal' : stateAbbr;
+    const oldBills = billsDb.get(stateKey) || [];
+    const oldBillsMap = new Map();
+    oldBills.forEach(b => oldBillsMap.set(b.bill_id, b.change_hash));
+
+    let newOrUpdatedCount = 0;
+
     const bills = Object.keys(results)
       .filter(key => key !== 'summary')
-      .map(key => results[key]);
-
-    // Map "US" to your "federal" key
-    const stateKey = stateAbbr === 'US' ? 'federal' : stateAbbr;
+      .map(key => {
+        const bill = results[key];
+        const oldHash = oldBillsMap.get(bill.bill_id);
+        
+        // Flag bill if newly introduced or hash changed
+        if (!oldHash || oldHash !== bill.change_hash) {
+          bill.is_new_or_updated = true;
+          newOrUpdatedCount++;
+        } else {
+          bill.is_new_or_updated = false;
+        }
+        return bill;
+      });
     
     // Save to your NoSQL JSON database
     billsDb.set(stateKey, bills);
-    console.log(`✅ Saved ${bills.length} bills for ${stateKey} to NoSQL DB.`);
+    console.log(`✅ Saved ${bills.length} bills for ${stateKey} to NoSQL DB. (${newOrUpdatedCount} were newly added/updated!)`);
   } catch (error) {
     console.error(`Error fetching for ${stateAbbr}:`, error.message);
   }
@@ -53,4 +69,9 @@ async function syncAll() {
   console.log("Database sync complete!");
 }
 
-syncAll();
+// If run directly from the terminal, execute it immediately
+if (require.main === module) {
+  syncAll();
+}
+
+module.exports = { syncAll };

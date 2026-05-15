@@ -227,12 +227,56 @@ export default function CivicBridgeOnboarding() {
                 style={{ ...inputBase("state"), WebkitAppearance: "none", borderRadius: 0 }}
               >
                 <option value="" disabled style={{color: "black"}}>Select your state...</option>
-                <option value="NY" style={{color: "black"}}>New York</option>
+                <option value="AL" style={{color: "black"}}>Alabama</option>
+                <option value="AK" style={{color: "black"}}>Alaska</option>
+                <option value="AZ" style={{color: "black"}}>Arizona</option>
+                <option value="AR" style={{color: "black"}}>Arkansas</option>
                 <option value="CA" style={{color: "black"}}>California</option>
-                <option value="TX" style={{color: "black"}}>Texas</option>
+                <option value="CO" style={{color: "black"}}>Colorado</option>
+                <option value="CT" style={{color: "black"}}>Connecticut</option>
+                <option value="DE" style={{color: "black"}}>Delaware</option>
                 <option value="FL" style={{color: "black"}}>Florida</option>
+                <option value="GA" style={{color: "black"}}>Georgia</option>
+                <option value="HI" style={{color: "black"}}>Hawaii</option>
+                <option value="ID" style={{color: "black"}}>Idaho</option>
                 <option value="IL" style={{color: "black"}}>Illinois</option>
+                <option value="IN" style={{color: "black"}}>Indiana</option>
+                <option value="IA" style={{color: "black"}}>Iowa</option>
+                <option value="KS" style={{color: "black"}}>Kansas</option>
+                <option value="KY" style={{color: "black"}}>Kentucky</option>
+                <option value="LA" style={{color: "black"}}>Louisiana</option>
+                <option value="ME" style={{color: "black"}}>Maine</option>
+                <option value="MD" style={{color: "black"}}>Maryland</option>
+                <option value="MA" style={{color: "black"}}>Massachusetts</option>
+                <option value="MI" style={{color: "black"}}>Michigan</option>
+                <option value="MN" style={{color: "black"}}>Minnesota</option>
+                <option value="MS" style={{color: "black"}}>Mississippi</option>
+                <option value="MO" style={{color: "black"}}>Missouri</option>
+                <option value="MT" style={{color: "black"}}>Montana</option>
+                <option value="NE" style={{color: "black"}}>Nebraska</option>
+                <option value="NV" style={{color: "black"}}>Nevada</option>
+                <option value="NH" style={{color: "black"}}>New Hampshire</option>
+                <option value="NJ" style={{color: "black"}}>New Jersey</option>
+                <option value="NM" style={{color: "black"}}>New Mexico</option>
+                <option value="NY" style={{color: "black"}}>New York</option>
+                <option value="NC" style={{color: "black"}}>North Carolina</option>
+                <option value="ND" style={{color: "black"}}>North Dakota</option>
+                <option value="OH" style={{color: "black"}}>Ohio</option>
+                <option value="OK" style={{color: "black"}}>Oklahoma</option>
+                <option value="OR" style={{color: "black"}}>Oregon</option>
                 <option value="PA" style={{color: "black"}}>Pennsylvania</option>
+                <option value="RI" style={{color: "black"}}>Rhode Island</option>
+                <option value="SC" style={{color: "black"}}>South Carolina</option>
+                <option value="SD" style={{color: "black"}}>South Dakota</option>
+                <option value="TN" style={{color: "black"}}>Tennessee</option>
+                <option value="TX" style={{color: "black"}}>Texas</option>
+                <option value="UT" style={{color: "black"}}>Utah</option>
+                <option value="VT" style={{color: "black"}}>Vermont</option>
+                <option value="VA" style={{color: "black"}}>Virginia</option>
+                <option value="WA" style={{color: "black"}}>Washington</option>
+                <option value="WV" style={{color: "black"}}>West Virginia</option>
+                <option value="WI" style={{color: "black"}}>Wisconsin</option>
+                <option value="WY" style={{color: "black"}}>Wyoming</option>
               </select>
             </div>
           </div>

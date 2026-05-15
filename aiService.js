@@ -75,9 +75,9 @@ Evaluate the bill across these potential areas: Finance/Tax, Housing, Work, Heal
 
 Rules:
 - Be highly specific to the user's demographics. Do not generalize.
-- Omit any area where the user has no direct impact.
+- Omit any area where the user has no direct impact. If there is NO direct impact on the user AT ALL, return an empty array [] for "bullets" and set "overallImpact" to "No impact."
 - Do NOT use section headers or category names.
-- Output EXACTLY the top 3-4 most significant personalized impacts as concise bullet points.
+- Output EXACTLY the top 3-4 most significant personalized impacts as concise bullet points (or empty if no impact).
 - Output ONLY a raw JSON object with no markdown wrappers, matching this schema exactly:
 {
   "billTitle": "The official title of the bill",
