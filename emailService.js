@@ -1,18 +1,9 @@
-const nodemailer = require('nodemailer');
+const { Resend } = require('resend');
+
+// In production, this must be set in your .env or Railway variables
+const resend = new Resend(process.env.RESEND_API_KEY || 're_your_api_key_here');
 
 async function sendEmail(userEmail, userName, aiResult) {
-  let transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 587,
-    secure: false,
-    requireTLS: true,
-    family: 4, // CRITICAL: Forces Railway to use IPv4 instead of IPv6
-    auth: {
-      user: process.env.GMAIL_USER,
-      pass: process.env.GMAIL_APP_PASSWORD,
-    },
-  });
-
   // Build the bullet points list
   const bulletsHtml = `<ul style="margin: 0; padding-left: 20px; font-size: 15px; color: #333; line-height: 1.6;">` +
     aiResult.bullets.map(bullet => `
@@ -52,19 +43,29 @@ async function sendEmail(userEmail, userName, aiResult) {
     </div>
   `;
 
-  const info = await transporter.sendMail({
-    from: '"Polis" <alert@polis.civic>',
-    to: userEmail,
-    subject: emailSubject,
-    text: plainText,
-    html: htmlTemplate,
-  });
+  try {
+    const { data, error } = await resend.emails.send({
+      from: 'Polis <onboarding@resend.dev>', // Resend's default test email
+      to: userEmail,
+      subject: emailSubject,
+      text: plainText,
+      html: htmlTemplate,
+    });
 
-  console.log("====================================");
-  console.log("Message successfully sent to: %s", userEmail);
-  console.log("====================================");
+    if (error) {
+      console.error("Resend Error:", error);
+      return false;
+    }
 
-  return true;
+    console.log("====================================");
+    console.log("Message successfully sent to: %s via Resend API", userEmail);
+    console.log("====================================");
+
+    return true;
+  } catch (err) {
+    console.error("Error sending email:", err);
+    return false;
+  }
 }
 
 module.exports = { sendEmail };
