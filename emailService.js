@@ -3,9 +3,10 @@ const nodemailer = require('nodemailer');
 async function sendEmail(userEmail, userName, aiResult) {
   let transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
-    port: 587, // Try port 587 (STARTTLS) which is often unblocked by cloud providers
+    port: 587,
     secure: false,
     requireTLS: true,
+    family: 4, // CRITICAL: Forces Railway to use IPv4 instead of IPv6
     auth: {
       user: process.env.GMAIL_USER,
       pass: process.env.GMAIL_APP_PASSWORD,
