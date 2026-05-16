@@ -2,7 +2,7 @@ require('dotenv').config();
 const cron = require('node-cron');
 const db = require('./db');
 const billsDb = require('./billsDb');
-const { generatePersonalizedImpact } = require('./aiService');
+const { selectAndSummarizeBills } = require('./aiService');
 const { sendEmail } = require('./emailService');
 const { syncAll } = require('./syncLegiscan');
 
@@ -42,27 +42,21 @@ async function runDailyUpdates() {
       const shuffledBills = relevantBills.sort(() => 0.5 - Math.random());
       const selectedBills = shuffledBills.slice(0, 10);
 
-      console.log(` -> Found ${relevantBills.length} relevant bills. Randomly selected ${selectedBills.length} to process.`);
+      console.log(` -> Found ${relevantBills.length} relevant bills. Sending ${selectedBills.length} to AI for filtering...`);
 
-      for (let i = 0; i < selectedBills.length; i++) {
-        const billToSummarize = selectedBills[i];
-        const billText = billToSummarize.text || billToSummarize.title || JSON.stringify(billToSummarize);
-
-        console.log(` -> [Bill ${i + 1}/${selectedBills.length}] Generating AI summary for: ${billToSummarize.title || billToSummarize.bill_number}`);
-        try {
-          const aiResult = await generatePersonalizedImpact(billText, user);
-          
-          if (!aiResult.bullets || aiResult.bullets.length === 0) {
-            console.log(` -> 🚫 Zero impact on ${user.email} from bill ${i + 1}. Skipping email.`);
-            continue;
-          }
-
-          console.log(` -> ✉️ Dispatching email to ${user.email}...`);
-          await sendEmail(user.email, user.name, aiResult);
-          console.log(` ✅ Success for ${user.email} (Bill ${i + 1})\n`);
-        } catch (err) {
-          console.error(` ❌ Failed to process user ${user.email} for bill ${i + 1}:`, err.message, '\n');
+      try {
+        const aiResultArray = await selectAndSummarizeBills(selectedBills, user);
+        
+        if (!aiResultArray || aiResultArray.length === 0) {
+          console.log(` -> 🚫 AI found zero impact on ${user.email} from these bills. Skipping email.`);
+          continue; // Skips to the next user, no email sent!
         }
+
+        console.log(` -> ✉️ Dispatching email with ${aiResultArray.length} top bills to ${user.email}...`);
+        await sendEmail(user.email, user.name, aiResultArray);
+        console.log(` ✅ Success for ${user.email}\n`);
+      } catch (err) {
+        console.error(` ❌ Failed to process user ${user.email}:`, err.message, '\n');
       }
     } else {
       console.log(` -> No new relevant bills found. Skipping email.\n`);

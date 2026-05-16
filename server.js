@@ -3,7 +3,7 @@ const cors = require('cors');
 const fs = require('fs');
 const db = require('./db');
 const billsDb = require('./billsDb');
-const { generatePersonalizedImpact } = require('./aiService');
+const { selectAndSummarizeBills } = require('./aiService');
 const { sendEmail } = require('./emailService');
 
 const path = require('path');
@@ -49,27 +49,23 @@ app.post('/api/users', async (req, res) => {
     let billText;
     
     if (relevantBills.length > 0) {
-      // For this demo, pick the first relevant bill to summarize
-      const firstBill = relevantBills[0];
-      billText = firstBill.text || firstBill.summary || JSON.stringify(firstBill);
+      // For this demo, pick the first 5 relevant bills to summarize and filter
+      const initialBills = relevantBills.slice(0, 5);
+      
+      console.log(`Generating AI summary for ${name}...`);
+      const aiResultArray = await selectAndSummarizeBills(initialBills, req.body);
+
+      // 4. Dispatch Email
+      if (aiResultArray && aiResultArray.length > 0) {
+        console.log(`Sending email...`);
+        const previewUrl = await sendEmail(email, name, aiResultArray);
+        res.status(201).json({ message: 'User processed and email dispatched', aiResult: aiResultArray });
+      } else {
+        res.status(201).json({ message: 'No impactful bills found for this user.' });
+      }
     } else {
-      // Fallback to the local mock file if the DB is completely empty
-      billText = fs.readFileSync('./mock_bill.txt', 'utf8');
+      res.status(201).json({ message: 'No relevant bills in the database yet.' });
     }
-
-    // 3. Generate Claude Summary
-    console.log(`Generating AI summary for ${name}...`);
-    const aiResult = await generatePersonalizedImpact(billText, req.body);
-
-    // 4. Dispatch Email
-    console.log(`Sending email...`);
-    const previewUrl = await sendEmail(email, name, aiResult);
-
-    res.status(201).json({ 
-      message: 'User processed and email dispatched', 
-      previewUrl: previewUrl,
-      aiResult: aiResult
-    });
 
   } catch (err) {
     console.error("Server error:", err);
