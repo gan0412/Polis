@@ -73,10 +73,12 @@ async function runDailyUpdates() {
   console.log("==========================================");
 }
 
-// Schedule the job to run every morning at 8:00 AM
-console.log("Polis Daily Worker started. Waiting for scheduled times (8:00 AM daily)...");
-cron.schedule('0 8 * * *', async () => {
+// Schedule the job to run every evening at 6:00 PM EST
+console.log("Polis Daily Worker started. Waiting for scheduled times (6:00 PM EST daily)...");
+cron.schedule('0 18 * * *', async () => {
   await runDailyUpdates();
+}, {
+  timezone: "America/New_York"
 });
 
 // FOR TESTING: Uncomment the line below to test the loop immediately when you run the file!
