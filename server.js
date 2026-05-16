@@ -96,3 +96,6 @@ app.use((req, res) => {
 app.listen(PORT, () => {
   console.log(`Polis API server running on http://localhost:${PORT}`);
 });
+
+// Initialize the daily cron worker in the background
+require('./dailyWorker');
