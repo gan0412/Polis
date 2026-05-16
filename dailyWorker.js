@@ -38,14 +38,10 @@ async function runDailyUpdates() {
     );
 
     if (relevantBills.length > 0) {
-      // Shuffle the bills and pick up to 10 random ones
-      const shuffledBills = relevantBills.sort(() => 0.5 - Math.random());
-      const selectedBills = shuffledBills.slice(0, 10);
-
-      console.log(` -> Found ${relevantBills.length} relevant bills. Sending ${selectedBills.length} to AI for filtering...`);
+      console.log(` -> Found ${relevantBills.length} newly updated/added bills. Sending ALL of them to AI for filtering...`);
 
       try {
-        const aiResultArray = await selectAndSummarizeBills(selectedBills, user);
+        const aiResultArray = await selectAndSummarizeBills(relevantBills, user);
         
         if (!aiResultArray || aiResultArray.length === 0) {
           console.log(` -> 🚫 AI found zero impact on ${user.email} from these bills. Skipping email.`);

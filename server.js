@@ -49,11 +49,8 @@ app.post('/api/users', async (req, res) => {
     let billText;
     
     if (relevantBills.length > 0) {
-      // For this demo, pick the first 5 relevant bills to summarize and filter
-      const initialBills = relevantBills.slice(0, 5);
-      
-      console.log(`Generating AI summary for ${name}...`);
-      const aiResultArray = await selectAndSummarizeBills(initialBills, req.body);
+      console.log(`Generating AI summary from ${relevantBills.length} total state/federal bills for ${name}...`);
+      const aiResultArray = await selectAndSummarizeBills(relevantBills, req.body);
 
       // 4. Dispatch Email
       if (aiResultArray && aiResultArray.length > 0) {

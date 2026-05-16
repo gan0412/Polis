@@ -8,11 +8,12 @@ const anthropic = new Anthropic({
 async function selectAndSummarizeBills(bills, userPersona) {
   const systemPrompt = `You are the AI engine for "Polis", a personalized civic newsletter.
 You will be given a list of bills and a User Persona. Your job is to:
-1. Select the 2 most relevant bills to this specific user based on their demographics.
+1. Select AT MOST 2 most relevant bills to this specific user based on their demographics.
 2. For each selected bill, write a SHORT 2-sentence summary of how it impacts them personally.
 
 Rules:
-- Only select bills that meaningfully affect this user. If fewer than 2 are relevant, return only the relevant ones.
+- You must return a maximum of 2 bills. 
+- Only select bills that meaningfully affect this user. If only 1 is relevant, return 1. If 0 are relevant, return an empty array [].
 - Be specific to their demographics. Do not generalize.
 - Do not hallucinate impacts. If impact is uncertain, say so briefly.
 - Output ONLY a raw JSON array with no markdown wrappers, using this schema:
