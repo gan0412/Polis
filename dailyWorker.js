@@ -63,9 +63,9 @@ async function runDailyUpdates() {
   console.log("==========================================");
 }
 
-// Schedule the job to run every evening at 6:15 PM EST
-console.log("Polis Daily Worker started. Waiting for scheduled times (6:15 PM EST daily)...");
-cron.schedule('15 18 * * *', async () => {
+// Schedule the job to run every evening at 6:22 PM EST
+console.log("Polis Daily Worker started. Waiting for scheduled times (6:22 PM EST daily)...");
+cron.schedule('22 18 * * *', async () => {
   await runDailyUpdates();
 }, {
   timezone: "America/New_York"
