@@ -8,7 +8,7 @@ import { useState, useEffect } from "react";
 
 const HOUSING_OPTIONS = ["🏠 I own my home", "🏢 I rent my home", "🛋️ I live with family or friends", "📦 Other / Temporary housing"];
 const INCOME_OPTIONS = ["Under $25,000", "$25,000 – $50,000", "$50,000 – $100,000", "$100,000 – $200,000", "Over $200,000"];
-const EMPLOYMENT_OPTIONS = ["💼 Full-time employee", "🧾 Self-employed or freelancer", "🚗 Gig worker (Uber, DoorDash, etc.)", "🎓 Student", "🔍 Currently unemployed", "🏖️ Retired"];
+const EMPLOYMENT_OPTIONS = ["💼 Full-time employee", "🧾 Self-employed or freelancer", "🚗 Gig worker (Uber, DoorDash, etc.)", "🎓 K-12 Student", "🎓 College Student", "🔍 Currently unemployed", "🏖️ Retired"];
 const DEPENDENTS_OPTIONS = ["No dependents", "1 child", "2 children", "3 or more children", "I care for an elderly parent or family member"];
 const INSURANCE_OPTIONS = ["🏢 Through my employer", "🛒 I buy my own (Marketplace/ACA)", "🏥 Medicaid or Medicare", "⚔️ VA / Military benefits", "❌ I'm currently uninsured"];
 
