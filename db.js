@@ -18,9 +18,19 @@ const initDB = () => {
       dependents TEXT,
       health_insurance TEXT,
       age TEXT,
-      topics TEXT
+      topics TEXT,
+      education TEXT,
+      education_field TEXT
     )
   `);
+
+  // Schema migration for existing databases
+  try {
+    db.exec("ALTER TABLE users ADD COLUMN education TEXT");
+  } catch (e) {}
+  try {
+    db.exec("ALTER TABLE users ADD COLUMN education_field TEXT");
+  } catch (e) {}
 };
 
 initDB();

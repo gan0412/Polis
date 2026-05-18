@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'frontend/dist')));
 
 app.post('/api/users', async (req, res) => {
-  const { name, email, zip, housing, income, employment, dependents, health_insurance, age, topics } = req.body;
+  const { name, email, zip, housing, income, employment, dependents, health_insurance, age, topics, education, education_field } = req.body;
 
   if (!name || !email) {
     return res.status(400).json({ error: 'Name and email are required.' });
@@ -28,10 +28,10 @@ app.post('/api/users', async (req, res) => {
     // 1. Save to Database (gracefully handling existing users for the demo)
     try {
       const stmt = db.prepare(`
-        INSERT INTO users (name, email, zip, housing, income, employment, dependents, health_insurance, age, topics)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        INSERT INTO users (name, email, zip, housing, income, employment, dependents, health_insurance, age, topics, education, education_field)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
       `);
-      stmt.run(name, email, zip, housing, income, employment, dependents, health_insurance, age, JSON.stringify(topics || []));
+      stmt.run(name, email, zip, housing, income, employment, dependents, health_insurance, age, JSON.stringify(topics || []), education, education_field);
     } catch (dbErr) {
       if (dbErr.code !== 'SQLITE_CONSTRAINT_UNIQUE') throw dbErr;
       console.log(`User ${email} already exists in DB. Proceeding with demo generation...`);

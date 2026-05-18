@@ -14,6 +14,14 @@ const INSURANCE_OPTIONS = ["🏢 Through my employer", "🛒 I buy my own (Marke
 
 const AGE_RANGES = ["Under 26", "26 – 40", "41 – 60", "61 – 64", "65 or older"];
 
+const EDUCATION_OPTIONS = [
+  "🏫 No College Degree",
+  "🎓 Associate's / Some College",
+  "🎓 Bachelor's Degree",
+  "🎓 Master's / Professional Degree",
+  "🎓 Doctorate / PhD"
+];
+
 
 
 /* ─── TOKENS ─────────────────────────────────────────────────────────── */
@@ -40,7 +48,9 @@ export default function CivicBridgeOnboarding() {
     name: "", email: "", state: "",
     housing: "", income: "", employment: "", 
     dependents: "", health_insurance: "", 
-    age: ""
+    age: "",
+    education: "",
+    education_field: ""
   });
   const [submitted, setSubmitted] = useState(false);
   const [focused, setFocused] = useState(null);
@@ -60,7 +70,19 @@ export default function CivicBridgeOnboarding() {
 
   const set = (k, v) => setForm(f => ({ ...f, [k]: v }));
 
-  const canSubmit = form.name.trim() && form.email.includes("@") && form.state && form.housing && form.income && form.employment && form.dependents && form.health_insurance && form.age;
+  const isCollegeOption = form.education && form.education !== "🏫 No College Degree";
+
+  const canSubmit = form.name.trim() && 
+                    form.email.includes("@") && 
+                    form.state && 
+                    form.housing && 
+                    form.income && 
+                    form.employment && 
+                    form.dependents && 
+                    form.health_insurance && 
+                    form.age &&
+                    form.education &&
+                    (!isCollegeOption || (form.education_field && form.education_field.trim()));
 
   const handleSubmit = async () => { 
     if (canSubmit) {
@@ -143,7 +165,7 @@ export default function CivicBridgeOnboarding() {
           Welcome,<br /><span style={{ color: C.red }}>{form.name.split(" ")[0]}.</span>
         </h1>
         <p style={{ fontFamily: F.serif, fontStyle: "italic", fontSize: "20px", color: C.mid, margin: 0 }}>
-          Your civic intelligence briefing is being prepared.
+          Your information is being processed.
         </p>
         <div style={{ marginTop: "40px", width: "40px", height: "2px", backgroundColor: C.red, margin: "40px auto 0" }} />
       </div>
@@ -159,7 +181,7 @@ export default function CivicBridgeOnboarding() {
       <div style={{ borderBottom: `1px solid ${C.border}`, padding: "18px 40px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <div style={{ fontFamily: F.display, fontSize: "22px", letterSpacing: "0.06em", color: C.white }}>POLIS</div>
         <div style={{ fontFamily: F.mono, fontSize: "10px", letterSpacing: "0.16em", color: C.mid, textTransform: "uppercase" }}>
-          Civic Intelligence Platform
+          Polis Platform
         </div>
       </div>
 
@@ -175,7 +197,7 @@ export default function CivicBridgeOnboarding() {
           EXPLAINED.
         </h1>
         <p style={{ fontFamily: F.serif, fontStyle: "italic", fontSize: "20px", color: C.mid, margin: 0, maxWidth: "480px", lineHeight: 1.55 }}>
-          Policies in your language, personalized to your community and your life.
+          Policies that matter to you
         </p>
       </div>
 
@@ -330,6 +352,36 @@ export default function CivicBridgeOnboarding() {
                 {AGE_RANGES.map(a => <button key={a} onClick={() => set("age", a)} style={{ ...topicPill(form.age === a), textAlign: "left", fontSize: "11px" }}>{a}</button>)}
               </div>
             </div>
+
+            <div>
+              <span style={monoLabel}>Education</span>
+              <div style={{ display: "flex", flexDirection: "column", gap: "6px", marginTop: "6px" }}>
+                {EDUCATION_OPTIONS.map(a => (
+                  <button key={a} onClick={() => {
+                    set("education", a);
+                    if (a === "🏫 No College Degree") {
+                      set("education_field", "");
+                    }
+                  }} style={{ ...topicPill(form.education === a), textAlign: "left", fontSize: "11px" }}>
+                    {a}
+                  </button>
+                ))}
+              </div>
+
+              {isCollegeOption && (
+                <div style={{ marginTop: "16px", animation: "fadeUp 0.3s ease both" }}>
+                  <span style={monoLabel}>Field of Study / Major</span>
+                  <input
+                    value={form.education_field} 
+                    onChange={e => set("education_field", e.target.value)}
+                    onFocus={() => setFocused("education_field")} 
+                    onBlur={() => setFocused(null)}
+                    placeholder="e.g. Computer Science, Physics, CS"
+                    style={inputBase("education_field")}
+                  />
+                </div>
+              )}
+            </div>
           </div>
 
 
@@ -375,7 +427,7 @@ export default function CivicBridgeOnboarding() {
         {/* ── FOOTER NOTE ── */}
         <div style={{ marginTop: "40px", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "12px" }}>
           <span style={{ fontFamily: F.mono, fontSize: "10px", letterSpacing: "0.14em", color: C.mid, textTransform: "uppercase" }}>
-            © 2025 Polis
+            © 2026 Polis
           </span>
           <span style={{ fontFamily: F.serif, fontStyle: "italic", fontSize: "14px", color: C.mid }}>
             Built for the communities America forgets to translate for.
