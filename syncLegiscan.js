@@ -30,8 +30,9 @@ async function fetchBillsForState(stateAbbr) {
 
     const bills = Object.keys(results)
       .filter(key => key !== 'summary')
-      .map(key => {
-        const bill = results[key];
+      .map(key => results[key])
+      .filter(bill => Number(bill.status) === 5 || Number(bill.status) === 6) // Only save actual laws (5 = Enacted, 6 = Amendment)
+      .map(bill => {
         const oldHash = oldBillsMap.get(bill.bill_id);
         
         // Flag bill if newly introduced or hash changed
