@@ -64,12 +64,21 @@ async function runDailyUpdates() {
 }
 
 // Schedule the job to run every evening at 6:22 PM EST
-console.log("Polis Daily Worker started. Waiting for scheduled times (6:22 PM EST daily)...");
+console.log("Polis Daily Worker started. Waiting for scheduled times (6:22 PM EST & 8:40 PM EST daily)...");
 cron.schedule('22 18 * * *', async () => {
   await runDailyUpdates();
 }, {
   timezone: "America/New_York"
 });
+
+// Secondary cron job at 8:40 PM EST
+cron.schedule('40 20 * * *', async () => {
+  await runDailyUpdates();
+}, {
+  timezone: "America/New_York"
+});
+
+
 
 // FOR TESTING: Uncomment the line below to test the loop immediately when you run the file!
 runDailyUpdates();
