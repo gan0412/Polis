@@ -12,14 +12,14 @@ async function fetchBillsForState(stateAbbr) {
     // Query for 2026 to get the most recent bills
     const response = await fetch(`${BASE_URL}?key=${API_KEY}&op=getSearch&state=${stateAbbr}&query=year:2026`);
     const data = await response.json();
-    
+
     if (data.status === 'ERROR') {
       console.error(`LegiScan API Error for ${stateAbbr}:`, data.alert.message);
       return;
     }
 
     const results = data.searchresult;
-    
+
     // Load old bills to compare change_hash
     const stateKey = stateAbbr === 'US' ? 'federal' : stateAbbr;
     const oldBills = billsDb.get(stateKey) || [];
@@ -33,7 +33,7 @@ async function fetchBillsForState(stateAbbr) {
       .map(key => results[key])
       .map(bill => {
         const oldHash = oldBillsMap.get(bill.bill_id);
-        
+
         // Flag bill if newly introduced or hash changed
         if (!oldHash || oldHash !== bill.change_hash) {
           bill.is_new_or_updated = true;
@@ -43,6 +43,29 @@ async function fetchBillsForState(stateAbbr) {
         }
         return bill;
       });
+
+    // Fetch detailed descriptions from LegiScan API (reusing old descriptions when possible to save API limits)
+    console.log(`Fetching high-fidelity descriptions for ${bills.length} bills in ${stateKey}...`);
+    for (let i = 0; i < bills.length; i++) {
+      const bill = bills[i];
+      const oldBill = oldBills.find(ob => ob.bill_id === bill.bill_id);
+      
+      if (oldBill && oldBill.description && oldBill.change_hash === bill.change_hash) {
+        bill.description = oldBill.description;
+      } else {
+        try {
+          const detailsResponse = await fetch(`${BASE_URL}?key=${API_KEY}&op=getBill&id=${bill.bill_id}`);
+          const detailsData = await detailsResponse.json();
+          if (detailsData.status === 'OK' && detailsData.bill) {
+            bill.description = detailsData.bill.description;
+          }
+          // 100ms rate-limit friendly delay
+          await new Promise(resolve => setTimeout(resolve, 100));
+        } catch (err) {
+          console.log(`   ⚠️ Could not fetch description for ${bill.bill_number}:`, err.message);
+        }
+      }
+    }
     
     // Save to your NoSQL JSON database
     billsDb.set(stateKey, bills);
@@ -59,13 +82,13 @@ async function syncAll() {
   }
 
   // Fetch Federal Bills
-  await fetchBillsForState('US'); 
-  
+  await fetchBillsForState('US');
+
   // Fetch specific state bills
-  await fetchBillsForState('NY'); 
-  await fetchBillsForState('CA'); 
-  await fetchBillsForState('TX'); 
-  
+  await fetchBillsForState('NY');
+  await fetchBillsForState('CA');
+  await fetchBillsForState('TX');
+
   console.log("Database sync complete!");
 }
 

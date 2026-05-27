@@ -20,7 +20,8 @@ const initDB = () => {
       age TEXT,
       topics TEXT,
       education TEXT,
-      education_field TEXT
+      education_field TEXT,
+      state TEXT
     )
   `);
 
@@ -30,6 +31,9 @@ const initDB = () => {
   } catch (e) {}
   try {
     db.exec("ALTER TABLE users ADD COLUMN education_field TEXT");
+  } catch (e) {}
+  try {
+    db.exec("ALTER TABLE users ADD COLUMN state TEXT");
   } catch (e) {}
 };
 
