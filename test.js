@@ -57,13 +57,13 @@ async function runTests() {
     console.log(`Testing ${persona.id}...`);
     try {
       const result = await generatePersonalizedImpact(billText, persona.data);
-      console.log(`Headline: ${result.impactHeadline}`);
-      console.log(`Summary:\n${result.summary}\n`);
+      console.log(`Title: ${result.billTitle}`);
+      console.log(`Subject: ${result.emailSubject}`);
+      console.log(`Paragraphs:\n${result.paragraphs.join('\n\n')}\n`);
       
-      // Simple verification of sentence count
-      const sentences = result.summary.match(/[^.!?]+[.!?]+/g) || [];
-      if (sentences.length !== 4) {
-        console.warn(`⚠️ Warning: Expected 4 sentences, but got ${sentences.length}.`);
+      // Simple verification of paragraph count
+      if (!result.paragraphs || result.paragraphs.length !== 3) {
+        console.warn(`⚠️ Warning: Expected 3 paragraphs, but got ${result.paragraphs ? result.paragraphs.length : 0}.`);
       }
     } catch (error) {
       console.error(`Failed for ${persona.id}:`, error.message);

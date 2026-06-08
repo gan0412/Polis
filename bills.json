@@ -438,21 +438,6 @@
     {
       "relevance": 100,
       "state": "US",
-      "bill_number": "HB175",
-      "bill_id": 1901771,
-      "change_hash": "51c502baa5f9c694bf9cd92c37ffa5b7",
-      "url": "https://legiscan.com/US/bill/HB175/2025",
-      "text_url": "https://legiscan.com/US/text/HB175/2025",
-      "research_url": "https://legiscan.com/US/research/HB175/2025",
-      "last_action_date": "2025-01-03",
-      "last_action": "Referred to the House Committee on the Judiciary.",
-      "title": "Deport Alien Gang Members Act",
-      "is_new_or_updated": false,
-      "description": "To amend the Immigration and Nationality Act with respect to aliens associated with criminal gangs, and for other purposes."
-    },
-    {
-      "relevance": 100,
-      "state": "US",
       "bill_number": "SR1",
       "bill_id": 1901773,
       "change_hash": "472a1e16d17c86e772b9a23885ba4e78",
@@ -678,21 +663,6 @@
     {
       "relevance": 100,
       "state": "US",
-      "bill_number": "HJR1",
-      "bill_id": 1901793,
-      "change_hash": "e7d426d05aa5ea00ebd8aa2e7ae6f651",
-      "url": "https://legiscan.com/US/bill/HJR1/2025",
-      "text_url": "https://legiscan.com/US/text/HJR1/2025",
-      "research_url": "https://legiscan.com/US/research/HJR1/2025",
-      "last_action_date": "2025-01-03",
-      "last_action": "Referred to the House Committee on the Judiciary.",
-      "title": "Proposing an amendment to the Constitution of the United States to require that the Supreme Court of the United States be composed of nine justices.",
-      "is_new_or_updated": false,
-      "description": "Proposing an amendment to the Constitution of the United States to require that the Supreme Court of the United States be composed of nine justices."
-    },
-    {
-      "relevance": 100,
-      "state": "US",
       "bill_number": "SCR1",
       "bill_id": 1901794,
       "change_hash": "861adfcf487a2fdc50666d1965077c2c",
@@ -749,6 +719,36 @@
       "title": "CLEAN Elections Act Citizen Legislature Anti-Corruption Reform of Elections Act",
       "is_new_or_updated": false,
       "description": "To require the use of independent nonpartisan commissions to carry out congressional redistricting."
+    },
+    {
+      "relevance": 100,
+      "state": "US",
+      "bill_number": "HB118",
+      "bill_id": 1901800,
+      "change_hash": "160ed0c9c1c8c947e49020ede9b28649",
+      "url": "https://legiscan.com/US/bill/HB118/2025",
+      "text_url": "https://legiscan.com/US/text/HB118/2025",
+      "research_url": "https://legiscan.com/US/research/HB118/2025",
+      "last_action_date": "2025-01-03",
+      "last_action": "Referred to the Committee on the Judiciary, and in addition to the Committee on Energy and Commerce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+      "title": "No Federal Funds for Political Prosecutions Act",
+      "is_new_or_updated": false,
+      "description": "To prohibit the use of forfeited funds made available to certain State or local law enforcement agencies pursuant to equitable sharing for certain purposes."
+    },
+    {
+      "relevance": 100,
+      "state": "US",
+      "bill_number": "HB88",
+      "bill_id": 1901801,
+      "change_hash": "d8b6e70aad657178c73395c658191096",
+      "url": "https://legiscan.com/US/bill/HB88/2025",
+      "text_url": "https://legiscan.com/US/text/HB88/2025",
+      "research_url": "https://legiscan.com/US/research/HB88/2025",
+      "last_action_date": "2025-01-03",
+      "last_action": "Referred to the House Committee on Energy and Commerce.",
+      "title": "Medical Innovation Acceleration Act of 2025",
+      "is_new_or_updated": false,
+      "description": "To amend the Federal Food, Drug, and Cosmetic Act to exempt from regulation as devices non-invasive diagnostic devices, and for other purposes."
     }
   ],
   "NY": [
