@@ -34,7 +34,7 @@ async function runDailyUpdates() {
     
     // Filter for bills that are real (not placeholder) - bypassed is_new_or_updated for manual testing!
     const relevantBills = [...stateBills, ...federalBills].filter(
-      bill => bill.title && !bill.title.includes("Reserved for the Speaker")
+      bill => bill.title && !bill.title.includes("Reserved for the Speaker") && !bill.title.includes("The Big Beautiful Bill Act")
     );
 
 
@@ -50,8 +50,10 @@ async function runDailyUpdates() {
           continue; // Skips to the next user, no email sent!
         }
 
-        console.log(` -> ✉️ Dispatching email with ${aiResultArray.length} top bills to ${user.email}...`);
-        await sendEmail(user.email, user.name, aiResultArray);
+        console.log(` -> ✉️ Dispatching ${aiResultArray.length} separate emails to ${user.email}...`);
+        for (const bill of aiResultArray) {
+          await sendEmail(user.email, user.name, bill);
+        }
         console.log(` ✅ Success for ${user.email}\n`);
       } catch (err) {
         console.error(` ❌ Failed to process user ${user.email}:`, err.message, '\n');

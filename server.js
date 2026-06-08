@@ -44,7 +44,7 @@ app.post('/api/users', async (req, res) => {
     
     // Filter out placeholder "Reserved for the Speaker" bills
     const relevantBills = [...stateBills, ...federalBills].filter(
-      bill => bill.title && !bill.title.includes("Reserved for the Speaker")
+      bill => bill.title && !bill.title.includes("Reserved for the Speaker") && !bill.title.includes("The Big Beautiful Bill Act")
     );
     let billText;
     
@@ -54,9 +54,11 @@ app.post('/api/users', async (req, res) => {
 
       // 4. Dispatch Email
       if (aiResultArray && aiResultArray.length > 0) {
-        console.log(`Sending email...`);
-        const previewUrl = await sendEmail(email, name, aiResultArray);
-        res.status(201).json({ message: 'User processed and email dispatched', aiResult: aiResultArray });
+        console.log(`Sending ${aiResultArray.length} separate emails...`);
+        for (const bill of aiResultArray) {
+          await sendEmail(email, name, bill);
+        }
+        res.status(201).json({ message: 'User processed and emails dispatched', aiResult: aiResultArray });
       } else {
         res.status(201).json({ message: 'No impactful bills found for this user.' });
       }
