@@ -94,11 +94,26 @@ app.get('/article/:billId', async (req, res) => {
   }
 
   try {
-    // 1. Fetch user from SQLite
+    // 1. Fetch user from SQLite (with fallback for public/unregistered link viewing)
     const userStmt = db.prepare('SELECT * FROM users WHERE email = ?');
-    const user = userStmt.get(email);
+    let user = userStmt.get(email);
     if (!user) {
-      return res.status(404).send("<h1>User Not Found</h1><p>Could not locate a user with that email.</p>");
+      console.log(`User ${email} not found in DB. Falling back to default profile for public viewing.`);
+      user = {
+        name: 'Guest Reader',
+        email: email,
+        zip: '75001',
+        housing: '🏠 I rent my home',
+        income: '$50,000 – $100,000',
+        employment: 'Employed',
+        dependents: 'No dependents',
+        health_insurance: '🏢 Through my employer',
+        age: '26 – 34',
+        topics: JSON.stringify([]),
+        education: "Bachelor's Degree",
+        education_field: 'General',
+        state: 'TX'
+      };
     }
     user.topics = user.topics ? JSON.parse(user.topics) : [];
 
