@@ -85,5 +85,7 @@ cron.schedule('40 20 * * *', async () => {
 
 
 
-// FOR TESTING: Uncomment the line below to test the loop immediately when you run the file!
-runDailyUpdates();
+// FOR TESTING: Run the loop immediately only when you run the file directly!
+if (require.main === module) {
+  runDailyUpdates();
+}
