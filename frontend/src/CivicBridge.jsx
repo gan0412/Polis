@@ -26,28 +26,28 @@ const EDUCATION_OPTIONS = [
 
 /* ─── TOKENS ─────────────────────────────────────────────────────────── */
 const C = {
-  black:   "#080808",
-  white:   "#f8f4ee",
-  red:     "#d63426",
-  redDim:  "#8a2218",
-  gold:    "#c9a84c",
-  mid:     "#6b6459",
-  card:    "#111111",
-  border:  "rgba(248,244,238,0.1)",
+  black: "#080808",
+  white: "#f8f4ee",
+  red: "#d63426",
+  redDim: "#8a2218",
+  gold: "#c9a84c",
+  mid: "#6b6459",
+  card: "#111111",
+  border: "rgba(248,244,238,0.1)",
 };
 
 const F = {
-  display:  "'Bebas Neue', Impact, 'Arial Narrow', sans-serif",
-  serif:    "'Instrument Serif', Georgia, serif",
-  ui:       "'DM Sans', system-ui, sans-serif",
-  mono:     "'DM Mono', 'Courier New', monospace",
+  display: "'Bebas Neue', Impact, 'Arial Narrow', sans-serif",
+  serif: "'Instrument Serif', Georgia, serif",
+  ui: "'DM Sans', system-ui, sans-serif",
+  mono: "'DM Mono', 'Courier New', monospace",
 };
 
 export default function CivicBridgeOnboarding() {
-  const [form, setForm] = useState({ 
+  const [form, setForm] = useState({
     name: "", email: "", state: "",
-    housing: "", income: "", employment: "", 
-    dependents: "", health_insurance: "", 
+    housing: "", income: "", employment: "",
+    dependents: "", health_insurance: "",
     age: "",
     education: "",
     education_field: ""
@@ -72,19 +72,19 @@ export default function CivicBridgeOnboarding() {
 
   const isCollegeOption = form.education && form.education !== "🏫 No College Degree";
 
-  const canSubmit = form.name.trim() && 
-                    form.email.includes("@") && 
-                    form.state && 
-                    form.housing && 
-                    form.income && 
-                    form.employment && 
-                    form.dependents && 
-                    form.health_insurance && 
-                    form.age &&
-                    form.education &&
-                    (!isCollegeOption || (form.education_field && form.education_field.trim()));
+  const canSubmit = form.name.trim() &&
+    form.email.includes("@") &&
+    form.state &&
+    form.housing &&
+    form.income &&
+    form.employment &&
+    form.dependents &&
+    form.health_insurance &&
+    form.age &&
+    form.education &&
+    (!isCollegeOption || (form.education_field && form.education_field.trim()));
 
-  const handleSubmit = async () => { 
+  const handleSubmit = async () => {
     if (canSubmit) {
       setIsLoading(true);
       setErrorMsg("");
@@ -94,7 +94,7 @@ export default function CivicBridgeOnboarding() {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(form)
         });
-        
+
         if (response.ok) {
           setSubmitted(true);
         } else if (response.status === 409) {
@@ -108,7 +108,7 @@ export default function CivicBridgeOnboarding() {
       } finally {
         setIsLoading(false);
       }
-    } 
+    }
   };
 
   /* ── SHARED STYLES ── */
@@ -192,17 +192,14 @@ export default function CivicBridgeOnboarding() {
           Community Access Portal
         </div>
         <h1 style={{ fontFamily: F.display, fontSize: "clamp(56px, 10vw, 110px)", lineHeight: 0.92, margin: "0 0 24px", letterSpacing: "0.02em", color: C.white }}>
-          LAWS THAT<br />
+          HOW POLICIES<br />
           <span style={{ color: C.red }}>AFFECT YOU</span><br />
           EXPLAINED.
         </h1>
-        <p style={{ fontFamily: F.serif, fontStyle: "italic", fontSize: "20px", color: C.mid, margin: 0, maxWidth: "480px", lineHeight: 1.55 }}>
-          Policies that matter to you
-        </p>
       </div>
 
       {/* ── DIVIDER LINE ── */}
-      <div style={{ height: "1px", backgroundColor: C.border, margin: "0 40px" }} />
+      <div style={{ height: "1px", backgroundColor: C.border, margin: "0 20px" }} />
 
       {/* ── FORM ── */}
       <div style={{ maxWidth: "900px", margin: "0 auto", padding: "64px 40px 100px" }}>
@@ -248,57 +245,57 @@ export default function CivicBridgeOnboarding() {
                 onFocus={() => setFocused("state")} onBlur={() => setFocused(null)}
                 style={{ ...inputBase("state"), WebkitAppearance: "none", borderRadius: 0 }}
               >
-                <option value="" disabled style={{color: "black"}}>Select your state...</option>
-                <option value="AL" style={{color: "black"}}>Alabama</option>
-                <option value="AK" style={{color: "black"}}>Alaska</option>
-                <option value="AZ" style={{color: "black"}}>Arizona</option>
-                <option value="AR" style={{color: "black"}}>Arkansas</option>
-                <option value="CA" style={{color: "black"}}>California</option>
-                <option value="CO" style={{color: "black"}}>Colorado</option>
-                <option value="CT" style={{color: "black"}}>Connecticut</option>
-                <option value="DE" style={{color: "black"}}>Delaware</option>
-                <option value="FL" style={{color: "black"}}>Florida</option>
-                <option value="GA" style={{color: "black"}}>Georgia</option>
-                <option value="HI" style={{color: "black"}}>Hawaii</option>
-                <option value="ID" style={{color: "black"}}>Idaho</option>
-                <option value="IL" style={{color: "black"}}>Illinois</option>
-                <option value="IN" style={{color: "black"}}>Indiana</option>
-                <option value="IA" style={{color: "black"}}>Iowa</option>
-                <option value="KS" style={{color: "black"}}>Kansas</option>
-                <option value="KY" style={{color: "black"}}>Kentucky</option>
-                <option value="LA" style={{color: "black"}}>Louisiana</option>
-                <option value="ME" style={{color: "black"}}>Maine</option>
-                <option value="MD" style={{color: "black"}}>Maryland</option>
-                <option value="MA" style={{color: "black"}}>Massachusetts</option>
-                <option value="MI" style={{color: "black"}}>Michigan</option>
-                <option value="MN" style={{color: "black"}}>Minnesota</option>
-                <option value="MS" style={{color: "black"}}>Mississippi</option>
-                <option value="MO" style={{color: "black"}}>Missouri</option>
-                <option value="MT" style={{color: "black"}}>Montana</option>
-                <option value="NE" style={{color: "black"}}>Nebraska</option>
-                <option value="NV" style={{color: "black"}}>Nevada</option>
-                <option value="NH" style={{color: "black"}}>New Hampshire</option>
-                <option value="NJ" style={{color: "black"}}>New Jersey</option>
-                <option value="NM" style={{color: "black"}}>New Mexico</option>
-                <option value="NY" style={{color: "black"}}>New York</option>
-                <option value="NC" style={{color: "black"}}>North Carolina</option>
-                <option value="ND" style={{color: "black"}}>North Dakota</option>
-                <option value="OH" style={{color: "black"}}>Ohio</option>
-                <option value="OK" style={{color: "black"}}>Oklahoma</option>
-                <option value="OR" style={{color: "black"}}>Oregon</option>
-                <option value="PA" style={{color: "black"}}>Pennsylvania</option>
-                <option value="RI" style={{color: "black"}}>Rhode Island</option>
-                <option value="SC" style={{color: "black"}}>South Carolina</option>
-                <option value="SD" style={{color: "black"}}>South Dakota</option>
-                <option value="TN" style={{color: "black"}}>Tennessee</option>
-                <option value="TX" style={{color: "black"}}>Texas</option>
-                <option value="UT" style={{color: "black"}}>Utah</option>
-                <option value="VT" style={{color: "black"}}>Vermont</option>
-                <option value="VA" style={{color: "black"}}>Virginia</option>
-                <option value="WA" style={{color: "black"}}>Washington</option>
-                <option value="WV" style={{color: "black"}}>West Virginia</option>
-                <option value="WI" style={{color: "black"}}>Wisconsin</option>
-                <option value="WY" style={{color: "black"}}>Wyoming</option>
+                <option value="" disabled style={{ color: "black" }}>Select your state...</option>
+                <option value="AL" style={{ color: "black" }}>Alabama</option>
+                <option value="AK" style={{ color: "black" }}>Alaska</option>
+                <option value="AZ" style={{ color: "black" }}>Arizona</option>
+                <option value="AR" style={{ color: "black" }}>Arkansas</option>
+                <option value="CA" style={{ color: "black" }}>California</option>
+                <option value="CO" style={{ color: "black" }}>Colorado</option>
+                <option value="CT" style={{ color: "black" }}>Connecticut</option>
+                <option value="DE" style={{ color: "black" }}>Delaware</option>
+                <option value="FL" style={{ color: "black" }}>Florida</option>
+                <option value="GA" style={{ color: "black" }}>Georgia</option>
+                <option value="HI" style={{ color: "black" }}>Hawaii</option>
+                <option value="ID" style={{ color: "black" }}>Idaho</option>
+                <option value="IL" style={{ color: "black" }}>Illinois</option>
+                <option value="IN" style={{ color: "black" }}>Indiana</option>
+                <option value="IA" style={{ color: "black" }}>Iowa</option>
+                <option value="KS" style={{ color: "black" }}>Kansas</option>
+                <option value="KY" style={{ color: "black" }}>Kentucky</option>
+                <option value="LA" style={{ color: "black" }}>Louisiana</option>
+                <option value="ME" style={{ color: "black" }}>Maine</option>
+                <option value="MD" style={{ color: "black" }}>Maryland</option>
+                <option value="MA" style={{ color: "black" }}>Massachusetts</option>
+                <option value="MI" style={{ color: "black" }}>Michigan</option>
+                <option value="MN" style={{ color: "black" }}>Minnesota</option>
+                <option value="MS" style={{ color: "black" }}>Mississippi</option>
+                <option value="MO" style={{ color: "black" }}>Missouri</option>
+                <option value="MT" style={{ color: "black" }}>Montana</option>
+                <option value="NE" style={{ color: "black" }}>Nebraska</option>
+                <option value="NV" style={{ color: "black" }}>Nevada</option>
+                <option value="NH" style={{ color: "black" }}>New Hampshire</option>
+                <option value="NJ" style={{ color: "black" }}>New Jersey</option>
+                <option value="NM" style={{ color: "black" }}>New Mexico</option>
+                <option value="NY" style={{ color: "black" }}>New York</option>
+                <option value="NC" style={{ color: "black" }}>North Carolina</option>
+                <option value="ND" style={{ color: "black" }}>North Dakota</option>
+                <option value="OH" style={{ color: "black" }}>Ohio</option>
+                <option value="OK" style={{ color: "black" }}>Oklahoma</option>
+                <option value="OR" style={{ color: "black" }}>Oregon</option>
+                <option value="PA" style={{ color: "black" }}>Pennsylvania</option>
+                <option value="RI" style={{ color: "black" }}>Rhode Island</option>
+                <option value="SC" style={{ color: "black" }}>South Carolina</option>
+                <option value="SD" style={{ color: "black" }}>South Dakota</option>
+                <option value="TN" style={{ color: "black" }}>Tennessee</option>
+                <option value="TX" style={{ color: "black" }}>Texas</option>
+                <option value="UT" style={{ color: "black" }}>Utah</option>
+                <option value="VT" style={{ color: "black" }}>Vermont</option>
+                <option value="VA" style={{ color: "black" }}>Virginia</option>
+                <option value="WA" style={{ color: "black" }}>Washington</option>
+                <option value="WV" style={{ color: "black" }}>West Virginia</option>
+                <option value="WI" style={{ color: "black" }}>Wisconsin</option>
+                <option value="WY" style={{ color: "black" }}>Wyoming</option>
               </select>
             </div>
           </div>
@@ -372,9 +369,9 @@ export default function CivicBridgeOnboarding() {
                 <div style={{ marginTop: "16px", animation: "fadeUp 0.3s ease both" }}>
                   <span style={monoLabel}>Field of Study / Major</span>
                   <input
-                    value={form.education_field} 
+                    value={form.education_field}
                     onChange={e => set("education_field", e.target.value)}
-                    onFocus={() => setFocused("education_field")} 
+                    onFocus={() => setFocused("education_field")}
                     onBlur={() => setFocused(null)}
                     placeholder="e.g. Computer Science, Physics, CS"
                     style={inputBase("education_field")}
