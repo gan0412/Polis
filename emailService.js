@@ -23,7 +23,7 @@ async function sendEmail(userEmail, userName, bill) {
 
   const billHtml = `
     <div style="margin-bottom: 24px; padding: 20px; border: 1px solid #eaeaea; border-radius: 8px; background-color: #ffffff;">
-      <h3 style="margin: 0 0 16px; font-size: 18px; color: #333; line-height: 1.4;">${bill.impactHeadline}</h3>
+      <h3 style="margin: 0 0 16px; font-size: 18px; color: #333; line-height: 1.4;">${bill.billTitle}</h3>
       <div style="width: 100%; height: 1px; background-color: #eaeaea; margin-bottom: 16px;"></div>
       <p style="margin: 0; font-size: 15px; color: #555; line-height: 1.6;">
         ${bill.summary}
