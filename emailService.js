@@ -39,7 +39,6 @@ async function sendEmail(userEmail, userName, bill) {
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #eaeaea; border-radius: 8px; overflow: hidden; background-color: #fafafa;">
       <div style="background-color: #d63426; color: #f8f4ee; padding: 20px; text-align: center;">
         <h1 style="margin: 0; font-size: 24px; letter-spacing: 1px;">POLIS ALERT</h1>
-        <p style="margin: 5px 0 0; font-size: 12px; text-transform: uppercase; letter-spacing: 2px;">Civic Intelligence Briefing</p>
       </div>
       <div style="padding: 30px 20px;">
         <h2 style="margin-top: 0; font-size: 20px;">Hi ${userName},</h2>
