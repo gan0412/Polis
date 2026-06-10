@@ -72,25 +72,36 @@ ${JSON.stringify(userPersona, null, 2)}
 
 async function generatePersonalizedImpact(billText, userPersona) {
   const systemPrompt = `You are the AI engine for "Polis", a personalized civic newsletter.
-You will be given the text/description of a legislative bill and a User Persona. Your job is to generate a brief, highly personalized in-depth article (exactly 3 cohesive paragraphs) explaining exactly how the bill affects this specific user.
+You will be given the text/description of a legislative bill and a User Persona. Your job is to generate a highly personalized in-depth article explaining exactly how the bill affects this specific user.
 
 Evaluate the bill across these potential areas: Finance/Tax, Housing, Work, Health, Education, Environment, Rights, Family.
 
 Rules:
 - Be highly specific to the user's demographics. Do not generalize.
 - If only a brief description or title of the bill is provided, use your extensive general legislative knowledge to deduce its personal impact for this user.
-- Structure the article as EXACTLY 3 extremely brief, highly engaging paragraphs:
-  * Paragraph 1 (Legislative Context): Describe the background, intent, and core details of what the bill does.
-  * Paragraph 2 (Direct Personal Impact): Explain the direct personal/financial effects on this user (demographics/income/job/major).
-  * Paragraph 3 (Personal Consequences): Cover the broader real-world consequences and outcomes for this user (Do NOT include checklist items, preparation tips, or 'how to prepare' advice).
+- Do not prefix any of the bullet points with labels (such as "Impact 1:", "Right 1:", "Recommendation 1:", "Personal impact point 1", etc.). Just output the direct content.
+- Structure the response into these exact sections:
+  * Summary: A brief overall summary of the bill (exactly 3-5 sentences).
+  * Impacts: How it affects this specific user (exactly 3 bullet points).
+  * Rights & Obligations: The user's specific rights and obligations under this bill (exactly 2-3 bullet points).
+  * Recommendations: Actionable recommendations/steps for this user to prepare for these changes (exactly 2-3 bullet points).
 - Output ONLY a raw JSON object with no markdown wrappers, matching this schema exactly:
 {
   "billTitle": "The official title of the bill",
   "emailSubject": "Short Bill Title: Two Big Impacts",
-  "paragraphs": [
-    "Paragraph 1 text (Context)...",
-    "Paragraph 2 text (Direct Impact)...",
-    "Paragraph 3 text (Consequences)..."
+  "summary": "A brief overall summary of the bill (3-5 sentences).",
+  "impacts": [
+    "Your tax rates will decrease by 2% next year based on your income bracket.",
+    "Your health insurance premiums are expected to rise by approximately $50 per month.",
+    "You will become eligible for a $1,500 state grant for electric vehicle purchases."
+  ],
+  "rightsObligations": [
+    "You have the right to request a hearing if your landlord raises your rent above the cap.",
+    "You are obligated to submit proof of residency to retain your utility discounts."
+  ],
+  "recommendations": [
+    "Review your monthly household budget to account for the premium increases.",
+    "Prepare your residency documentation before the October deadline."
   ]
 }`;
 
@@ -107,7 +118,7 @@ ${JSON.stringify(userPersona, null, 2)}
   try {
     const response = await anthropic.messages.create({
       model: 'claude-haiku-4-5-20251001',
-      max_tokens: 800,
+      max_tokens: 1000,
       system: systemPrompt,
       messages: [{ role: 'user', content: userMessage }],
       temperature: 0.2
@@ -125,10 +136,19 @@ ${JSON.stringify(userPersona, null, 2)}
     console.error("Anthropic Error (Using Fallback):", error);
     return {
       billTitle: "The Tenant Protection Act of 2025",
-      paragraphs: [
-        "The Tenant Protection Act of 2025 was introduced to address rising housing costs and arbitrary evictions by establishing statewide guardrails on residential lease increases and landlord policies.",
-        "As an individual residing in California who owns their home, this legislation has no direct impact on your immediate housing costs or lease agreements, as the protections apply exclusively to residential renters.",
-        "However, as a property owner, it is valuable to be aware of the broader stabilizing effects this may have on the local CA real estate market and surrounding neighborhood demographics."
+      summary: "The Tenant Protection Act of 2025 was introduced to address rising housing costs and arbitrary evictions by establishing statewide guardrails on residential lease increases and landlord policies. The bill limits annual rent hikes and requires landlords to demonstrate just cause before terminating leases.",
+      impacts: [
+        "As a homeowner in Texas, you are not directly impacted by rental caps or eviction limits.",
+        "Your immediate monthly housing expenditures will remain unchanged as these rules govern landlord-tenant relations.",
+        "Your property values may be stabilized by broader local real estate trends resulting from this legislation."
+      ],
+      rightsObligations: [
+        "You retain full authority to manage your owned home without rent cap restrictions.",
+        "You are obligated to comply with existing local residential property codes which remain unchanged."
+      ],
+      recommendations: [
+        "Monitor local TX real estate trends for changes in surrounding housing availability.",
+        "Consult a property professional if you decide to lease out any portion of your property in the future."
       ]
     };
   }
