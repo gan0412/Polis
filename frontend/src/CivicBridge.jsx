@@ -72,42 +72,55 @@ export default function CivicBridgeOnboarding() {
 
   const isCollegeOption = form.education && form.education !== "🏫 No College Degree";
 
-  const canSubmit = form.name.trim() &&
-    form.email.includes("@") &&
-    form.state &&
-    form.housing &&
-    form.income &&
-    form.employment &&
-    form.dependents &&
-    form.health_insurance &&
-    form.age &&
-    form.education &&
-    (!isCollegeOption || (form.education_field && form.education_field.trim()));
+  const validateForm = () => {
+    if (!form.name || !form.name.trim()) return "Please enter your full name.";
+    
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!form.email || !form.email.trim()) return "Please enter your email address.";
+    if (!emailRegex.test(form.email.trim())) return "Please enter a valid email address.";
+    
+    if (!form.state) return "Please select your state.";
+    if (!form.housing) return "Please select your housing status.";
+    if (!form.income) return "Please select your income level.";
+    if (!form.employment) return "Please select your employment status.";
+    if (!form.dependents) return "Please select your dependents status.";
+    if (!form.health_insurance) return "Please select your health insurance type.";
+    if (!form.age) return "Please select your age range.";
+    if (!form.education) return "Please select your education level.";
+    if (isCollegeOption && (!form.education_field || !form.education_field.trim())) {
+      return "Please enter your field of study/major.";
+    }
+    return null;
+  };
 
   const handleSubmit = async () => {
-    if (canSubmit) {
-      setIsLoading(true);
-      setErrorMsg("");
-      try {
-        const response = await fetch("/api/users", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(form)
-        });
+    const validationError = validateForm();
+    if (validationError) {
+      setErrorMsg(validationError);
+      return;
+    }
 
-        if (response.ok) {
-          setSubmitted(true);
-        } else if (response.status === 409) {
-          setErrorMsg("This email is already registered. Please use a different one.");
-        } else {
-          setErrorMsg("Server returned an error");
-        }
-      } catch (error) {
-        setErrorMsg("Failed to connect to server.");
-        console.error("Failed to submit:", error);
-      } finally {
-        setIsLoading(false);
+    setIsLoading(true);
+    setErrorMsg("");
+    try {
+      const response = await fetch("/api/users", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form)
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+      } else if (response.status === 409) {
+        setErrorMsg("This email is already registered. Please use a different one.");
+      } else {
+        setErrorMsg("Server returned an error. Please try again.");
       }
+    } catch (error) {
+      setErrorMsg("Failed to connect to server.");
+      console.error("Failed to submit:", error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -390,25 +403,25 @@ export default function CivicBridgeOnboarding() {
             </p>
             <button
               onClick={handleSubmit}
-              disabled={!canSubmit || isLoading}
+              disabled={isLoading}
               style={{
-                backgroundColor: canSubmit ? C.red : "transparent",
-                border: `1px solid ${canSubmit ? C.red : C.border}`,
-                color: canSubmit ? C.white : C.mid,
+                backgroundColor: C.red,
+                border: `1px solid ${C.red}`,
+                color: C.white,
                 fontFamily: F.mono,
                 fontSize: "11px",
                 fontWeight: 500,
                 letterSpacing: "0.18em",
                 textTransform: "uppercase",
                 padding: "16px 40px",
-                cursor: canSubmit && !isLoading ? "pointer" : "not-allowed",
+                cursor: isLoading ? "not-allowed" : "pointer",
                 borderRadius: "2px",
                 transition: "all 0.2s",
                 whiteSpace: "nowrap",
                 opacity: isLoading ? 0.7 : 1,
               }}
-              onMouseEnter={e => { if (canSubmit && !isLoading) e.currentTarget.style.backgroundColor = C.redDim; }}
-              onMouseLeave={e => { if (canSubmit && !isLoading) e.currentTarget.style.backgroundColor = C.red; }}
+              onMouseEnter={e => { if (!isLoading) e.currentTarget.style.backgroundColor = C.redDim; }}
+              onMouseLeave={e => { if (!isLoading) e.currentTarget.style.backgroundColor = C.red; }}
             >
               {isLoading ? "Processing..." : "Submit & Continue →"}
             </button>
