@@ -13,7 +13,7 @@ async function sendEmail(userEmail, userName, bill) {
   const appUrl = process.env.APP_URL || 'http://localhost:3001';
 
   // Build the HTML for the single bill
-  const articleLink = bill.billId 
+  const articleLink = bill.billId
     ? `<div style="margin-top: 16px; text-align: right;">
          <a href="${appUrl}/article/${bill.billId}?email=${encodeURIComponent(userEmail)}" style="display: inline-block; font-size: 14px; color: #d63426; font-weight: bold; text-decoration: none; border-bottom: 2px solid #d63426; padding-bottom: 2px;">
            Click here to view full article &rarr;
@@ -38,7 +38,7 @@ async function sendEmail(userEmail, userName, bill) {
   const htmlTemplate = `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #eaeaea; border-radius: 8px; overflow: hidden; background-color: #fafafa;">
       <div style="background-color: #d63426; color: #f8f4ee; padding: 20px; text-align: center;">
-        <h1 style="margin: 0; font-size: 24px; letter-spacing: 1px;">POLIS UPDATE</h1>
+        <h1 style="margin: 0; font-size: 24px; letter-spacing: 1px;">POLIS ALERT</h1>
         <p style="margin: 5px 0 0; font-size: 12px; text-transform: uppercase; letter-spacing: 2px;">Civic Intelligence Briefing</p>
       </div>
       <div style="padding: 30px 20px;">
