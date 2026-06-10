@@ -53,6 +53,7 @@ async function runDailyUpdates() {
         console.log(` -> ✉️ Dispatching ${aiResultArray.length} separate emails to ${user.email}...`);
         for (const bill of aiResultArray) {
           await sendEmail(user.email, user.name, bill);
+          await new Promise(resolve => setTimeout(resolve, 1000));
         }
         console.log(` ✅ Success for ${user.email}\n`);
       } catch (err) {

@@ -23,10 +23,7 @@ async function sendEmail(userEmail, userName, bill) {
 
   const billHtml = `
     <div style="margin-bottom: 24px; padding: 20px; border: 1px solid #eaeaea; border-radius: 8px; background-color: #ffffff;">
-      <h3 style="margin: 0 0 8px; font-size: 18px; color: #333;">${bill.billTitle}</h3>
-      <p style="font-size: 14px; color: #d63426; margin: 0 0 16px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">
-        ${bill.impactHeadline}
-      </p>
+      <h3 style="margin: 0 0 16px; font-size: 18px; color: #333; line-height: 1.4;">${bill.impactHeadline}</h3>
       <div style="width: 100%; height: 1px; background-color: #eaeaea; margin-bottom: 16px;"></div>
       <p style="margin: 0; font-size: 15px; color: #555; line-height: 1.6;">
         ${bill.summary}
@@ -36,7 +33,7 @@ async function sendEmail(userEmail, userName, bill) {
   `;
 
   // Plain text fallback
-  const plainText = `${bill.billTitle}\n${bill.impactHeadline}\n${bill.summary}\n`;
+  const plainText = `${bill.impactHeadline}\n\n${bill.summary}\n`;
 
   const htmlTemplate = `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #eaeaea; border-radius: 8px; overflow: hidden; background-color: #fafafa;">

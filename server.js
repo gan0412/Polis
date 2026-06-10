@@ -57,6 +57,7 @@ app.post('/api/users', async (req, res) => {
         console.log(`Sending ${aiResultArray.length} separate emails...`);
         for (const bill of aiResultArray) {
           await sendEmail(email, name, bill);
+          await new Promise(resolve => setTimeout(resolve, 1000));
         }
         res.status(201).json({ message: 'User processed and emails dispatched', aiResult: aiResultArray });
       } else {

@@ -21,7 +21,7 @@ Rules:
   {
     "billId": 12345, // The exact numerical ID of the bill from its id attribute
     "billTitle": "Short bill title",
-    "impactHeadline": "5-8 word personal impact headline",
+    "impactHeadline": "Exactly 6-7 word personal impact headline",
     "summary": "Exactly 2 sentences. Sentence 1: direct personal impact. Sentence 2: key action or nuance."
   }
 ]`;
