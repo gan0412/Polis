@@ -59,11 +59,14 @@ async function runTests() {
       const result = await generatePersonalizedImpact(billText, persona.data);
       console.log(`Title: ${result.billTitle}`);
       console.log(`Subject: ${result.emailSubject}`);
-      console.log(`Paragraphs:\n${result.paragraphs.join('\n\n')}\n`);
+      console.log(`Summary:\n${result.summary}\n`);
+      console.log(`Impacts:\n${(result.impacts || []).join('\n')}\n`);
+      console.log(`Rights & Obligations:\n${(result.rightsObligations || []).join('\n')}\n`);
+      console.log(`Recommendations:\n${(result.recommendations || []).join('\n')}\n`);
       
-      // Simple verification of paragraph count
-      if (!result.paragraphs || result.paragraphs.length !== 3) {
-        console.warn(`⚠️ Warning: Expected 3 paragraphs, but got ${result.paragraphs ? result.paragraphs.length : 0}.`);
+      // Simple verification
+      if (!result.impacts || result.impacts.length !== 3) {
+        console.warn(`⚠️ Warning: Expected 3 impacts, but got ${result.impacts ? result.impacts.length : 0}.`);
       }
     } catch (error) {
       console.error(`Failed for ${persona.id}:`, error.message);

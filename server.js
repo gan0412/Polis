@@ -301,15 +301,78 @@ app.get('/article/:billId', async (req, res) => {
             font-weight: 400;
           }
 
-          /* ── ARTICLE PARAGRAPHS ── */
-          .article-body p {
+          /* ── ARTICLE SECTIONS ── */
+          .article-section {
+            margin-bottom: 40px;
+          }
+          
+          .article-section:last-child {
+            margin-bottom: 0;
+          }
+
+          .section-title {
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            color: #d63426;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            border-bottom: 1px solid rgba(248, 244, 238, 0.1);
+            padding-bottom: 8px;
+          }
+
+          .summary-text {
             font-family: 'DM Sans', sans-serif;
             font-weight: 300;
             font-size: 16px;
             line-height: 1.7;
             color: #f8f4ee;
-            margin-bottom: 28px;
             letter-spacing: 0.01em;
+          }
+
+          .impact-list {
+            list-style: none;
+            padding: 0;
+          }
+
+          .impact-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 16px;
+          }
+
+          .impact-list li:last-child {
+            margin-bottom: 0;
+          }
+
+          .bullet-dot {
+            display: inline-block;
+            flex-shrink: 0;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #d63426;
+            margin-top: 8px;
+          }
+
+          .rights-dot {
+            background-color: #f8f4ee;
+            opacity: 0.5;
+          }
+
+          .prep-dot {
+            background-color: #d63426;
+          }
+
+          .impact-list p {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #f8f4ee;
+            margin: 0;
           }
 
           /* ── FOOTER NOTE ── */
@@ -362,7 +425,31 @@ app.get('/article/:billId', async (req, res) => {
         <div class="container">
           <article>
             <div class="article-body">
-              ${article.paragraphs.map(p => `<p>${p}</p>`).join('')}
+              <div class="article-section">
+                <h2 class="section-title">Bill Summary</h2>
+                <p class="summary-text">${article.summary}</p>
+              </div>
+
+              <div class="article-section">
+                <h2 class="section-title">How It Affects You</h2>
+                <ul class="impact-list">
+                  ${(article.impacts || []).map(item => `<li><span class="bullet-dot"></span><p>${item}</p></li>`).join('')}
+                </ul>
+              </div>
+
+              <div class="article-section">
+                <h2 class="section-title">Your Rights & Obligations</h2>
+                <ul class="impact-list">
+                  ${(article.rightsObligations || []).map(item => `<li><span class="bullet-dot rights-dot"></span><p>${item}</p></li>`).join('')}
+                </ul>
+              </div>
+
+              <div class="article-section">
+                <h2 class="section-title">Recommendations to Prepare</h2>
+                <ul class="impact-list">
+                  ${(article.recommendations || []).map(item => `<li><span class="bullet-dot prep-dot"></span><p>${item}</p></li>`).join('')}
+                </ul>
+              </div>
             </div>
           </article>
 
