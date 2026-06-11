@@ -74,11 +74,11 @@ export default function CivicBridgeOnboarding() {
 
   const validateForm = () => {
     if (!form.name || !form.name.trim()) return "Please enter your full name.";
-    
+
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!form.email || !form.email.trim()) return "Please enter your email address.";
     if (!emailRegex.test(form.email.trim())) return "Please enter a valid email address.";
-    
+
     if (!form.state) return "Please select your state.";
     if (!form.housing) return "Please select your housing status.";
     if (!form.income) return "Please select your income level.";

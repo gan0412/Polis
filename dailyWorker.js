@@ -32,9 +32,12 @@ async function runDailyUpdates() {
     const stateBills = user.state ? billsDb.get(user.state) : [];
     const federalBills = billsDb.get('federal');
     
-    // Filter for bills that are real (not placeholder) - bypassed is_new_or_updated for manual testing!
+    // Filter for bills that are real and newly added or updated
     const relevantBills = [...stateBills, ...federalBills].filter(
-      bill => bill.title && !bill.title.includes("Reserved for the Speaker") && !bill.title.includes("The Big Beautiful Bill Act")
+      bill => bill.title && 
+              !bill.title.includes("Reserved for the Speaker") && 
+              !bill.title.includes("The Big Beautiful Bill Act") &&
+              bill.is_new_or_updated === true
     );
 
 

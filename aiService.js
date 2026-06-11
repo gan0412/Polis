@@ -79,7 +79,6 @@ Evaluate the bill across these potential areas: Finance/Tax, Housing, Work, Heal
 Rules:
 - Be highly specific to the user's demographics. Do not generalize.
 - If only a brief description or title of the bill is provided, use your extensive general legislative knowledge to deduce its personal impact for this user.
-- Do not prefix any of the bullet points with labels (such as "Impact 1:", "Right 1:", "Recommendation 1:", "Personal impact point 1", etc.). Just output the direct content.
 - Structure the response into these exact sections:
   * Summary: A brief overall summary of the bill (exactly 3-5 sentences).
   * Impacts: How it affects this specific user (exactly 3 bullet points).
