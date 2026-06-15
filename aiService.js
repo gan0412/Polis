@@ -88,7 +88,7 @@ Rules:
 {
   "billTitle": "The official title of the bill",
   "emailSubject": "Short Bill Title: Two Big Impacts",
-  "summary": "A brief overall summary of the bill (3-5 sentences).",
+  "summary": "A brief overall summary of the bill (3-5 sentences). IMPORTANT: Ensure you refer to the correct state's departments/agencies matching the bill (e.g. if the bill is for NY, do not refer to the Virginia Department of Labor).",
   "impacts": [
     "Your tax rates will decrease by 2% next year based on your income bracket.",
     "Your health insurance premiums are expected to rise by approximately $50 per month.",

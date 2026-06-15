@@ -134,7 +134,8 @@ app.get('/article/:billId', async (req, res) => {
 
     // 3. Generate detailed personalized article on the fly
     console.log(`Generating in-depth article for bill ${billId} and user ${email}...`);
-    const article = await generatePersonalizedImpact(foundBill.description || foundBill.title, user);
+    const billText = `BILL STATE: ${foundBill.state}\nBILL NUMBER: ${foundBill.bill_number || ''}\nBILL TITLE: ${foundBill.title || ''}\nBILL DESCRIPTION: ${foundBill.description || foundBill.title || ''}`;
+    const article = await generatePersonalizedImpact(billText, user);
 
     // 4. Render a premium article web page matching the form UI perfectly!
     const html = `
