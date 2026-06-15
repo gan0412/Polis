@@ -88,6 +88,18 @@ app.get('/api/users', (req, res) => {
   }
 });
 
+app.post('/api/clear-users', (req, res) => {
+  try {
+    const stmt = db.prepare('DELETE FROM users');
+    stmt.run();
+    console.log("Database 'users' table cleared successfully.");
+    res.status(200).json({ message: "Users cleared successfully." });
+  } catch (err) {
+    console.error("Database clearing error:", err);
+    res.status(500).json({ error: 'Failed to clear users database.' });
+  }
+});
+
 app.get('/article/:billId', async (req, res) => {
   const { billId } = req.params;
   const { email } = req.query;

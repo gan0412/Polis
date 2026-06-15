@@ -6,6 +6,7 @@ const db = new Database(path.join(__dirname, 'polis.db'), { verbose: console.log
 
 // Create the users table if it doesn't exist
 const initDB = () => {
+
   db.exec(`
     CREATE TABLE IF NOT EXISTS users (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -28,13 +29,13 @@ const initDB = () => {
   // Schema migration for existing databases
   try {
     db.exec("ALTER TABLE users ADD COLUMN education TEXT");
-  } catch (e) {}
+  } catch (e) { }
   try {
     db.exec("ALTER TABLE users ADD COLUMN education_field TEXT");
-  } catch (e) {}
+  } catch (e) { }
   try {
     db.exec("ALTER TABLE users ADD COLUMN state TEXT");
-  } catch (e) {}
+  } catch (e) { }
 };
 
 initDB();
