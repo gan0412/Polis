@@ -33,8 +33,11 @@ app.post('/api/users', async (req, res) => {
       `);
       stmt.run(name, email, zip, housing, income, employment, dependents, health_insurance, age, JSON.stringify(topics || []), education, education_field, req.body.state);
     } catch (dbErr) {
-      if (dbErr.code !== 'SQLITE_CONSTRAINT_UNIQUE') throw dbErr;
-      console.log(`User ${email} already exists in DB. Proceeding with demo generation...`);
+      if (dbErr.code === 'SQLITE_CONSTRAINT_UNIQUE') {
+        console.log(`User ${email} already exists in DB. Returning 409 conflict...`);
+        return res.status(409).json({ error: 'This email is already registered.' });
+      }
+      throw dbErr;
     }
 
     // 2. Get relevant bills from NoSQL Database
