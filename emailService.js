@@ -56,9 +56,14 @@ async function sendEmail(userEmail, userName, bill) {
   `;
 
   try {
+    // Fallback: If using the default Resend onboarding email, only send to the verified test email address
+    // to prevent the API call from failing with a 403 error for other users
+    const isSandboxEmail = 'onboarding@resend.dev';
+    const targetEmail = (userEmail.toLowerCase() === 'ganesh.rayavarapu@gmail.com') ? userEmail : 'ganesh.rayavarapu@gmail.com';
+
     const { data, error } = await resend.emails.send({
       from: 'Polis <onboarding@resend.dev>', // Resend's default test email
-      to: userEmail,
+      to: targetEmail,
       subject: emailSubject,
       text: plainText,
       html: htmlTemplate,
