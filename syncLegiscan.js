@@ -84,10 +84,20 @@ async function syncAll() {
   // Fetch Federal Bills
   await fetchBillsForState('US');
 
-  // Fetch specific state bills
-  await fetchBillsForState('NY');
-  await fetchBillsForState('CA');
-  await fetchBillsForState('TX');
+  // Fetch all 50 states
+  const states = [
+    'AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA',
+    'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD',
+    'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ',
+    'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC',
+    'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY'
+  ];
+
+  for (const state of states) {
+    await fetchBillsForState(state);
+    // Be nice to the API rate limit
+    await new Promise(resolve => setTimeout(resolve, 500));
+  }
 
   console.log("Database sync complete!");
 }
