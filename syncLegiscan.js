@@ -5,12 +5,16 @@ const billsDb = require('./billsDb');
 const API_KEY = process.env.LEGISCAN_API_KEY || 'YOUR_API_KEY_HERE';
 const BASE_URL = 'https://api.legiscan.com/';
 
-async function fetchBillsForState(stateAbbr) {
+async function fetchBillsForState(stateAbbr, lastSyncDate) {
   // stateAbbr: "NY", "CA", or "US" (for federal)
-  console.log(`Fetching bills for ${stateAbbr}...`);
+  console.log(`Fetching bills for ${stateAbbr} since ${lastSyncDate || 'inception'}...`);
   try {
-    // Query for 2026 to get the most recent bills
-    const response = await fetch(`${BASE_URL}?key=${API_KEY}&op=getSearch&state=${stateAbbr}&query=year:2026`);
+    // Build query to get the most recent bills. If lastSyncDate exists, filter by last_action.
+    let queryStr = 'year:2026';
+    if (lastSyncDate) {
+      queryStr += ` and last_action:>=${lastSyncDate}`;
+    }
+    const response = await fetch(`${BASE_URL}?key=${API_KEY}&op=getSearch&state=${stateAbbr}&query=${encodeURIComponent(queryStr)}`);
     const data = await response.json();
 
     if (data.status === 'ERROR') {
@@ -19,6 +23,10 @@ async function fetchBillsForState(stateAbbr) {
     }
 
     const results = data.searchresult;
+    if (!results || Object.keys(results).length === 0) {
+      console.log(`No bills found for ${stateAbbr} in this time range.`);
+      return;
+    }
 
     // Load old bills to compare change_hash
     const stateKey = stateAbbr === 'US' ? 'federal' : stateAbbr;
@@ -67,9 +75,18 @@ async function fetchBillsForState(stateAbbr) {
       }
     }
     
+    // Merge new/updated bills with existing cache to keep local database cumulative
+    const finalBillsMap = new Map();
+    // Start with all old cached bills
+    oldBills.forEach(ob => finalBillsMap.set(ob.bill_id, ob));
+    // Overwrite or append new/updated ones
+    bills.forEach(nb => finalBillsMap.set(nb.bill_id, nb));
+    
+    const mergedBills = Array.from(finalBillsMap.values());
+    
     // Save to your NoSQL JSON database
-    billsDb.set(stateKey, bills);
-    console.log(`✅ Saved ${bills.length} bills for ${stateKey} to NoSQL DB. (${newOrUpdatedCount} were newly added/updated!)`);
+    billsDb.set(stateKey, mergedBills);
+    console.log(`✅ Saved ${mergedBills.length} total bills for ${stateKey} to NoSQL DB. (${newOrUpdatedCount} were newly added/updated!)`);
   } catch (error) {
     console.error(`Error fetching for ${stateAbbr}:`, error.message);
   }
@@ -81,8 +98,12 @@ async function syncAll() {
     return;
   }
 
+  // Load the current NoSQL DB state to read last_sync_date
+  const fullDb = billsDb.getAll() || {};
+  const lastSyncDate = fullDb.last_sync_date || null;
+
   // Fetch Federal Bills
-  await fetchBillsForState('US');
+  await fetchBillsForState('US', lastSyncDate);
 
   // Fetch all 50 states
   const states = [
@@ -94,12 +115,22 @@ async function syncAll() {
   ];
 
   for (const state of states) {
-    await fetchBillsForState(state);
+    await fetchBillsForState(state, lastSyncDate);
     // Be nice to the API rate limit
     await new Promise(resolve => setTimeout(resolve, 500));
   }
 
-  console.log("Database sync complete!");
+  // Store the new sync date (today's date in YYYY-MM-DD format)
+  const todayStr = new Date().toISOString().split('T')[0];
+  const updatedDb = billsDb.getAll() || {};
+  updatedDb.last_sync_date = todayStr;
+  
+  // Directly writing to full db
+  const fs = require('fs');
+  const path = require('path');
+  fs.writeFileSync(path.join(__dirname, 'bills.json'), JSON.stringify(updatedDb, null, 2));
+
+  console.log(`Database sync complete! Stored last_sync_date as: ${todayStr}`);
 }
 
 // If run directly from the terminal, execute it immediately
