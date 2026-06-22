@@ -57,7 +57,7 @@ async function sendEmail(userEmail, userName, bill) {
 
   try {
     const { data, error } = await resend.emails.send({
-      from: 'Polis <onboarding@resend.dev>', // Resend's default test email
+      from: 'Polis <notifications@the-polis.com>', // Verified custom domain sender
       to: userEmail,
       subject: emailSubject,
       text: plainText,
