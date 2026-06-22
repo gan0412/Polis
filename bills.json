@@ -3,81 +3,6 @@
     {
       "relevance": 100,
       "state": "US",
-      "bill_number": "HB8",
-      "bill_id": 2091488,
-      "change_hash": "59a058e0939b7eff7c483e863aa71ba5",
-      "url": "https://legiscan.com/US/bill/HB8/2025",
-      "text_url": "https://legiscan.com/US/text/HB8/2025",
-      "research_url": "https://legiscan.com/US/research/HB8/2025",
-      "last_action_date": null,
-      "last_action": null,
-      "title": "Reserved for the Speaker.",
-      "is_new_or_updated": false,
-      "description": "Reserved for the Speaker."
-    },
-    {
-      "relevance": 100,
-      "state": "US",
-      "bill_number": "HB5",
-      "bill_id": 2091568,
-      "change_hash": "59a058e0939b7eff7c483e863aa71ba5",
-      "url": "https://legiscan.com/US/bill/HB5/2025",
-      "text_url": "https://legiscan.com/US/text/HB5/2025",
-      "research_url": "https://legiscan.com/US/research/HB5/2025",
-      "last_action_date": null,
-      "last_action": null,
-      "title": "Reserved for the Speaker.",
-      "is_new_or_updated": false,
-      "description": "Reserved for the Speaker."
-    },
-    {
-      "relevance": 100,
-      "state": "US",
-      "bill_number": "HB10",
-      "bill_id": 2091654,
-      "change_hash": "59a058e0939b7eff7c483e863aa71ba5",
-      "url": "https://legiscan.com/US/bill/HB10/2025",
-      "text_url": "https://legiscan.com/US/text/HB10/2025",
-      "research_url": "https://legiscan.com/US/research/HB10/2025",
-      "last_action_date": null,
-      "last_action": null,
-      "title": "Reserved for the Speaker.",
-      "is_new_or_updated": false,
-      "description": "Reserved for the Speaker."
-    },
-    {
-      "relevance": 100,
-      "state": "US",
-      "bill_number": "HB3",
-      "bill_id": 2091737,
-      "change_hash": "59a058e0939b7eff7c483e863aa71ba5",
-      "url": "https://legiscan.com/US/bill/HB3/2025",
-      "text_url": "https://legiscan.com/US/text/HB3/2025",
-      "research_url": "https://legiscan.com/US/research/HB3/2025",
-      "last_action_date": null,
-      "last_action": null,
-      "title": "Reserved for the Speaker.",
-      "is_new_or_updated": false,
-      "description": "Reserved for the Speaker."
-    },
-    {
-      "relevance": 100,
-      "state": "US",
-      "bill_number": "HB2",
-      "bill_id": 2091821,
-      "change_hash": "59a058e0939b7eff7c483e863aa71ba5",
-      "url": "https://legiscan.com/US/bill/HB2/2025",
-      "text_url": "https://legiscan.com/US/text/HB2/2025",
-      "research_url": "https://legiscan.com/US/research/HB2/2025",
-      "last_action_date": null,
-      "last_action": null,
-      "title": "Reserved for the Speaker.",
-      "is_new_or_updated": false,
-      "description": "Reserved for the Speaker."
-    },
-    {
-      "relevance": 100,
-      "state": "US",
       "bill_number": "HB82",
       "bill_id": 1901744,
       "change_hash": "a1d7f73da42589c1a4f9bb029f0d581b",
@@ -87,7 +12,7 @@
       "last_action_date": "2025-01-03",
       "last_action": "Referred to the House Committee on Education and Workforce.",
       "title": "Defund National Endowment for the Humanities Act of 2025",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "To provide that none of the funds made available to the National Endowment for the Humanities for any fiscal year may be used to carry out section 7 of the National Foundation on the Arts and the Humanities Act of 1965."
     },
     {
@@ -102,7 +27,7 @@
       "last_action_date": "2025-01-03",
       "last_action": "Referred to the House Committee on Energy and Commerce.",
       "title": "Rural 340B Access Act of 2025",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "To amend title III of the Public Health Service Act to include rural emergency hospitals in the definition of a covered entity for purposes of the 340B drug discount program."
     },
     {
@@ -117,7 +42,7 @@
       "last_action_date": "2025-01-03",
       "last_action": "Referred to the House Committee on the Judiciary.",
       "title": "Grant’s Law",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "To require the Secretary of Homeland Security to detain any alien who is unlawfully present in the United States and is arrested for certain criminal offenses."
     },
     {
@@ -132,7 +57,7 @@
       "last_action_date": "2025-01-03",
       "last_action": "Referred to the House Committee on Natural Resources.",
       "title": "Yosemite National Park Equal Access and Fairness Act",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "To amend the Act of December 19, 1913 (38 Stat. 242), to expand access to the Hetch Hetchy Reservoir and Lake Eleanor Basin areas for recreational purposes, and for other purposes."
     },
     {
@@ -147,7 +72,7 @@
       "last_action_date": "2025-01-03",
       "last_action": "Motion to reconsider laid on the table Agreed to without objection.",
       "title": "To inform the Senate that a quorum of the House has assembled and of the election of the Speaker and the Clerk.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "To inform the Senate that a quorum of the House has assembled and of the election of the Speaker and the Clerk."
     },
     {
@@ -162,7 +87,7 @@
       "last_action_date": "2025-01-03",
       "last_action": "Referred to the House Committee on House Administration.",
       "title": "To repeal the National Voter Registration Act of 1993.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "To repeal the National Voter Registration Act of 1993."
     },
     {
@@ -177,7 +102,7 @@
       "last_action_date": "2025-01-03",
       "last_action": "Referred to the Committee on the Budget, and in addition to the Committees on House Administration, and Oversight and Government Reform, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
       "title": "Budget Process Enhancement Act",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "To remove the discretionary inflater from the baseline and to provide that the salaries of Members of a House of Congress will be held in escrow if that House has not agreed to a concurrent resolution on the budget for fiscal year 2026, and for other purposes."
     },
     {
@@ -192,7 +117,7 @@
       "last_action_date": "2025-01-03",
       "last_action": "Referred to the House Committee on Natural Resources.",
       "title": "Manatee Protection Act of 2025",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "To designate the West Indian manatee as an endangered species under the Endangered Species Act of 1973, and for other purposes."
     },
     {
@@ -207,7 +132,7 @@
       "last_action_date": "2025-01-03",
       "last_action": "Referred to the House Committee on Ways and Means.",
       "title": "TCJA Permanency Act",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "To amend the Internal Revenue Code of 1986 to make permanent certain provisions of the Tax Cuts and Jobs Act affecting individuals, families, and small businesses, and for other purposes."
     },
     {
@@ -222,7 +147,7 @@
       "last_action_date": "2025-01-03",
       "last_action": "Referred to the Committee on Financial Services, and in addition to the Committees on Ways and Means, and the Judiciary, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
       "title": "Landlord Accountability Act of 2025",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "To amend the Fair Housing Act to prohibit discrimination based on use of section 8 vouchers, and for other purposes."
     },
     {
@@ -237,7 +162,7 @@
       "last_action_date": "2025-01-03",
       "last_action": "Referred to the Committee on Oversight and Government Reform, and in addition to the Committees on Education and Workforce, Energy and Commerce, and Ways and Means, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
       "title": "Freedom from Mandates Act",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "To nullify certain Executive orders regarding COVID-19 vaccine mandates and to prohibit the Secretary of Labor from issuing a rule mandating vaccination against COVID-19, and for other purposes."
     },
     {
@@ -252,7 +177,7 @@
       "last_action_date": "2025-01-03",
       "last_action": "Referred to the Committee on Natural Resources, and in addition to the Committee on Energy and Commerce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
       "title": "Protecting American Energy Production Act",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "To prohibit a moratorium on the use of hydraulic fracturing."
     },
     {
@@ -267,7 +192,7 @@
       "last_action_date": "2025-01-03",
       "last_action": "Referred to the Committee on Energy and Commerce, and in addition to the Committees on Ways and Means, Education and Workforce, Natural Resources, the Judiciary, House Administration, Rules, and Appropriations, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
       "title": "Responsible Path to Full Obamacare Repeal Act",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "To repeal the Patient Protection and Affordable Care Act and the Health Care and Education Reconciliation Act of 2010."
     },
     {
@@ -282,7 +207,7 @@
       "last_action_date": "2025-01-03",
       "last_action": "Submitted in the Senate, considered, and agreed to without amendment by Unanimous Consent. (consideration: CR S6; text: CR S6)",
       "title": "A resolution to elect Charles E. Grassley, a Senator from the State of Iowa, to be President pro tempore of the Senate of the United States.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "A resolution to elect Charles E. Grassley, a Senator from the State of Iowa, to be President pro tempore of the Senate of the United States."
     },
     {
@@ -297,7 +222,7 @@
       "last_action_date": "2025-01-03",
       "last_action": "Referred to the Committee on House Administration, and in addition to the Committee on Oversight and Government Reform, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
       "title": "CLEAN Public Service Act Citizen Legislature Anti-Corruption Reform of Public Service Act",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "To amend title 5, United States Code, to terminate pensions for Members of Congress, and for other purposes."
     },
     {
@@ -312,7 +237,7 @@
       "last_action_date": "2025-01-03",
       "last_action": "Referred to the House Committee on Oversight and Government Reform.",
       "title": "USPS Subpoena Authority Act",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "To amend title 39, United States Code, to enhance the administrative subpoena authority of the United States Postal Service, and for other purposes."
     },
     {
@@ -327,7 +252,7 @@
       "last_action_date": "2025-01-03",
       "last_action": "Referred to the House Committee on Education and Workforce.",
       "title": "Ending Common Core and Expanding School Choice Act",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "To amend part A of title I of the Elementary and Secondary Education Act of 1965 to allow States, in accordance with State law, to let Federal funds for the education of disadvantaged children follow low-income children to the public school, charter school, accredited private school, or supplemental educational service program they attend, and for other purposes."
     },
     {
@@ -342,7 +267,7 @@
       "last_action_date": "2025-01-03",
       "last_action": "Referred to the House Committee on the Judiciary.",
       "title": ".Proposing a balanced budget amendment to the Constitution requiring that each agency and department's funding is justified.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": ".Proposing a balanced budget amendment to the Constitution requiring that each agency and department's funding is justified."
     },
     {
@@ -357,7 +282,7 @@
       "last_action_date": "2025-01-03",
       "last_action": "Referred to the House Committee on the Judiciary.",
       "title": "SERVE Our Communities Act Stop Enabling Repeat Violence and Endangering Our Communities Act",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "To authorize grants for States, and units of local government that take efforts to stop enabling repeat violence, and for other purposes."
     },
     {
@@ -372,7 +297,7 @@
       "last_action_date": "2025-01-03",
       "last_action": "Referred to the House Committee on Energy and Commerce.",
       "title": "No Pro-Abortion Task Force Act",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "To prohibit the use of Federal funds for the HHS Reproductive Healthcare Access Task Force."
     },
     {
@@ -387,7 +312,7 @@
       "last_action_date": "2025-01-03",
       "last_action": "Referred to the House Committee on Ways and Means.",
       "title": "Family and Small Business Taxpayer Protection Act",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "To rescind certain balances made available to the Internal Revenue Service."
     },
     {
@@ -402,7 +327,7 @@
       "last_action_date": "2025-01-03",
       "last_action": "Referred to the House Committee on Education and Workforce.",
       "title": "Native American Education Opportunity Act",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "To expand opportunity for Native American children through additional options in education, and for other purposes."
     },
     {
@@ -417,7 +342,7 @@
       "last_action_date": "2025-01-03",
       "last_action": "Referred to the House Committee on Energy and Commerce.",
       "title": "Health Coverage Choice Act",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "To amend title XXVII of the Public Health Service Act to provide for a definition of short-term limited duration insurance, and for other purposes."
     },
     {
@@ -432,7 +357,7 @@
       "last_action_date": "2025-01-03",
       "last_action": "Referred to the Committee on Financial Services, and in addition to the Committee on Appropriations, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
       "title": "No Free Rent for Freeloaders Act of 2025",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "To establish a penalty for the Department of Housing and Urban Development for failure to enforce compliance with the public housing community service and self-sufficiency requirement under law, and for other purposes."
     },
     {
@@ -447,7 +372,7 @@
       "last_action_date": "2025-01-03",
       "last_action": "Submitted in the Senate, considered, and agreed to without amendment by Unanimous Consent. (consideration: CR S5-6; text: CR S6)",
       "title": "A resolution establishing a Committee to Inform the President of the United States that a quorum of each House is assembled.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "A resolution establishing a Committee to Inform the President of the United States that a quorum of each House is assembled."
     },
     {
@@ -462,7 +387,7 @@
       "last_action_date": "2025-01-03",
       "last_action": "Referred to the House Committee on the Judiciary.",
       "title": "WILLIS Act Withholding Investments from Lawless Litigators In States Act",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "To prohibit Federal funds from being awarded or otherwise made available to the Fulton County District Attorney's Office."
     },
     {
@@ -477,7 +402,7 @@
       "last_action_date": "2025-01-03",
       "last_action": "Referred to the House Committee on the Judiciary.",
       "title": "Protect the Gig Economy Act of 2025",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "To amend Rule 23 of the Federal Rules of Civil Procedure to protect the \"gig economy\" and small businesses that operate in large part through contractor services from the threat of costly class action litigation, and for other purposes."
     },
     {
@@ -492,7 +417,7 @@
       "last_action_date": "2025-01-03",
       "last_action": "Referred to the House Committee on the Judiciary.",
       "title": "Proposing an amendment to the Constitution of the United States to limit the number of terms an individual may serve as a Member of Congress.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Proposing an amendment to the Constitution of the United States to limit the number of terms an individual may serve as a Member of Congress."
     },
     {
@@ -507,7 +432,7 @@
       "last_action_date": "2025-01-03",
       "last_action": "Referred to the House Committee on Ways and Means.",
       "title": "Hurricane Helene and Milton Tax Relief Act of 2025",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "To provide tax relief for damages relating to Hurricanes Helene and Milton."
     },
     {
@@ -522,7 +447,7 @@
       "last_action_date": "2025-01-03",
       "last_action": "Referred to the House Committee on the Judiciary.",
       "title": "Abolish the ATF Act",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "To abolish the Bureau of Alcohol, Tobacco, Firearms and Explosives."
     },
     {
@@ -537,7 +462,7 @@
       "last_action_date": "2025-01-03",
       "last_action": "Referred to the House Committee on Natural Resources.",
       "title": "Armed Forces Endangered Species Exemption Act",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "To amend the Endangered Species Act of 1973 to further restrict the Secretary of the Interior from designating certain lands used for national defense-related purposes as critical habitat for any species under that Act and to broaden exclusions and exemptions from that Act for such defense-related purposes."
     },
     {
@@ -552,7 +477,7 @@
       "last_action_date": "2025-01-03",
       "last_action": "Referred to the House Committee on Foreign Affairs.",
       "title": "To terminate the designation of the Islamic Republic of Pakistan as a major non-NATO ally, and for other purposes.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "To terminate the designation of the Islamic Republic of Pakistan as a major non-NATO ally, and for other purposes."
     },
     {
@@ -567,7 +492,7 @@
       "last_action_date": "2025-01-03",
       "last_action": "Submitted in the Senate, considered, and agreed to without amendment by Unanimous Consent. (consideration: CR S6; text: CR S6)",
       "title": "A resolution notifying the President of the United States of the election of a President pro tempore.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "A resolution notifying the President of the United States of the election of a President pro tempore."
     },
     {
@@ -582,7 +507,7 @@
       "last_action_date": "2025-01-03",
       "last_action": "Referred to the House Committee on Financial Services.",
       "title": "Prohibition on IOER Act of 2025",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "To amend the Federal Reserve Act to prohibit Federal reserve banks from paying interest on excess reserves."
     },
     {
@@ -597,7 +522,7 @@
       "last_action_date": "2025-01-03",
       "last_action": "Referred to the House Committee on the Judiciary.",
       "title": "Consequences for Social Security Fraud Act",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "To amend the Immigration and Nationality Act to provide that aliens who have been convicted of or who have committed Social Security fraud are inadmissible and deportable."
     },
     {
@@ -612,7 +537,7 @@
       "last_action_date": "2025-01-03",
       "last_action": "Referred to the House Committee on Financial Services.",
       "title": "KAMALA Act Keeping Aid for Municipalities And Localities Accountable Act",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "To prohibit grants provided under section 106 of the Housing and Community Development Act of 1974 from being used to assist persons who are neither a national of the United States nor lawfully admitted for permanent residence, and for other purposes."
     },
     {
@@ -627,7 +552,7 @@
       "last_action_date": "2025-01-03",
       "last_action": "Referred to the Subcommittee on Border Security and Enforcement.",
       "title": "Fund and Complete the Border Wall Act",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "To establish a separate account in the Treasury to hold deposits to be used to secure the southern border of the United States, and for other purposes."
     },
     {
@@ -642,7 +567,7 @@
       "last_action_date": "2025-01-03",
       "last_action": "Motion to reconsider laid on the table Agreed to without objection.",
       "title": "Authorizing the Clerk to inform the President of the election of the Speaker and the Clerk.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Authorizing the Clerk to inform the President of the election of the Speaker and the Clerk."
     },
     {
@@ -657,7 +582,7 @@
       "last_action_date": "2025-01-03",
       "last_action": "Referred to the House Committee on Natural Resources.",
       "title": "Protecting Arizona from Federal Land Grabs Act",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "To amend title 54, United States Code, to prohibit the extension or establishment of national monuments in Arizona except by express authorization of Congress, and for other purposes."
     },
     {
@@ -672,7 +597,7 @@
       "last_action_date": "2025-01-03",
       "last_action": "Motion to reconsider laid on the table Agreed to without objection.",
       "title": "A concurrent resolution extending the life of the Joint Congressional Committee on Inaugural Ceremonies.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "A concurrent resolution extending the life of the Joint Congressional Committee on Inaugural Ceremonies."
     },
     {
@@ -687,7 +612,7 @@
       "last_action_date": "2025-01-03",
       "last_action": "Referred to the Committee on Ways and Means, and in addition to the Committees on Energy and Commerce, House Administration, and Oversight and Government Reform, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
       "title": "Protection from Obamacare Mandates and Congressional Equity Act",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "To amend the Internal Revenue Code of 1986 to provide an exemption to the individual mandate to maintain health coverage for individuals residing in counties with fewer than 2 health insurance issuers offering plans on an Exchange; to require Members of Congress and congressional staff to abide by the Patient Protection and Affordable Care Act with respect to health insurance coverage; and for other purposes."
     },
     {
@@ -702,7 +627,7 @@
       "last_action_date": "2025-01-03",
       "last_action": "Submitted in the Senate, considered, and agreed to without amendment by Unanimous Consent. (consideration: CR S7; text: CR S7)",
       "title": "A resolution fixing the hour of daily meeting of the Senate.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "A resolution fixing the hour of daily meeting of the Senate."
     },
     {
@@ -717,7 +642,7 @@
       "last_action_date": "2025-01-03",
       "last_action": "Referred to the House Committee on the Judiciary.",
       "title": "CLEAN Elections Act Citizen Legislature Anti-Corruption Reform of Elections Act",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "To require the use of independent nonpartisan commissions to carry out congressional redistricting."
     },
     {
@@ -732,7 +657,7 @@
       "last_action_date": "2025-01-03",
       "last_action": "Referred to the Committee on the Judiciary, and in addition to the Committee on Energy and Commerce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
       "title": "No Federal Funds for Political Prosecutions Act",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "To prohibit the use of forfeited funds made available to certain State or local law enforcement agencies pursuant to equitable sharing for certain purposes."
     },
     {
@@ -747,7 +672,7 @@
       "last_action_date": "2025-01-03",
       "last_action": "Referred to the House Committee on Energy and Commerce.",
       "title": "Medical Innovation Acceleration Act of 2025",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "To amend the Federal Food, Drug, and Cosmetic Act to exempt from regulation as devices non-invasive diagnostic devices, and for other purposes."
     }
   ],
@@ -764,7 +689,7 @@
       "last_action_date": null,
       "last_action": null,
       "title": "Provides that contributions up to the first $250 of any contribution amount shall be matchable contributions under the public campaign financing program.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Provides that contributions up to the first $250 of any contribution amount shall be matchable contributions under the public campaign financing program."
     },
     {
@@ -779,7 +704,7 @@
       "last_action_date": "2025-01-08",
       "last_action": "REFERRED TO INSURANCE",
       "title": "Relates to prohibiting the exclusion of coverage for losses or damages caused by exposure to lead-based paint; provides that no insurer licensed or permitted by the superintendent to provide liability coverage to rental property owners shall exclude coverage for losses or damages caused by exposure to lead-based paint.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relates to prohibiting the exclusion of coverage for losses or damages caused by exposure to lead-based paint; provides that no insurer licensed or permitted by the superintendent to provide liability coverage to rental property owners shall exclude coverage for losses or damages caused by exposure to lead-based paint."
     },
     {
@@ -794,7 +719,7 @@
       "last_action_date": "2025-01-08",
       "last_action": "REFERRED TO TRANSPORTATION",
       "title": "Requires the consideration of complete street design for certain transportation projects which receive federal or state funding; authorizes the department to compile and make publicly available guidance and reference material related to consideration of complete street design.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Requires the consideration of complete street design for certain transportation projects which receive federal or state funding; authorizes the department to compile and make publicly available guidance and reference material related to consideration of complete street design."
     },
     {
@@ -809,7 +734,7 @@
       "last_action_date": "2025-01-08",
       "last_action": "REFERRED TO LOCAL GOVERNMENT",
       "title": "Prohibits a town, city, or county industrial development agency from waiving taxes which would be received by a school district.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Prohibits a town, city, or county industrial development agency from waiving taxes which would be received by a school district."
     },
     {
@@ -824,7 +749,7 @@
       "last_action_date": "2025-01-08",
       "last_action": "REFERRED TO HEALTH",
       "title": "Relates to making restaurant and bar patios one hundred percent smoke free.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relates to making restaurant and bar patios one hundred percent smoke free."
     },
     {
@@ -839,7 +764,7 @@
       "last_action_date": "2025-01-08",
       "last_action": "REFERRED TO FINANCE",
       "title": "Establishes the right to legal counsel in immigration court proceedings; provides for the administration thereof.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Establishes the right to legal counsel in immigration court proceedings; provides for the administration thereof."
     },
     {
@@ -854,7 +779,7 @@
       "last_action_date": "2025-01-08",
       "last_action": "REFERRED TO LOCAL GOVERNMENT",
       "title": "Repeals provisions related to requiring projects be located in a highly distressed area in order to qualify for certain financial assistance from an industrial development agency.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Repeals provisions related to requiring projects be located in a highly distressed area in order to qualify for certain financial assistance from an industrial development agency."
     },
     {
@@ -869,7 +794,7 @@
       "last_action_date": "2025-01-08",
       "last_action": "REFERRED TO EDUCATION",
       "title": "Prohibits students from accessing their wireless communications devices on school property, unless authorized for classroom use; prohibits students from accessing social media platforms through the use of internet access provided by the school district, except when expressly directed to for class instruction.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Prohibits students from accessing their wireless communications devices on school property, unless authorized for classroom use; prohibits students from accessing social media platforms through the use of internet access provided by the school district, except when expressly directed to for class instruction."
     },
     {
@@ -884,7 +809,7 @@
       "last_action_date": "2025-01-08",
       "last_action": "REFERRED TO CITIES 2",
       "title": "Limits the authority of cities, villages and towns to impose certain zoning requirements.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Limits the authority of cities, villages and towns to impose certain zoning requirements."
     },
     {
@@ -899,7 +824,7 @@
       "last_action_date": "2025-01-08",
       "last_action": "enacting clause stricken",
       "title": "Enacts the \"community financial services access and modernization act\"; modernizes existing statute to reflect the full scope of financial services available at neighborhood \"check cashing\" establishments; provides for a comprehensive regulatory framework for the delivery of the expanded financial services currently being offered.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Enacts the \"community financial services access and modernization act\"; modernizes existing statute to reflect the full scope of financial services available at neighborhood \"check cashing\" establishments; provides for a comprehensive regulatory framework for the delivery of the expanded financial services currently being offered."
     },
     {
@@ -914,7 +839,7 @@
       "last_action_date": "2025-01-08",
       "last_action": "REFERRED TO FINANCE",
       "title": "Authorizes recoupment by the state or any political subdivision of financial incentives such as awards, loans, grants or tax abatements, awarded businesses for purposes of job training, job creation or retention, or the development of business operations, upon recipient's failure to complete the terms of the incentive.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Authorizes recoupment by the state or any political subdivision of financial incentives such as awards, loans, grants or tax abatements, awarded businesses for purposes of job training, job creation or retention, or the development of business operations, upon recipient's failure to complete the terms of the incentive."
     },
     {
@@ -929,7 +854,7 @@
       "last_action_date": "2025-01-08",
       "last_action": "REFERRED TO TRANSPORTATION",
       "title": "Requires the registration of bicycles with electric assist used for commercial purposes; provides liability of employers for certain violations.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Requires the registration of bicycles with electric assist used for commercial purposes; provides liability of employers for certain violations."
     },
     {
@@ -944,7 +869,7 @@
       "last_action_date": "2025-01-08",
       "last_action": "REFERRED TO CORPORATIONS, AUTHORITIES AND COMMISSIONS",
       "title": "Establishes the New York state innovation voucher program; provides small businesses with access to research and development by colleges and universities, government laboratories and public research institutes in order to assist such businesses in the creation of innovative products or services.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Establishes the New York state innovation voucher program; provides small businesses with access to research and development by colleges and universities, government laboratories and public research institutes in order to assist such businesses in the creation of innovative products or services."
     },
     {
@@ -959,7 +884,7 @@
       "last_action_date": "2025-01-08",
       "last_action": "REFERRED TO INVESTIGATIONS AND GOVERNMENT OPERATIONS",
       "title": "Requires that alcoholic beverages imported into New York be first delivered to a licensed New York state wholesaler and maintained at a premises or warehouse operated by the wholesaler for a period of twenty-four hours.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Requires that alcoholic beverages imported into New York be first delivered to a licensed New York state wholesaler and maintained at a premises or warehouse operated by the wholesaler for a period of twenty-four hours."
     },
     {
@@ -974,7 +899,7 @@
       "last_action_date": "2025-01-08",
       "last_action": "REFERRED TO INVESTIGATIONS AND GOVERNMENT OPERATIONS",
       "title": "Relates to small business savings accounts; provides tax incentives for contributions and distributions.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relates to small business savings accounts; provides tax incentives for contributions and distributions."
     },
     {
@@ -989,7 +914,7 @@
       "last_action_date": "2025-01-08",
       "last_action": "REFERRED TO CRIME VICTIMS, CRIME AND CORRECTION",
       "title": "Relates to parole eligibility for certain incarcerated persons age fifty-five or older if they have served at least fifteen years of their sentence or sentences.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relates to parole eligibility for certain incarcerated persons age fifty-five or older if they have served at least fifteen years of their sentence or sentences."
     },
     {
@@ -1004,7 +929,7 @@
       "last_action_date": "2025-01-08",
       "last_action": "REFERRED TO ENVIRONMENTAL CONSERVATION",
       "title": "Prohibits the use in an industrial plant of any product or substance that contains perfluoroalkyl and polyfluoroalkyl substances, including vats, conveyor belts, molds, ovens, pans, pots, chemicals used as mold releasers, lubricants, seals and coatings.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Prohibits the use in an industrial plant of any product or substance that contains perfluoroalkyl and polyfluoroalkyl substances, including vats, conveyor belts, molds, ovens, pans, pots, chemicals used as mold releasers, lubricants, seals and coatings."
     },
     {
@@ -1019,7 +944,7 @@
       "last_action_date": "2025-01-08",
       "last_action": "REFERRED TO LABOR",
       "title": "Provides that any claimant who has received certain unemployment benefits to which they were not entitled shall not be held liable for the amounts overpaid provided certain conditions exist; directs the department of labor to provide claimants who have previously been denied waivers with applications for individual waivers; repeals certain provisions of law relating thereto.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Provides that any claimant who has received certain unemployment benefits to which they were not entitled shall not be held liable for the amounts overpaid provided certain conditions exist; directs the department of labor to provide claimants who have previously been denied waivers with applications for individual waivers; repeals certain provisions of law relating thereto."
     },
     {
@@ -1034,7 +959,7 @@
       "last_action_date": "2025-01-08",
       "last_action": "REFERRED TO TRANSPORTATION",
       "title": "Provides that cities having a population in excess of one million shall not supersede state provisions relating to the state law prohibition on individuals standing or parking a vehicle within twenty feet of a cross walk at an intersection.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Provides that cities having a population in excess of one million shall not supersede state provisions relating to the state law prohibition on individuals standing or parking a vehicle within twenty feet of a cross walk at an intersection."
     },
     {
@@ -1049,7 +974,7 @@
       "last_action_date": "2025-01-08",
       "last_action": "REFERRED TO CITIES 1",
       "title": "Reduces certain commercial rent taxes for premises occupied by certain retail or food services businesses having a base rent of less than one million dollars per year and located in the borough of Manhattan south of the center line of ninety-sixth street.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Reduces certain commercial rent taxes for premises occupied by certain retail or food services businesses having a base rent of less than one million dollars per year and located in the borough of Manhattan south of the center line of ninety-sixth street."
     },
     {
@@ -1064,7 +989,7 @@
       "last_action_date": "2025-01-08",
       "last_action": "REFERRED TO TRANSPORTATION",
       "title": "Implements escalating penalties for vehicles which have been documented multiple times by a photo violation monitoring device for failure to comply with traffic-control indications up to a suspension of a vehicle's registration.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Implements escalating penalties for vehicles which have been documented multiple times by a photo violation monitoring device for failure to comply with traffic-control indications up to a suspension of a vehicle's registration."
     },
     {
@@ -1079,7 +1004,7 @@
       "last_action_date": "2025-01-08",
       "last_action": "REFERRED TO JUDICIARY",
       "title": "Prohibits the knowing and reckless promotion of unlawful or false material; provides remedies for the violation of such prohibition.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Prohibits the knowing and reckless promotion of unlawful or false material; provides remedies for the violation of such prohibition."
     },
     {
@@ -1094,7 +1019,7 @@
       "last_action_date": "2025-01-08",
       "last_action": "REFERRED TO EDUCATION",
       "title": "Requires the board of education and the trustees or sole trustee of every school district to establish policies and procedures regarding the treatment of transgender or gender non-conforming students.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Requires the board of education and the trustees or sole trustee of every school district to establish policies and procedures regarding the treatment of transgender or gender non-conforming students."
     },
     {
@@ -1109,7 +1034,7 @@
       "last_action_date": "2025-01-08",
       "last_action": "REFERRED TO INVESTIGATIONS AND GOVERNMENT OPERATIONS",
       "title": "Requires all agencies to submit to the committee on open government a log of all freedom of information law requests for each year in which they received or have pending a request for records; requires the committee on open government to publish, on one webpage, all freedom of information law request logs it receives.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Requires all agencies to submit to the committee on open government a log of all freedom of information law requests for each year in which they received or have pending a request for records; requires the committee on open government to publish, on one webpage, all freedom of information law request logs it receives."
     },
     {
@@ -1124,7 +1049,7 @@
       "last_action_date": "2025-01-08",
       "last_action": "REFERRED TO SOCIAL SERVICES",
       "title": "Relates to the payment of shelter and rent arrears; provides that all shelter arrears payments authorized for applicants to receive an emergency grant to pay for rent, property taxes or mortgage arrears shall be limited to once every year unless the district determines at its discretion that additional shelter arrears payments are necessary based on the individual circumstances.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relates to the payment of shelter and rent arrears; provides that all shelter arrears payments authorized for applicants to receive an emergency grant to pay for rent, property taxes or mortgage arrears shall be limited to once every year unless the district determines at its discretion that additional shelter arrears payments are necessary based on the individual circumstances."
     },
     {
@@ -1139,7 +1064,7 @@
       "last_action_date": "2025-01-08",
       "last_action": "REFERRED TO LOCAL GOVERNMENT",
       "title": "Authorizes cities and towns, except a city with a population of one million or more, to establish community housing funds; authorizes such cities and towns to impose a real estate transfer tax with revenues to be deposited in such funds; makes related provisions.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Authorizes cities and towns, except a city with a population of one million or more, to establish community housing funds; authorizes such cities and towns to impose a real estate transfer tax with revenues to be deposited in such funds; makes related provisions."
     },
     {
@@ -1154,7 +1079,7 @@
       "last_action_date": "2025-01-08",
       "last_action": "REFERRED TO CONSUMER PROTECTION",
       "title": "Limits robocalls to state residents; requires telephone service providers to offer free call mitigation technology to telephone customers.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Limits robocalls to state residents; requires telephone service providers to offer free call mitigation technology to telephone customers."
     },
     {
@@ -1169,7 +1094,7 @@
       "last_action_date": "2025-01-08",
       "last_action": "REFERRED TO TRANSPORTATION",
       "title": "Enacts the \"crash victims bill of rights\"; requires accident reports to be delivered to victims of accidents or their next of kin; requires victim impact statements to be delivered at traffic infraction hearings by injured parties or their next of kin; requires employers to grant leave of absence to employees delivering a victim impact statement at a traffic infraction hearing; directs the superintendent of financial services to conduct a study and complete a report on certain automobile crash information.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Enacts the \"crash victims bill of rights\"; requires accident reports to be delivered to victims of accidents or their next of kin; requires victim impact statements to be delivered at traffic infraction hearings by injured parties or their next of kin; requires employers to grant leave of absence to employees delivering a victim impact statement at a traffic infraction hearing; directs the superintendent of financial services to conduct a study and complete a report on certain automobile crash information."
     },
     {
@@ -1184,7 +1109,7 @@
       "last_action_date": "2025-01-08",
       "last_action": "REFERRED TO BUDGET AND REVENUE",
       "title": "Extends the duration of certain brownfield redevelopment and remediation tax credits with respect to a site located within the Renaissance Commerce Park situate within the city of Lackawanna, Erie county.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Extends the duration of certain brownfield redevelopment and remediation tax credits with respect to a site located within the Renaissance Commerce Park situate within the city of Lackawanna, Erie county."
     },
     {
@@ -1199,7 +1124,7 @@
       "last_action_date": "2025-01-08",
       "last_action": "REFERRED TO ELECTIONS",
       "title": "Prohibits the use of campaign funds to pay attorney's fees for certain actions brought against a candidate or public official.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Prohibits the use of campaign funds to pay attorney's fees for certain actions brought against a candidate or public official."
     },
     {
@@ -1214,7 +1139,7 @@
       "last_action_date": "2025-01-08",
       "last_action": "REFERRED TO INSURANCE",
       "title": "Requires insurers to provide insurance coverage for treatment of rare diseases, life-threatening conditions or diseases, degenerative and disabling conditions, or diagnoses involving medically fragile children, by a provider of the patient's choice.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Requires insurers to provide insurance coverage for treatment of rare diseases, life-threatening conditions or diseases, degenerative and disabling conditions, or diagnoses involving medically fragile children, by a provider of the patient's choice."
     },
     {
@@ -1229,7 +1154,7 @@
       "last_action_date": "2025-01-08",
       "last_action": "REFERRED TO CODES",
       "title": "Provides that no state or local agency, or any agent thereof, may use any funds, facilities, property, equipment or personnel of such agency to investigate, enforce or provide assistance in the investigation or enforcement of any federal program requiring registration of individuals, or maintaining a database of individuals, on the basis of race, color, creed, gender, sexual orientation, religion or national or ethnic origin.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Provides that no state or local agency, or any agent thereof, may use any funds, facilities, property, equipment or personnel of such agency to investigate, enforce or provide assistance in the investigation or enforcement of any federal program requiring registration of individuals, or maintaining a database of individuals, on the basis of race, color, creed, gender, sexual orientation, religion or national or ethnic origin."
     },
     {
@@ -1244,7 +1169,7 @@
       "last_action_date": "2025-01-08",
       "last_action": "REFERRED TO ELECTIONS",
       "title": "Increases the dollar value of items that may legally be given or provided to any person, other than persons who are official representatives of the board of elections or political parties and committees and persons who are engaged as watchers, in a polling place without any identification of the person or entity supplying such provisions.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Increases the dollar value of items that may legally be given or provided to any person, other than persons who are official representatives of the board of elections or political parties and committees and persons who are engaged as watchers, in a polling place without any identification of the person or entity supplying such provisions."
     },
     {
@@ -1259,7 +1184,7 @@
       "last_action_date": "2025-01-08",
       "last_action": "REFERRED TO BUDGET AND REVENUE",
       "title": "Raises the tax rate on corporate income; increases the state conformity to federal taxation of corporate profit shifting; imposes an additional tax on individual business income in response to federal tax benefits for pass-through business income.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Raises the tax rate on corporate income; increases the state conformity to federal taxation of corporate profit shifting; imposes an additional tax on individual business income in response to federal tax benefits for pass-through business income."
     },
     {
@@ -1274,7 +1199,7 @@
       "last_action_date": "2025-01-08",
       "last_action": "REFERRED TO CONSUMER PROTECTION",
       "title": "Relates to automatic license plate readers (ALPRs) and mandatory postings of policies and annual reporting requirements.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relates to automatic license plate readers (ALPRs) and mandatory postings of policies and annual reporting requirements."
     },
     {
@@ -1289,7 +1214,7 @@
       "last_action_date": "2025-01-08",
       "last_action": "REFERRED TO FINANCE",
       "title": "Relates to the liability of a person who makes or uses a false record or statement material to an obligation to pay money to the state or a local government under the tax law, or who conceals or improperly avoids or decreases an obligation to pay money to the state or a local government under the tax law.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relates to the liability of a person who makes or uses a false record or statement material to an obligation to pay money to the state or a local government under the tax law, or who conceals or improperly avoids or decreases an obligation to pay money to the state or a local government under the tax law."
     },
     {
@@ -1304,7 +1229,7 @@
       "last_action_date": "2025-01-08",
       "last_action": "REFERRED TO INTERNET AND TECHNOLOGY",
       "title": "Relates to the establishment of a single computerized state DNA identification index; requires municipalities to expunge any DNA record stored in a municipal DNA identification index.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relates to the establishment of a single computerized state DNA identification index; requires municipalities to expunge any DNA record stored in a municipal DNA identification index."
     },
     {
@@ -1319,7 +1244,7 @@
       "last_action_date": "2025-01-08",
       "last_action": "REFERRED TO ELECTIONS",
       "title": "Lowers the voting age to 16 years; requires that students receive education in civics and be given the opportunity to register to vote in the classroom.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Lowers the voting age to 16 years; requires that students receive education in civics and be given the opportunity to register to vote in the classroom."
     },
     {
@@ -1334,7 +1259,7 @@
       "last_action_date": "2025-01-08",
       "last_action": "REFERRED TO HIGHER EDUCATION",
       "title": "Relates to the educational and examination requirements for certification as a certified interior designer; provides an exemption from the education requirements for architects licensed under article one hundred forty-seven of the education law.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relates to the educational and examination requirements for certification as a certified interior designer; provides an exemption from the education requirements for architects licensed under article one hundred forty-seven of the education law."
     },
     {
@@ -1349,7 +1274,7 @@
       "last_action_date": "2025-01-09",
       "last_action": "REFERRED TO INVESTIGATIONS AND GOVERNMENT OPERATIONS",
       "title": "Prohibits discrimination in government procurement.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Prohibits discrimination in government procurement."
     },
     {
@@ -1364,7 +1289,7 @@
       "last_action_date": "2025-01-09",
       "last_action": "REFERRED TO INVESTIGATIONS AND GOVERNMENT OPERATIONS",
       "title": "Modifies licensing restrictions for manufacturers and wholesalers of alcoholic beverages on licensees who sell at retail for on premises consumption, and restrictions on retail licensees interested directly or indirectly in licensed manufacturers or wholesalers of alcoholic beverages.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Modifies licensing restrictions for manufacturers and wholesalers of alcoholic beverages on licensees who sell at retail for on premises consumption, and restrictions on retail licensees interested directly or indirectly in licensed manufacturers or wholesalers of alcoholic beverages."
     },
     {
@@ -1379,7 +1304,7 @@
       "last_action_date": "2025-01-09",
       "last_action": "REFERRED TO CITIES 1",
       "title": "Enacts the New York city department of buildings community accountability act.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Enacts the New York city department of buildings community accountability act."
     },
     {
@@ -1394,7 +1319,7 @@
       "last_action_date": "2025-01-09",
       "last_action": "REFERRED TO EDUCATION",
       "title": "Relates to the safe operation and maintenance of all elementary and secondary school science laboratories.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relates to the safe operation and maintenance of all elementary and secondary school science laboratories."
     },
     {
@@ -1409,7 +1334,7 @@
       "last_action_date": "2025-01-09",
       "last_action": "REFERRED TO HEALTH",
       "title": "Relates to the continuation of the empire state stem cell board; makes such provisions of law permanent.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relates to the continuation of the empire state stem cell board; makes such provisions of law permanent."
     },
     {
@@ -1424,7 +1349,7 @@
       "last_action_date": "2025-01-09",
       "last_action": "REFERRED TO CHILDREN AND FAMILIES",
       "title": "Relates to expanding the persons responsible for reporting cases of suspected child abuse to include employees, volunteers, or agents of any corporate entity having an agreement with a municipality as a tier II facility or any other shelter providing temporary housing to persons under the age of 18.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relates to expanding the persons responsible for reporting cases of suspected child abuse to include employees, volunteers, or agents of any corporate entity having an agreement with a municipality as a tier II facility or any other shelter providing temporary housing to persons under the age of 18."
     },
     {
@@ -1439,7 +1364,7 @@
       "last_action_date": "2025-01-09",
       "last_action": "REFERRED TO INVESTIGATIONS AND GOVERNMENT OPERATIONS",
       "title": "Relates to the transfer of funds into the metropolitan transportation authority aid trust account and the public transportation system operating assistance account.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relates to the transfer of funds into the metropolitan transportation authority aid trust account and the public transportation system operating assistance account."
     },
     {
@@ -1454,7 +1379,7 @@
       "last_action_date": "2025-01-09",
       "last_action": "REFERRED TO ELECTIONS",
       "title": "Prohibits fraudulent absentee ballot drop-off boxes or receptacles by making it a felony for anyone other than the board of elections to erect, display or maintain an absentee ballot drop-off box or receptacle.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Prohibits fraudulent absentee ballot drop-off boxes or receptacles by making it a felony for anyone other than the board of elections to erect, display or maintain an absentee ballot drop-off box or receptacle."
     },
     {
@@ -1469,7 +1394,7 @@
       "last_action_date": "2025-01-09",
       "last_action": "REFERRED TO CODES",
       "title": "Relates to revoking a license to carry, possess, repair and dispose of firearms for a conviction for failure to safely store rifles, shotguns, and firearms.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relates to revoking a license to carry, possess, repair and dispose of firearms for a conviction for failure to safely store rifles, shotguns, and firearms."
     },
     {
@@ -1484,7 +1409,7 @@
       "last_action_date": "2025-01-09",
       "last_action": "REFERRED TO FINANCE",
       "title": "Memorializing Governor Kathy Hochul to proclaim November 2, 2025, as Vitamin D Day in the State of New York",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Memorializing Governor Kathy Hochul to proclaim November 2, 2025, as Vitamin D Day in the State of New York"
     },
     {
@@ -1499,7 +1424,7 @@
       "last_action_date": "2025-01-09",
       "last_action": "REFERRED TO JUDICIARY",
       "title": "Relates to waiver of privilege; provides for the scope of a waiver, inadvertent disclosure, and the effects of a court order and party agreement on waivers of privilege or protection.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relates to waiver of privilege; provides for the scope of a waiver, inadvertent disclosure, and the effects of a court order and party agreement on waivers of privilege or protection."
     }
   ],
@@ -1516,7 +1441,7 @@
       "last_action_date": "2024-12-02",
       "last_action": "Read. Adopted. (Ayes 58. Noes 19. Page 62.).",
       "title": "Relative to the Standing Rules of the Assembly for the 2025–26 Regular Session.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relative to the Standing Rules of the Assembly for the 2025–26 Regular Session."
     },
     {
@@ -1531,7 +1456,7 @@
       "last_action_date": "2024-12-02",
       "last_action": "Read. Adopted. (Ayes 78. Noes 0. Page 63.).",
       "title": "Relative to the election of officers of the Assembly for the 2025–26 Regular Session.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relative to the election of officers of the Assembly for the 2025–26 Regular Session."
     },
     {
@@ -1546,7 +1471,7 @@
       "last_action_date": "2024-12-02",
       "last_action": "Read. Adopted. (Ayes 77. Noes 0. Page 65.).",
       "title": "Relative to the organization of the Assembly for the 2025–26 Regular Session.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relative to the organization of the Assembly for the 2025–26 Regular Session."
     },
     {
@@ -1561,7 +1486,7 @@
       "last_action_date": "2024-12-02",
       "last_action": "Motion carried. (Ayes 58. Noes 19. Page 14.).",
       "title": "Relative to the Standing Rules of the Assembly for the 2025–26 Regular Session.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relative to the Standing Rules of the Assembly for the 2025–26 Regular Session."
     },
     {
@@ -1576,7 +1501,7 @@
       "last_action_date": "2024-12-02",
       "last_action": "Introduced.",
       "title": "Relative to National Human Trafficking Awareness Month.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relative to National Human Trafficking Awareness Month."
     },
     {
@@ -1591,7 +1516,7 @@
       "last_action_date": "2024-12-02",
       "last_action": "Read. Adopted. (Page 4.)",
       "title": "Relative to holdover Senators.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relative to holdover Senators."
     },
     {
@@ -1606,7 +1531,7 @@
       "last_action_date": "2024-12-02",
       "last_action": "Read. Adopted. (Page 4.)",
       "title": "Relative to the election of officers.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relative to the election of officers."
     },
     {
@@ -1621,7 +1546,7 @@
       "last_action_date": "2024-12-02",
       "last_action": "Read. Adopted. (Page 10.)",
       "title": "Relative to the election of members of the Senate Committee on Rules.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relative to the election of members of the Senate Committee on Rules."
     },
     {
@@ -1636,7 +1561,7 @@
       "last_action_date": "2024-12-02",
       "last_action": "Read. Adopted. (Ayes 29. Noes 9. Page 10.)",
       "title": "Relative to the Standing Rules of the Senate for the 2025–26 Regular Session.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relative to the Standing Rules of the Senate for the 2025–26 Regular Session."
     },
     {
@@ -1651,7 +1576,7 @@
       "last_action_date": "2024-12-02",
       "last_action": "Read. Adopted. (Page 12.)",
       "title": "Relative to notifying the Governor of the organization of the Senate.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relative to notifying the Governor of the organization of the Senate."
     },
     {
@@ -1666,7 +1591,7 @@
       "last_action_date": "2024-12-02",
       "last_action": "Read. Adopted. (Page 12.)",
       "title": "Relative to notifying the Assembly of the organization of the Senate.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relative to notifying the Assembly of the organization of the Senate."
     },
     {
@@ -1681,7 +1606,7 @@
       "last_action_date": "2024-12-02",
       "last_action": "Introduced. Referred to Com. on RLS.",
       "title": "Relative to Jim Plunkett.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relative to Jim Plunkett."
     },
     {
@@ -1696,7 +1621,7 @@
       "last_action_date": "2024-12-03",
       "last_action": "From printer. May be heard in committee January 2.",
       "title": "Legislature: retirement.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "A resolution to propose to the people of the State of California an amendment to the Constitution of the State, by repealing and adding Section 4.5 of Article IV thereof, relating to the Legislature."
     },
     {
@@ -1711,7 +1636,7 @@
       "last_action_date": "2024-12-03",
       "last_action": "From printer.",
       "title": "Sudan conflict.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relative to the Sudan conflict."
     },
     {
@@ -1726,7 +1651,7 @@
       "last_action_date": "2024-12-09",
       "last_action": "Chaptered by Secretary of State. Res. Chapter 1, Statutes of 2025.",
       "title": "Legislative Counsel of California.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relative to the selection of the Legislative Counsel of California."
     },
     {
@@ -1741,7 +1666,7 @@
       "last_action_date": "2025-01-23",
       "last_action": "Chaptered by Secretary of State. Chapter 2, Statutes of 2025.",
       "title": "Budget Act of 2024.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "An act to amend the Budget Act of 2024 (Chs. 22, 35, and 994, Stats. 2024), by amending Items 2240-001-0001 and 7760-001-0001 of Section 2.00 of, by amending Sections 39.00 and 99.50 of, and by adding Section 90.01 to, that act, relating to the state budget, and making an appropriation therefor, to take effect immediately, budget bill."
     },
     {
@@ -1756,7 +1681,7 @@
       "last_action_date": "2025-01-24",
       "last_action": "Chaptered by Secretary of State - Chapter 1, Statutes of 2025.",
       "title": "Budget Act of 2024.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "An act to amend the Budget Act of 2024 (Chs. 22, 35, and 994, Stats. 2024), by amending Sections 39.00 and 99.50 of, and by adding Section 90.00 to, that act, relating to the state budget, and making an appropriation therefor, to take effect immediately, budget bill."
     },
     {
@@ -1771,7 +1696,7 @@
       "last_action_date": "2025-01-27",
       "last_action": "Read. Adopted. (Ayes 36. Noes 0. Page 109.)",
       "title": "Relative to Cervical Cancer Awareness Month.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relative to Cervical Cancer Awareness Month."
     },
     {
@@ -1786,7 +1711,7 @@
       "last_action_date": "2025-01-29",
       "last_action": "Introduced measure version corrected.",
       "title": "Public finance.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "A resolution to propose to the people of the State of California an amendment to the Constitution of the State, by amending Section 20 of Article XVI thereof, relating to public finance."
     },
     {
@@ -1801,7 +1726,7 @@
       "last_action_date": "2025-01-30",
       "last_action": "Read. Adopted. (Ayes 69. Noes 0. Page 266.).",
       "title": "Relative to school governance.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relative to school governance."
     },
     {
@@ -1816,7 +1741,7 @@
       "last_action_date": "2025-01-30",
       "last_action": "Read. Adopted. (Ayes 36. Noes 0. Page 129.)",
       "title": "Relative to school governance.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relative to school governance."
     },
     {
@@ -1831,7 +1756,7 @@
       "last_action_date": "2025-01-30",
       "last_action": "Read. Adopted. (Ayes 36. Noes 0. Page 129.)",
       "title": "Relative to the election of members of the Senate Committee on Rules.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relative to the election of members of the Senate Committee on Rules."
     },
     {
@@ -1846,7 +1771,7 @@
       "last_action_date": "2025-02-03",
       "last_action": "Referred to Com. on RLS.",
       "title": "Veterans of the Republic of Vietnam Armed Forces Day.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relative to veterans."
     },
     {
@@ -1861,7 +1786,7 @@
       "last_action_date": "2025-02-03",
       "last_action": "Referred to Com. on RLS.",
       "title": "Republic of Vietnam Month.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relative to Republic of Vietnam Month."
     },
     {
@@ -1876,7 +1801,7 @@
       "last_action_date": "2025-02-03",
       "last_action": "From committee without further action.",
       "title": "Budget Act of 2024.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "An act to amend the Budget Act of 2024 (Chs. 22, 35, and 994, Stats. 2024), by amending Sections 5.25 and 39.10 of that act, relating to the state budget, and making an appropriation therefor, to take effect immediately, budget bill."
     },
     {
@@ -1891,7 +1816,7 @@
       "last_action_date": "2025-02-03",
       "last_action": "From committee without further action.",
       "title": "Budget Act of 2024.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "An act to amend the Budget Act of 2024 (Chs. 22, 35, and 994, Stats. 2024), by amending Section 99.50 of, and by adding Section 5.26 to, that act, relating to the state budget, and making an appropriation therefor, to take effect immediately, budget bill."
     },
     {
@@ -1906,7 +1831,7 @@
       "last_action_date": "2025-02-03",
       "last_action": "Died at Desk.",
       "title": "Stop Politicians from Violating Our Constitutional Rights Act of 2025.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "A resolution to propose to the people of the State of California an amendment to the Constitution of the State, by adding Section 23 to Article IV thereof, and adding Section 12 to Article V thereof, relating to legislative process."
     },
     {
@@ -1921,7 +1846,7 @@
       "last_action_date": "2025-02-03",
       "last_action": "Read. Adopted. (Ayes 38. Noes 0. Page 144.)",
       "title": "Relative to the Lunar New Year.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relative to the Lunar New Year."
     },
     {
@@ -1936,7 +1861,7 @@
       "last_action_date": "2025-02-03",
       "last_action": "Died at Desk.",
       "title": "Personal Income Tax: tax credits: fire-resistant home improvements.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "An act to add and repeal Section 17053.4 of the Revenue and Taxation Code, relating to taxation, to take effect immediately, tax levy."
     },
     {
@@ -1951,7 +1876,7 @@
       "last_action_date": "2025-02-03",
       "last_action": "Died on inactive file.",
       "title": "Budget Act of 2024.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "An act to amend the Budget Act of 2024 (Chs. 22, 35, and 994, Stats. 2024), by amending Items 2240-001-0001 and 7760-001-0001 of Section 2.00 of, by amending Sections 39.00 and 99.50 of, and by adding Section 90.01 to, that act, relating to the state budget, and making an appropriation therefor, to take effect immediately, budget bill."
     },
     {
@@ -1966,7 +1891,7 @@
       "last_action_date": "2025-02-03",
       "last_action": "Died at Desk.",
       "title": "Budget Act of 2024.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "An act to amend the Budget Act of 2024 (Chs. 22, 35, and 994, Stats. 2024), by amending Section 99.50 of, and by adding Section 11.60 to, that act, relating to the state budget, and to take effect immediately, budget bill."
     },
     {
@@ -1981,7 +1906,7 @@
       "last_action_date": "2025-02-03",
       "last_action": "Died at Desk.",
       "title": "Budget Act of 2024.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "An act to amend the Budget Act of 2024 (Chs. 22, 35, and 994, Stats. 2024), by amending Section 99.50 of, and by adding Section 11.50 to, that act, relating to the state budget, and to take effect immediately, budget bill."
     },
     {
@@ -1996,7 +1921,7 @@
       "last_action_date": "2025-02-03",
       "last_action": "Died at Desk.",
       "title": "Budget Act of 2024.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "An act to amend the Budget Act of 2024 (Chs. 22, 35, and 994, Stats. 2024), by amending Section 99.50 of, and by adding Section 11.40 to, that act, relating to the state budget, and to take effect immediately, budget bill."
     },
     {
@@ -2011,7 +1936,7 @@
       "last_action_date": "2025-02-03",
       "last_action": "Died at Desk.",
       "title": "Forestry: timber operations: maintenance of timberlands for fuels reduction.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "An act to add Section 4581.5 to the Public Resources Code, relating to forestry."
     },
     {
@@ -2026,7 +1951,7 @@
       "last_action_date": "2025-02-03",
       "last_action": "Died at Desk.",
       "title": "Crimes: impeding emergency personnel.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "An act to amend Section 402 of the Penal Code, relating to crimes."
     },
     {
@@ -2041,7 +1966,7 @@
       "last_action_date": "2025-02-03",
       "last_action": "Died at Desk.",
       "title": "State government: emergency services: nonprofit service providers.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "An act to add Section 8596.1 to the Government Code, relating to state government."
     },
     {
@@ -2056,7 +1981,7 @@
       "last_action_date": "2025-02-03",
       "last_action": "Died at Desk.",
       "title": "Crimes: looting.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "An act to amend Section 463 of the Penal Code, relating to crimes."
     },
     {
@@ -2071,7 +1996,7 @@
       "last_action_date": "2025-02-03",
       "last_action": "Died at Desk.",
       "title": "California Global Warming Solutions Act of 2006: scoping plan.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "An act to amend Section 38561 of the Health and Safety Code, relating to greenhouse gases."
     },
     {
@@ -2086,7 +2011,7 @@
       "last_action_date": "2025-02-03",
       "last_action": "Died at Desk.",
       "title": "Generators: air pollution regulations: income tax credits.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "An act to amend Section 43018.11 of the Health and Safety Code, and to add and repeal Section 17053.49 of the Revenue and Taxation Code, relating to generators."
     },
     {
@@ -2101,7 +2026,7 @@
       "last_action_date": "2025-02-04",
       "last_action": "Chaptered by Secretary of State - Res. Chapter 2, Statutes of 2025.",
       "title": "Desert ecosystems.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relative to World Desert Day."
     },
     {
@@ -2116,7 +2041,7 @@
       "last_action_date": "2025-02-04",
       "last_action": "Chaptered by Secretary of State - Res. Chapter 3, Statutes of 2025.",
       "title": "Korean American Day.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relative to Korean American Day."
     },
     {
@@ -2131,7 +2056,7 @@
       "last_action_date": "2025-02-04",
       "last_action": "Died on third reading.",
       "title": "Budget Act of 2024.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "An act to amend the Budget Act of 2024 (Chs. 22, 35, and 994, Stats. 2024), by amending Sections 39.00 and 99.50 of, and by adding Section 90.00 to, that act, relating to the state budget, and making an appropriation therefor, to take effect immediately, budget bill."
     },
     {
@@ -2146,7 +2071,7 @@
       "last_action_date": "2025-02-04",
       "last_action": "From printer. May be heard in committee March 6.",
       "title": "Property taxation: veterans’ exemption.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "A resolution to propose to the people of the State of California an amendment to the Constitution of the State, by amending Section 3 of Article XIII thereof, relating to property taxation."
     },
     {
@@ -2161,7 +2086,7 @@
       "last_action_date": "2025-02-04",
       "last_action": "From printer.",
       "title": "Teen Dating Violence Awareness and Prevention Month.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relative to dating violence."
     },
     {
@@ -2176,7 +2101,7 @@
       "last_action_date": "2025-02-04",
       "last_action": "From printer.",
       "title": "Budget Act of 2024.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "An act to amend the Budget Act of 2024 (Chs. 22, 35, and 994, Stats. 2024), by amending Section 99.50 of, and by adding Section 5.27 to, that act, relating to the state budget, and making an appropriation therefor, to take effect immediately, budget bill."
     },
     {
@@ -2191,7 +2116,7 @@
       "last_action_date": "2025-02-06",
       "last_action": "Read. Adopted. (Ayes 72. Noes 0. Page 305.).",
       "title": "Relative to World Wetlands Day.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relative to World Wetlands Day."
     },
     {
@@ -2206,7 +2131,7 @@
       "last_action_date": "2025-02-07",
       "last_action": "Chaptered by Secretary of State. Chapter 3, Statutes of 2025.",
       "title": "Budget Act of 2024.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "An act to amend the Budget Act of 2024 (Chs. 22, 35, and 994, Stats. 2024), by amending Sections 5.25 and 39.10 of that act, relating to the state budget, and making an appropriation therefor, to take effect immediately, budget bill."
     },
     {
@@ -2221,7 +2146,7 @@
       "last_action_date": "2025-02-07",
       "last_action": "Chaptered by Secretary of State. Chapter 4, Statutes of 2025.",
       "title": "Budget Act of 2024.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "An act to amend the Budget Act of 2024 (Chs. 22, 35, and 994, Stats. 2024), by amending Section 99.50 of, and by adding Section 5.26 to, that act, relating to the state budget, and making an appropriation therefor, to take effect immediately, budget bill."
     },
     {
@@ -2236,7 +2161,7 @@
       "last_action_date": "2025-02-07",
       "last_action": "From printer. May be heard in committee March 9.",
       "title": "Slavery.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "A resolution to propose to the people of the State of California an amendment to the Constitution of the State, by amending Section 6 of Article I thereof, relating to slavery."
     },
     {
@@ -2251,7 +2176,7 @@
       "last_action_date": "2025-02-13",
       "last_action": "Chaptered by Secretary of State - Res. Chapter 4, Statutes of 2025.",
       "title": "Dr. Martin Luther King, Jr. Day.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relative to Reverend Dr. Martin Luther King, Jr."
     }
   ],
@@ -2268,7 +2193,7 @@
       "last_action_date": "0000-00-00",
       "last_action": "Referred to State Affairs",
       "title": "Relating to civil liability arising out of justified uses of or threats to use force or deadly force.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relating to civil liability arising out of justified uses of or threats to use force or deadly force."
     },
     {
@@ -2283,7 +2208,7 @@
       "last_action_date": "0000-00-00",
       "last_action": "Referred to Business & Commerce",
       "title": "Relating to the disclosure of total loss evaluation materials by automobile insurers.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relating to the disclosure of total loss evaluation materials by automobile insurers."
     },
     {
@@ -2298,7 +2223,7 @@
       "last_action_date": "0000-00-00",
       "last_action": "Referred to Public Health",
       "title": "Relating to designating the second Saturday in October as Hospice and Palliative Care Day.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relating to designating the second Saturday in October as Hospice and Palliative Care Day."
     },
     {
@@ -2313,7 +2238,7 @@
       "last_action_date": "0000-00-00",
       "last_action": "Referred to Delivery of Government Efficiency",
       "title": "Relating to the regulation and reporting on the use of artificial intelligence systems by certain business entities and state agencies; providing civil penalties.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relating to the regulation and reporting on the use of artificial intelligence systems by certain business entities and state agencies; providing civil penalties."
     },
     {
@@ -2328,7 +2253,7 @@
       "last_action_date": "0000-00-00",
       "last_action": "Referred to Public Health",
       "title": "Relating to perinatal palliative care provided by certain hospitals, a perinatal palliative care grant program, and a perinatal palliative care hospital recognition program.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relating to perinatal palliative care provided by certain hospitals, a perinatal palliative care grant program, and a perinatal palliative care hospital recognition program."
     },
     {
@@ -2343,7 +2268,7 @@
       "last_action_date": "0000-00-00",
       "last_action": "Referred to Higher Education",
       "title": "Relating to the protection of free speech rights at institutions of higher education, including the prosecution of the offenses of trespass, damage, and defacement at certain institutions of higher education, and criminal trespass.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relating to the protection of free speech rights at institutions of higher education, including the prosecution of the offenses of trespass, damage, and defacement at certain institutions of higher education, and criminal trespass."
     },
     {
@@ -2358,7 +2283,7 @@
       "last_action_date": "0000-00-00",
       "last_action": "Vetoed by the Governor",
       "title": "Relating to the regulation of products derived from hemp, including consumable hemp products and the hemp-derived cannabinoids contained in those products; requiring occupational licenses and permits; imposing fees; creating criminal offenses; authorizing an administrative penalty.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relating to the regulation of products derived from hemp, including consumable hemp products and the hemp-derived cannabinoids contained in those products; requiring occupational licenses and permits; imposing fees; creating criminal offenses; authorizing an administrative penalty."
     },
     {
@@ -2373,7 +2298,7 @@
       "last_action_date": "0000-00-00",
       "last_action": "Referred to s/c on Workforce by Speaker",
       "title": "Relating to requiring certain employers to provide heat safety training and protections to employees; providing an administrative penalty.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relating to requiring certain employers to provide heat safety training and protections to employees; providing an administrative penalty."
     },
     {
@@ -2388,7 +2313,7 @@
       "last_action_date": "2025-01-03",
       "last_action": "Filed",
       "title": "Relating to the creation of the Office of Youth Health and Safety.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relating to the creation of the Office of Youth Health and Safety."
     },
     {
@@ -2403,7 +2328,7 @@
       "last_action_date": "2025-01-14",
       "last_action": "Reported enrolled",
       "title": "Relating to the nomination and election procedures for speaker.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relating to the nomination and election procedures for speaker."
     },
     {
@@ -2418,7 +2343,7 @@
       "last_action_date": "2025-01-15",
       "last_action": "Reported enrolled",
       "title": "Adopting Permanent Rules of the Senate of the 89th Legislature.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Adopting Permanent Rules of the Senate of the 89th Legislature."
     },
     {
@@ -2433,7 +2358,7 @@
       "last_action_date": "2025-01-15",
       "last_action": "Reported enrolled",
       "title": "Senate Caucus Report.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Senate Caucus Report."
     },
     {
@@ -2448,7 +2373,7 @@
       "last_action_date": "2025-01-16",
       "last_action": "Reported enrolled",
       "title": "In memory of Daniel G. Rodriguez Jr. of San Antonio.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "In memory of Daniel G. Rodriguez Jr. of San Antonio."
     },
     {
@@ -2463,7 +2388,7 @@
       "last_action_date": "2025-01-17",
       "last_action": "Filed",
       "title": "Congratulating Panther City BBQ in Fort Worth on earning a 2024 Michelin Recommended designation.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Congratulating Panther City BBQ in Fort Worth on earning a 2024 Michelin Recommended designation."
     },
     {
@@ -2478,7 +2403,7 @@
       "last_action_date": "2025-01-17",
       "last_action": "Filed",
       "title": "Relating to the public information law.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relating to the public information law."
     },
     {
@@ -2493,7 +2418,7 @@
       "last_action_date": "2025-01-22",
       "last_action": "Filed with the Secretary of State",
       "title": "Granting the legislature permission to adjourn for more than three days during the period beginning on Wednesday, January 15, 2025, and ending on Wednesday, January 22, 2025.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Granting the legislature permission to adjourn for more than three days during the period beginning on Wednesday, January 15, 2025, and ending on Wednesday, January 22, 2025."
     },
     {
@@ -2508,7 +2433,7 @@
       "last_action_date": "2025-01-27",
       "last_action": "Filed",
       "title": "Commemorating January 27, 2025, as International Holocaust Remembrance Day.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Commemorating January 27, 2025, as International Holocaust Remembrance Day."
     },
     {
@@ -2523,7 +2448,7 @@
       "last_action_date": "2025-01-27",
       "last_action": "Reported enrolled",
       "title": "Commemorating January 27, 2025, as International Holocaust Remembrance Day.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Commemorating January 27, 2025, as International Holocaust Remembrance Day."
     },
     {
@@ -2538,7 +2463,7 @@
       "last_action_date": "2025-01-28",
       "last_action": "Reported enrolled",
       "title": "Recognizing J. Scott Moore on the occasion of his retirement.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Recognizing J. Scott Moore on the occasion of his retirement."
     },
     {
@@ -2553,7 +2478,7 @@
       "last_action_date": "2025-01-28",
       "last_action": "Committee report printed and distributed",
       "title": "Proposing a constitutional amendment relating to appropriations for the preservation and perpetuation of certain items of historical value; allowing the legislature and state agencies to accept on behalf of the state gifts of items of historical value and contributions to purchase such items.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Proposing a constitutional amendment relating to appropriations for the preservation and perpetuation of certain items of historical value; allowing the legislature and state agencies to accept on behalf of the state gifts of items of historical value and contributions to purchase such items."
     },
     {
@@ -2568,7 +2493,7 @@
       "last_action_date": "2025-01-28",
       "last_action": "Reported enrolled",
       "title": "Recognizing Victoria Hinojosa on the occasion of her 44th birthday.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Recognizing Victoria Hinojosa on the occasion of her 44th birthday."
     },
     {
@@ -2583,7 +2508,7 @@
       "last_action_date": "2025-01-28",
       "last_action": "Reported enrolled",
       "title": "Recognizing Daniel Kelly for his participation in the Physician of the Day program.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Recognizing Daniel Kelly for his participation in the Physician of the Day program."
     },
     {
@@ -2598,7 +2523,7 @@
       "last_action_date": "2025-01-28",
       "last_action": "Reported enrolled",
       "title": "Recognizing Terrance Hines for his participation in the Physician of the Day program.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Recognizing Terrance Hines for his participation in the Physician of the Day program."
     },
     {
@@ -2613,7 +2538,7 @@
       "last_action_date": "2025-01-28",
       "last_action": "Reported enrolled",
       "title": "Recognizing Yu-Mei Liu for her participation in the Physician of the Day program.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Recognizing Yu-Mei Liu for her participation in the Physician of the Day program."
     },
     {
@@ -2628,7 +2553,7 @@
       "last_action_date": "2025-01-28",
       "last_action": "Signed in the House",
       "title": "Adopting the House Rules of Procedure for the 89th Legislature.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Adopting the House Rules of Procedure for the 89th Legislature."
     },
     {
@@ -2643,7 +2568,7 @@
       "last_action_date": "2025-01-28",
       "last_action": "Reported enrolled",
       "title": "Recognizing January 28, 2025, as Texas Society of Certified Public Accountants Advocacy Day.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Recognizing January 28, 2025, as Texas Society of Certified Public Accountants Advocacy Day."
     },
     {
@@ -2658,7 +2583,7 @@
       "last_action_date": "2025-01-28",
       "last_action": "Reported enrolled",
       "title": "In memory of Larry Lyndon Beauchamp of Lawn.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "In memory of Larry Lyndon Beauchamp of Lawn."
     },
     {
@@ -2673,7 +2598,7 @@
       "last_action_date": "2025-01-28",
       "last_action": "Reported enrolled",
       "title": "Recognizing Michael Beaver on the occasion of his retirement.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Recognizing Michael Beaver on the occasion of his retirement."
     },
     {
@@ -2688,7 +2613,7 @@
       "last_action_date": "2025-01-28",
       "last_action": "Printed in full",
       "title": "In memory of Jesus \"Jesse\" Vargas of Brazoria County.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "In memory of Jesus \"Jesse\" Vargas of Brazoria County."
     },
     {
@@ -2703,7 +2628,7 @@
       "last_action_date": "2025-01-28",
       "last_action": "Reported enrolled",
       "title": "Recognizing Texas Society of Certified Public Accountants Advocacy Day at the State Capitol on January 28, 2025.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Recognizing Texas Society of Certified Public Accountants Advocacy Day at the State Capitol on January 28, 2025."
     },
     {
@@ -2718,7 +2643,7 @@
       "last_action_date": "2025-01-28",
       "last_action": "Reported enrolled",
       "title": "Recognizing January 28, 2025, as Dimmit County Day at the State Capitol.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Recognizing January 28, 2025, as Dimmit County Day at the State Capitol."
     },
     {
@@ -2733,7 +2658,7 @@
       "last_action_date": "2025-01-28",
       "last_action": "Reported enrolled",
       "title": "Recognizing January 27, 2025, as International Holocaust Remembrance Day.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Recognizing January 27, 2025, as International Holocaust Remembrance Day."
     },
     {
@@ -2748,7 +2673,7 @@
       "last_action_date": "2025-01-28",
       "last_action": "Reported enrolled",
       "title": "Recognizing January 28, 2025, as Leadership Frisco Class XXVIII Day at the State Capitol.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Recognizing January 28, 2025, as Leadership Frisco Class XXVIII Day at the State Capitol."
     },
     {
@@ -2763,7 +2688,7 @@
       "last_action_date": "2025-01-28",
       "last_action": "Reported enrolled",
       "title": "Recognizing January 28, 2025, as Sexual Assault Survivors Day.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Recognizing January 28, 2025, as Sexual Assault Survivors Day."
     },
     {
@@ -2778,7 +2703,7 @@
       "last_action_date": "2025-01-28",
       "last_action": "Reported enrolled",
       "title": "Recognizing January 28, 2025, as UTHealth Houston Legislative Day at the State Capitol.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Recognizing January 28, 2025, as UTHealth Houston Legislative Day at the State Capitol."
     },
     {
@@ -2793,7 +2718,7 @@
       "last_action_date": "2025-01-29",
       "last_action": "Reported enrolled",
       "title": "Commemorating the Lunar New Year on January 29, 2025.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Commemorating the Lunar New Year on January 29, 2025."
     },
     {
@@ -2808,7 +2733,7 @@
       "last_action_date": "2025-01-29",
       "last_action": "Reported enrolled",
       "title": "Congratulating Heather Keister of Lubbock on being named the 2024 Engineer of the Year by the South Plains Chapter of the Texas Society of Professional Engineers.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Congratulating Heather Keister of Lubbock on being named the 2024 Engineer of the Year by the South Plains Chapter of the Texas Society of Professional Engineers."
     },
     {
@@ -2823,7 +2748,7 @@
       "last_action_date": "2025-01-29",
       "last_action": "Reported enrolled",
       "title": "Recognizing January 29, 2025, as Shen Yun Day at the State Capitol.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Recognizing January 29, 2025, as Shen Yun Day at the State Capitol."
     },
     {
@@ -2838,7 +2763,7 @@
       "last_action_date": "2025-01-29",
       "last_action": "Reported enrolled",
       "title": "Congratulating Heather Keister of Lubbock on being named the 2024 Engineer of the Year.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Congratulating Heather Keister of Lubbock on being named the 2024 Engineer of the Year."
     },
     {
@@ -2853,7 +2778,7 @@
       "last_action_date": "2025-01-29",
       "last_action": "Reported enrolled",
       "title": "Recognizing January 29, 2025, as Alpha Kappa Alpha Day at the State Capitol.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Recognizing January 29, 2025, as Alpha Kappa Alpha Day at the State Capitol."
     },
     {
@@ -2868,7 +2793,7 @@
       "last_action_date": "2025-01-29",
       "last_action": "Reported enrolled",
       "title": "Recognizing January 29, 2025, as Texas American Public Works Association Day.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Recognizing January 29, 2025, as Texas American Public Works Association Day."
     },
     {
@@ -2883,7 +2808,7 @@
       "last_action_date": "2025-01-29",
       "last_action": "Reported enrolled",
       "title": "Recognizing January 29, 2025, as Brownsville Day at the State Capitol.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Recognizing January 29, 2025, as Brownsville Day at the State Capitol."
     },
     {
@@ -2898,7 +2823,7 @@
       "last_action_date": "2025-01-29",
       "last_action": "Reported enrolled",
       "title": "Recognizing January 29, 2025, as Alpha Kappa Alpha Day.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Recognizing January 29, 2025, as Alpha Kappa Alpha Day."
     },
     {
@@ -2913,7 +2838,7 @@
       "last_action_date": "2025-01-29",
       "last_action": "Filed with the Secretary of State",
       "title": "Granting the legislature permission to adjourn for more than three days during the period beginning on Wednesday, January 29, 2025, and ending on Tuesday, February 4, 2025.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Granting the legislature permission to adjourn for more than three days during the period beginning on Wednesday, January 29, 2025, and ending on Tuesday, February 4, 2025."
     },
     {
@@ -2928,7 +2853,7 @@
       "last_action_date": "2025-01-29",
       "last_action": "Reported enrolled",
       "title": "In memory of Michael Shannon Ewing of Austin.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "In memory of Michael Shannon Ewing of Austin."
     },
     {
@@ -2943,7 +2868,7 @@
       "last_action_date": "2025-01-29",
       "last_action": "Reported enrolled",
       "title": "Recognizing January 29, 2025, as Brownsville Day at the State Capitol.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Recognizing January 29, 2025, as Brownsville Day at the State Capitol."
     },
     {
@@ -2958,7 +2883,7 @@
       "last_action_date": "2025-02-03",
       "last_action": "Referred to Education K-16",
       "title": "Relating to student loan repayment assistance for certain prosecuting attorneys who are employed as part of the border prosecution unit.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relating to student loan repayment assistance for certain prosecuting attorneys who are employed as part of the border prosecution unit."
     },
     {
@@ -2973,7 +2898,7 @@
       "last_action_date": "2025-02-03",
       "last_action": "Referred to State Affairs",
       "title": "Relating to the statute of limitations on a health care liability claim involving certain gender modification drugs provided to and procedures performed on a minor.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relating to the statute of limitations on a health care liability claim involving certain gender modification drugs provided to and procedures performed on a minor."
     },
     {
@@ -2988,7 +2913,7 @@
       "last_action_date": "2025-02-03",
       "last_action": "Referred to State Affairs",
       "title": "Relating to a required waiting period for certain firearm transfers; creating a criminal offense.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relating to a required waiting period for certain firearm transfers; creating a criminal offense."
     },
     {
@@ -3003,7 +2928,7 @@
       "last_action_date": "2025-02-03",
       "last_action": "Referred to Education K-16",
       "title": "Relating to reporting and providing information regarding discrimination and harassment based on race, color, or ethnicity at public institutions of higher education.",
-      "is_new_or_updated": false,
+      "is_new_or_updated": true,
       "description": "Relating to reporting and providing information regarding discrimination and harassment based on race, color, or ethnicity at public institutions of higher education."
     }
   ],
