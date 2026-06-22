@@ -1,3 +1,5 @@
 node_modules
 .env
 polis.db
+agents.md
+gemini.md
