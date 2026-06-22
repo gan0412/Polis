@@ -39,6 +39,7 @@ async function fetchBillsForState(stateAbbr, lastSyncDate) {
     const bills = Object.keys(results)
       .filter(key => key !== 'summary')
       .map(key => results[key])
+      .filter(bill => bill.title && !bill.title.includes("Reserved for the Speaker") && !bill.title.includes("The Big Beautiful Bill Act"))
       .map(bill => {
         const oldHash = oldBillsMap.get(bill.bill_id);
 
