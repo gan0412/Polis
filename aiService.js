@@ -58,14 +58,8 @@ ${JSON.stringify(userPersona, null, 2)}
     console.log("Claude Raw Response:", content);
     return JSON.parse(content);
   } catch (error) {
-    console.error("Anthropic Error (Using Fallback):", error);
-    return [
-      {
-        billTitle: "SB 567 - Tenant Protection Act",
-        impactHeadline: "Your rent increases capped at 8%",
-        summary: "As a renter in California, SB 567 limits how much your landlord can raise your rent each year. You're also protected from eviction without just cause."
-      }
-    ];
+    console.error("Anthropic Error (No Fallback):", error);
+    return [];
   }
 }
 
