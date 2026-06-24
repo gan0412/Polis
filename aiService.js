@@ -146,5 +146,55 @@ ${JSON.stringify(userPersona, null, 2)}
   }
 }
 
+async function extractBillImpactsAndCriteria(billText) {
+  const systemPrompt = `You are the AI engine for "Polis".
+You will be given the text/description of a legislative bill.
+Your job is to analyze the bill and extract all potential impacts this bill could have on different groups of everyday people.
+For each impact, you must output:
+1. impactDescription: A short, clear description of the impact.
+2. criteria: A set of demographic key-value filters where this impact is highly relevant.
+   Possible criteria keys (select only relevant ones per impact):
+   - housing: "owner", "renter"
+   - income: "low", "middle", "high"
+   - employment: "employed", "self-employed", "gig-worker", "student", "unemployed", "retired"
+   - dependents: "has-dependents", "no-dependents"
+   - health_insurance: "employer", "marketplace", "government", "uninsured"
+   - age: "young", "middle-aged", "senior"
+   - education: "college-degree", "no-college-degree"
+
+Output ONLY a raw JSON array matching this schema:
+[
+  {
+    "impactDescription": "You may qualify for a new tax credit of up to $1,500 for electric vehicle purchases.",
+    "criteria": {
+      "income": "low",
+      "housing": "owner"
+    }
+  }
+]`;
+
+  try {
+    const response = await anthropic.messages.create({
+      model: 'claude-haiku-4-5-20251001',
+      max_tokens: 1500,
+      system: systemPrompt,
+      messages: [{ role: 'user', content: billText }],
+      temperature: 0.1
+    });
+
+    let content = response.content[0].text;
+    if (content.includes('```json')) {
+      content = content.split('```json')[1].split('```')[0].trim();
+    } else if (content.includes('```')) {
+      content = content.split('```')[1].split('```')[0].trim();
+    }
+
+    return JSON.parse(content);
+  } catch (error) {
+    console.error("Error extracting bill impacts:", error);
+    return [];
+  }
+}
+
 // ✅ Single export at the bottom
-module.exports = { generatePersonalizedImpact, selectAndSummarizeBills };
+module.exports = { generatePersonalizedImpact, selectAndSummarizeBills, extractBillImpactsAndCriteria };

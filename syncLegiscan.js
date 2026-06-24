@@ -53,25 +53,35 @@ async function fetchBillsForState(stateAbbr, lastSyncDate) {
         return bill;
       });
 
-    // Fetch detailed descriptions from LegiScan API (reusing old descriptions when possible to save API limits)
-    console.log(`Fetching high-fidelity descriptions for ${bills.length} bills in ${stateKey}...`);
+    // Import helper for preprocessing impacts
+    const { extractBillImpactsAndCriteria } = require('./aiService');
+
+    // Fetch detailed descriptions and compute impacts
+    console.log(`Fetching high-fidelity descriptions and impacts for ${bills.length} bills in ${stateKey}...`);
     for (let i = 0; i < bills.length; i++) {
       const bill = bills[i];
       const oldBill = oldBills.find(ob => ob.bill_id === bill.bill_id);
       
       if (oldBill && oldBill.description && oldBill.change_hash === bill.change_hash) {
         bill.description = oldBill.description;
+        bill.criteria_impacts = oldBill.criteria_impacts || [];
       } else {
         try {
           const detailsResponse = await fetch(`${BASE_URL}?key=${API_KEY}&op=getBill&id=${bill.bill_id}`);
           const detailsData = await detailsResponse.json();
           if (detailsData.status === 'OK' && detailsData.bill) {
             bill.description = detailsData.bill.description;
+            
+            // Pre-process and extract criteria-based impacts on-the-fly
+            console.log(`   -> Extracting criteria-based impacts for ${bill.bill_number}...`);
+            const billText = `BILL STATE: ${stateKey}\nBILL NUMBER: ${bill.bill_number || ''}\nBILL TITLE: ${bill.title || ''}\nBILL DESCRIPTION: ${bill.description || bill.title || ''}`;
+            bill.criteria_impacts = await extractBillImpactsAndCriteria(billText);
           }
           // 100ms rate-limit friendly delay
           await new Promise(resolve => setTimeout(resolve, 100));
         } catch (err) {
-          console.log(`   ⚠️ Could not fetch description for ${bill.bill_number}:`, err.message);
+          console.log(`   ⚠️ Could not fetch description or compute impacts for ${bill.bill_number}:`, err.message);
+          bill.criteria_impacts = [];
         }
       }
     }

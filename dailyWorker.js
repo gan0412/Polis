@@ -43,13 +43,21 @@ async function runDailyUpdates() {
 
 
     if (relevantBills.length > 0) {
-      console.log(` -> Found ${relevantBills.length} newly updated/added bills. Sending ALL of them to AI for filtering...`);
+      console.log(`Locally matching pre-processed bill impacts for ${user.email}...`);
+      const { matchUserToBillImpacts } = require('./matching');
 
       try {
-        const aiResultArray = await selectAndSummarizeBills(relevantBills, user);
+        const aiResultArray = [];
+        for (const bill of relevantBills) {
+          const matched = matchUserToBillImpacts(bill, user);
+          if (matched) {
+            aiResultArray.push(matched);
+          }
+          if (aiResultArray.length >= 2) break; // Limit to at most 2 bills
+        }
         
-        if (!aiResultArray || aiResultArray.length === 0) {
-          console.log(` -> 🚫 AI found zero impact on ${user.email} from these bills. Skipping email.`);
+        if (aiResultArray.length === 0) {
+          console.log(` -> 🚫 Local evaluation found zero impact on ${user.email} from these bills. Skipping email.`);
           continue; // Skips to the next user, no email sent!
         }
 

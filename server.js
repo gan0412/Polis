@@ -52,11 +52,20 @@ app.post('/api/users', async (req, res) => {
     let billText;
     
     if (relevantBills.length > 0) {
-      console.log(`Generating AI summary from ${relevantBills.length} total state/federal bills for ${name}...`);
-      const aiResultArray = await selectAndSummarizeBills(relevantBills, req.body);
+      console.log(`Locally matching pre-processed bill impacts for ${name}...`);
+      const { matchUserToBillImpacts } = require('./matching');
+      
+      const aiResultArray = [];
+      for (const bill of relevantBills) {
+        const matched = matchUserToBillImpacts(bill, req.body);
+        if (matched) {
+          aiResultArray.push(matched);
+        }
+        if (aiResultArray.length >= 2) break; // Limit to at most 2 bills
+      }
 
       // 4. Dispatch Email
-      if (aiResultArray && aiResultArray.length > 0) {
+      if (aiResultArray.length > 0) {
         console.log(`Sending ${aiResultArray.length} separate emails...`);
         for (const bill of aiResultArray) {
           await sendEmail(email, name, bill);
