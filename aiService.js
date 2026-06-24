@@ -152,24 +152,14 @@ You will be given the text/description of a legislative bill.
 Your job is to analyze the bill and extract all potential impacts this bill could have on different groups of everyday people.
 For each impact, you must output:
 1. impactDescription: A short, clear description of the impact.
-2. criteria: A set of demographic key-value filters where this impact is highly relevant.
-   Possible criteria keys (select only relevant ones per impact):
-   - housing: "owner", "renter"
-   - income: "low", "middle", "high"
-   - employment: "employed", "self-employed", "gig-worker", "student", "unemployed", "retired"
-   - dependents: "has-dependents", "no-dependents"
-   - health_insurance: "employer", "marketplace", "government", "uninsured"
-   - age: "young", "middle-aged", "senior"
-   - education: "college-degree", "no-college-degree"
+2. criteria: A 2-3 sentence description of what requirements/criteria the user needs to meet for this impact to apply to them.
+   For example, does their income meet the requirements? Do they rely on Medicare? What occupation/housing status applies?
 
 Output ONLY a raw JSON array matching this schema:
 [
   {
     "impactDescription": "You may qualify for a new tax credit of up to $1,500 for electric vehicle purchases.",
-    "criteria": {
-      "income": "low",
-      "housing": "owner"
-    }
+    "criteria": "To qualify, you must own your home and have an annual household income under $50,000. You also need to have purchased an eligible electric vehicle after the bill's effective date."
   }
 ]`;
 

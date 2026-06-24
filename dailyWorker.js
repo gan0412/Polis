@@ -49,7 +49,7 @@ async function runDailyUpdates() {
       try {
         const aiResultArray = [];
         for (const bill of relevantBills) {
-          const matched = matchUserToBillImpacts(bill, user);
+          const matched = await matchUserToBillImpacts(bill, user);
           if (matched) {
             aiResultArray.push(matched);
           }

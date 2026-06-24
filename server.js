@@ -57,7 +57,7 @@ app.post('/api/users', async (req, res) => {
       
       const aiResultArray = [];
       for (const bill of relevantBills) {
-        const matched = matchUserToBillImpacts(bill, req.body);
+        const matched = await matchUserToBillImpacts(bill, req.body);
         if (matched) {
           aiResultArray.push(matched);
         }
