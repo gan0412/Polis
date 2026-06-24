@@ -3,6 +3,15 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { z } from "zod";
 
 // Initialize the LegiScan API parameters
+import { fileURLToPath } from 'url';
+import path from 'path';
+import dotenv from 'dotenv';
+
+// Load env variables from parent directory .env file
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+dotenv.config({ path: path.join(__dirname, '../.env') });
+
+// Initialize the LegiScan API parameters
 const API_KEY = process.env.LEGISCAN_API_KEY;
 const BASE_URL = "https://api.legiscan.com/";
 
