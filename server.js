@@ -126,7 +126,7 @@ app.get('/article/:billId', async (req, res) => {
       user = {
         name: 'Guest Reader',
         email: email,
-        zip: '75001',
+        zip: '23219',
         housing: '🏠 I rent my home',
         income: '$50,000 – $100,000',
         employment: 'Employed',
@@ -136,7 +136,7 @@ app.get('/article/:billId', async (req, res) => {
         topics: JSON.stringify([]),
         education: "Bachelor's Degree",
         education_field: 'General',
-        state: 'TX'
+        state: 'VA'
       };
     }
     user.topics = user.topics ? JSON.parse(user.topics) : [];
@@ -431,7 +431,7 @@ app.get('/article/:billId', async (req, res) => {
       <body>
         <!-- ── TOP BAR ── -->
         <div class="top-bar">
-          <div class="top-bar-logo">POLIS</div>
+          <a href="/" style="text-decoration: none;"><div class="top-bar-logo">POLIS</div></a>
           <div class="top-bar-sub">Polis Briefing Portal</div>
         </div>
 
