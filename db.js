@@ -84,9 +84,14 @@ const initDB = async () => {
           topics TEXT,
           education TEXT,
           education_field TEXT,
-          state TEXT
+          state TEXT,
+          last_briefed_at TIMESTAMPTZ
         )
       `);
+      // Postgres Migration
+      try {
+        await pool.query("ALTER TABLE users ADD COLUMN last_briefed_at TIMESTAMPTZ");
+      } catch (e) {}
       console.log("PostgreSQL users table checked/created.");
     } catch (err) {
       console.error("Error initializing PostgreSQL table:", err);
@@ -107,7 +112,8 @@ const initDB = async () => {
         topics TEXT,
         education TEXT,
         education_field TEXT,
-        state TEXT
+        state TEXT,
+        last_briefed_at TEXT
       )
     `);
 
@@ -120,6 +126,9 @@ const initDB = async () => {
     } catch (e) { }
     try {
       sqliteDb.exec("ALTER TABLE users ADD COLUMN state TEXT");
+    } catch (e) { }
+    try {
+      sqliteDb.exec("ALTER TABLE users ADD COLUMN last_briefed_at TEXT");
     } catch (e) { }
   }
 };

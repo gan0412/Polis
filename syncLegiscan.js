@@ -65,7 +65,9 @@ async function fetchBillsForState(stateAbbr, lastSyncDate) {
       if (oldBill && oldBill.description && oldBill.change_hash === bill.change_hash) {
         bill.description = oldBill.description;
         bill.criteria_impacts = oldBill.criteria_impacts || [];
+        bill.added_at = oldBill.added_at || new Date().toISOString();
       } else {
+        bill.added_at = new Date().toISOString();
         try {
           const detailsResponse = await fetch(`${BASE_URL}?key=${API_KEY}&op=getBill&id=${bill.bill_id}`);
           const detailsData = await detailsResponse.json();

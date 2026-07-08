@@ -71,11 +71,14 @@ app.post('/api/users', async (req, res) => {
           await sendEmail(email, name, bill);
           await new Promise(resolve => setTimeout(resolve, 1000));
         }
+        await db.run('UPDATE users SET last_briefed_at = ? WHERE email = ?', [new Date().toISOString(), email]);
         res.status(201).json({ message: 'User processed and emails dispatched', aiResult: aiResultArray });
       } else {
+        await db.run('UPDATE users SET last_briefed_at = ? WHERE email = ?', [new Date().toISOString(), email]);
         res.status(201).json({ message: 'No impactful bills found for this user.' });
       }
     } else {
+      await db.run('UPDATE users SET last_briefed_at = ? WHERE email = ?', [new Date().toISOString(), email]);
       res.status(201).json({ message: 'No relevant bills in the database yet.' });
     }
 

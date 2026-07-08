@@ -31,18 +31,21 @@ async function runDailyUpdates() {
     const stateBills = user.state ? billsDb.get(user.state) : [];
     const federalBills = billsDb.get('federal');
     
-    // Filter for bills that are real and newly added or updated
+    // Filter for bills that are real and added/updated since the user's last briefing
+    const userLastBriefed = user.last_briefed_at ? new Date(user.last_briefed_at).getTime() : 0;
+
     const relevantBills = [...stateBills, ...federalBills].filter(
-      bill => bill.title && 
-              !bill.title.includes("Reserved for the Speaker") && 
-              !bill.title.includes("The Big Beautiful Bill Act") &&
-              bill.is_new_or_updated === true
+      bill => {
+        if (!bill.title || bill.title.includes("Reserved for the Speaker") || bill.title.includes("The Big Beautiful Bill Act")) {
+          return false;
+        }
+        const billAddedTime = bill.added_at ? new Date(bill.added_at).getTime() : 0;
+        return billAddedTime > userLastBriefed;
+      }
     );
 
-
-
     if (relevantBills.length > 0) {
-      console.log(`Locally matching pre-processed bill impacts for ${user.email}...`);
+      console.log(`Locally matching pre-processed bill impacts for ${user.email} (filtering bills since last brief: ${user.last_briefed_at || 'Never'})...`);
       const { matchUserToBillImpacts } = require('./matching');
 
       try {
@@ -55,9 +58,12 @@ async function runDailyUpdates() {
           if (aiResultArray.length >= 2) break; // Limit to at most 2 bills
         }
         
+        // Update their briefing timestamp in database so they won't get matched to these bills again
+        await db.run('UPDATE users SET last_briefed_at = ? WHERE email = ?', [new Date().toISOString(), user.email]);
+
         if (aiResultArray.length === 0) {
-          console.log(` -> 🚫 Local evaluation found zero impact on ${user.email} from these bills. Skipping email.`);
-          continue; // Skips to the next user, no email sent!
+          console.log(` -> 🚫 Local evaluation found zero impact on ${user.email} from these bills.`);
+          continue;
         }
 
         console.log(` -> ✉️ Dispatching ${aiResultArray.length} separate emails to ${user.email}...`);
@@ -70,7 +76,7 @@ async function runDailyUpdates() {
         console.error(` ❌ Failed to process user ${user.email}:`, err.message, '\n');
       }
     } else {
-      console.log(` -> No new relevant bills found. Skipping email.\n`);
+      console.log(` -> No new relevant bills found since last brief (${user.last_briefed_at || 'Never'}).\n`);
     }
   }
 
