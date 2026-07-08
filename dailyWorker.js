@@ -16,9 +16,8 @@ async function runDailyUpdates() {
   console.log("1. Syncing latest data from LegiScan...");
   await syncAll();
   
-  // 2. Fetch all users from SQLite
-  const stmt = db.prepare('SELECT * FROM users');
-  const users = stmt.all();
+  // 2. Fetch all users from database
+  const users = await db.all('SELECT * FROM users');
   console.log(`Found ${users.length} users in the database.\n`);
 
   // 3. Loop through users and match bills

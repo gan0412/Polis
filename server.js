@@ -27,13 +27,13 @@ app.post('/api/users', async (req, res) => {
   try {
     // 1. Save to Database (gracefully handling existing users for the demo)
     try {
-      const stmt = db.prepare(`
-        INSERT INTO users (name, email, zip, housing, income, employment, dependents, health_insurance, age, topics, education, education_field, state)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-      `);
-      stmt.run(name, email, zip, housing, income, employment, dependents, health_insurance, age, JSON.stringify(topics || []), education, education_field, req.body.state);
+      await db.run(
+        `INSERT INTO users (name, email, zip, housing, income, employment, dependents, health_insurance, age, topics, education, education_field, state)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        [name, email, zip, housing, income, employment, dependents, health_insurance, age, JSON.stringify(topics || []), education, education_field, req.body.state]
+      );
     } catch (dbErr) {
-      if (dbErr.code === 'SQLITE_CONSTRAINT_UNIQUE') {
+      if (dbErr.code === 'SQLITE_CONSTRAINT_UNIQUE' || dbErr.code === '23505') { // SQLite or Postgres unique constraint violation code
         console.log(`User ${email} already exists in DB. Returning 409 conflict...`);
         return res.status(409).json({ error: 'This email is already registered.' });
       }
@@ -85,10 +85,9 @@ app.post('/api/users', async (req, res) => {
   }
 });
 
-app.get('/api/users', (req, res) => {
+app.get('/api/users', async (req, res) => {
   try {
-    const stmt = db.prepare('SELECT * FROM users');
-    const users = stmt.all();
+    const users = await db.all('SELECT * FROM users');
     const parsedUsers = users.map(u => ({
       ...u,
       topics: JSON.parse(u.topics)
@@ -100,10 +99,9 @@ app.get('/api/users', (req, res) => {
   }
 });
 
-app.post('/api/clear-users', (req, res) => {
+app.post('/api/clear-users', async (req, res) => {
   try {
-    const stmt = db.prepare('DELETE FROM users');
-    stmt.run();
+    await db.run('DELETE FROM users');
     console.log("Database 'users' table cleared successfully.");
     res.status(200).json({ message: "Users cleared successfully." });
   } catch (err) {
@@ -121,9 +119,8 @@ app.get('/article/:billId', async (req, res) => {
   }
 
   try {
-    // 1. Fetch user from SQLite (with fallback for public/unregistered link viewing)
-    const userStmt = db.prepare('SELECT * FROM users WHERE email = ?');
-    let user = userStmt.get(email);
+    // 1. Fetch user from database
+    let user = await db.get('SELECT * FROM users WHERE email = ?', [email]);
     if (!user) {
       console.log(`User ${email} not found in DB. Falling back to default profile for public viewing.`);
       user = {
