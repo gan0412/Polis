@@ -1,8 +1,13 @@
 const Database = require('better-sqlite3');
 const path = require('path');
 
-// Initialize the SQLite database in the root folder
-const db = new Database(path.join(__dirname, 'polis.db'), { verbose: console.log });
+// Initialize the SQLite database (using a persistent volume path in production if available)
+const dbPath = process.env.PERSISTENT_VOLUME_PATH 
+  ? path.join(process.env.PERSISTENT_VOLUME_PATH, 'polis.db')
+  : path.join(__dirname, 'polis.db');
+
+console.log(`Initializing SQLite database at: ${dbPath}`);
+const db = new Database(dbPath, { verbose: console.log });
 
 // Create the users table if it doesn't exist
 const initDB = () => {
