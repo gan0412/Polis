@@ -55,13 +55,19 @@ app.post('/api/users', async (req, res) => {
       console.log(`Locally matching pre-processed bill impacts for ${name}...`);
       const { matchUserToBillImpacts } = require('./matching');
       
-      const aiResultArray = [];
+      let aiResultArray = [];
       for (const bill of relevantBills) {
         const matched = await matchUserToBillImpacts(bill, req.body);
         if (matched) {
           aiResultArray.push(matched);
         }
         if (aiResultArray.length >= 2) break; // Limit to at most 2 bills
+      }
+
+      // FALLBACK: If local matching is empty (e.g. cache lacks pre-processed criteria), run dynamic matching
+      if (aiResultArray.length === 0) {
+        console.log(`⚠️ Local matching returned 0 results for ${name}. Falling back to dynamic AI matching...`);
+        aiResultArray = await selectAndSummarizeBills(relevantBills, req.body);
       }
 
       // 4. Dispatch Email
@@ -509,6 +515,13 @@ app.use((req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Polis API server running on http://localhost:${PORT}`);
+  
+  // Trigger background database sync immediately on boot to guarantee processed data
+  console.log("Starting initial background LegiScan database sync...");
+  const { syncAll } = require('./syncLegiscan');
+  syncAll()
+    .then(() => console.log("Initial startup database sync complete!"))
+    .catch(err => console.error("Initial database sync failed:", err.message));
 });
 
 // Initialize the daily cron worker in the background
