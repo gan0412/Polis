@@ -4,7 +4,7 @@ const fs = require('fs');
 const db = require('./db');
 const billsDb = require('./billsDb');
 const { selectAndSummarizeBills, generatePersonalizedImpact } = require('./aiService');
-const { sendEmail } = require('./emailService');
+const { sendEmail, sendVerificationEmail } = require('./emailService');
 
 const path = require('path');
 
