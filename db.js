@@ -92,6 +92,10 @@ const initDB = async () => {
       try {
         await pool.query("ALTER TABLE users ADD COLUMN last_briefed_at TIMESTAMPTZ");
       } catch (e) {}
+    } catch (err) {
+      console.error("Error initializing PostgreSQL table:", err);
+    }
+
     try {
       await pool.query(`
         CREATE TABLE IF NOT EXISTS pending_users (
