@@ -56,6 +56,10 @@ export default function CivicBridgeOnboarding() {
   const [focused, setFocused] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
+  
+  // Verification Code Flow States
+  const [showVerification, setShowVerification] = useState(false);
+  const [verificationCode, setVerificationCode] = useState("");
 
   /* Inject Google Fonts at runtime (works in most environments) */
   useEffect(() => {
@@ -115,7 +119,7 @@ export default function CivicBridgeOnboarding() {
       });
 
       if (response.ok) {
-        setSubmitted(true);
+        setShowVerification(true);
       } else if (response.status === 409) {
         setErrorMsg("This email is already registered. Please use a different one.");
       } else {
@@ -124,6 +128,36 @@ export default function CivicBridgeOnboarding() {
     } catch (error) {
       setErrorMsg("Failed to connect to server.");
       console.error("Failed to submit:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleVerifyCode = async () => {
+    if (!verificationCode || verificationCode.trim().length !== 6) {
+      setErrorMsg("Please enter a valid 6-digit verification code.");
+      return;
+    }
+
+    setIsLoading(true);
+    setErrorMsg("");
+    try {
+      const response = await fetch("/api/verify", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: form.email, code: verificationCode })
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+        setShowVerification(false);
+      } else {
+        const data = await response.json();
+        setErrorMsg(data.error || "Invalid code. Please try again.");
+      }
+    } catch (error) {
+      setErrorMsg("Failed to verify code. Please try again.");
+      console.error("Verification failed:", error);
     } finally {
       setIsLoading(false);
     }
@@ -174,6 +208,104 @@ export default function CivicBridgeOnboarding() {
     transition: "all 0.2s",
   });
 
+  /* ── OTP VERIFICATION SCREEN ── */
+  if (showVerification) return (
+    <div style={{ backgroundColor: C.black, minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: F.ui }}>
+      <div style={{ textAlign: "center", animation: "fadeUp 0.6s ease both", maxWidth: "420px", padding: "0 24px" }}>
+        <div style={{ fontFamily: F.mono, fontSize: "11px", letterSpacing: "0.18em", color: C.red, textTransform: "uppercase", marginBottom: "20px" }}>Verification Required</div>
+        <h1 style={{ fontFamily: F.display, fontSize: "clamp(38px,6vw,56px)", color: C.white, margin: "0 0 16px", lineHeight: 1, letterSpacing: "0.02em" }}>
+          CHECK YOUR EMAIL
+        </h1>
+        <p style={{ fontFamily: F.ui, fontWeight: 300, fontSize: "15px", color: C.mid, margin: "0 0 32px", lineHeight: 1.6 }}>
+          We sent a 6-digit confirmation code to <strong style={{ color: C.white }}>{form.email}</strong>. Enter it below to verify your subscription.
+        </p>
+        
+        <div style={{ marginBottom: "24px" }}>
+          <input
+            type="text"
+            pattern="[0-9]*"
+            maxLength={6}
+            value={verificationCode}
+            onChange={e => {
+              setErrorMsg("");
+              setVerificationCode(e.target.value.replace(/\D/g, ''));
+            }}
+            placeholder="0 0 0 0 0 0"
+            style={{
+              backgroundColor: "transparent",
+              border: "none",
+              borderBottom: `2px solid ${C.red}`,
+              color: C.white,
+              fontFamily: F.mono,
+              fontSize: "36px",
+              fontWeight: "bold",
+              letterSpacing: "8px",
+              textAlign: "center",
+              width: "200px",
+              outline: "none",
+              padding: "8px 0",
+              textTransform: "uppercase",
+            }}
+          />
+        </div>
+
+        {errorMsg && (
+          <div style={{ color: C.red, fontFamily: F.ui, fontSize: "14px", marginBottom: "24px" }}>
+            {errorMsg}
+          </div>
+        )}
+
+        <div>
+          <button
+            onClick={handleVerifyCode}
+            disabled={isLoading}
+            style={{
+              backgroundColor: C.red,
+              border: `1px solid ${C.red}`,
+              color: C.white,
+              fontFamily: F.mono,
+              fontSize: "11px",
+              fontWeight: 500,
+              letterSpacing: "0.18em",
+              textTransform: "uppercase",
+              padding: "16px 40px",
+              cursor: isLoading ? "not-allowed" : "pointer",
+              borderRadius: "2px",
+              transition: "all 0.2s",
+              width: "100%",
+              opacity: isLoading ? 0.7 : 1,
+            }}
+          >
+            {isLoading ? "Verifying..." : "Confirm & Access Portal"}
+          </button>
+          
+          <button
+            onClick={() => {
+              setShowVerification(false);
+              setErrorMsg("");
+              setVerificationCode("");
+            }}
+            style={{
+              backgroundColor: "transparent",
+              border: "none",
+              color: C.mid,
+              fontFamily: F.mono,
+              fontSize: "10px",
+              letterSpacing: "0.14em",
+              textTransform: "uppercase",
+              padding: "12px",
+              cursor: "pointer",
+              marginTop: "16px",
+            }}
+          >
+            ← Back to form
+          </button>
+        </div>
+      </div>
+      <style>{`@keyframes fadeUp { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }`}</style>
+    </div>
+  );
+
   /* ── SUCCESS SCREEN ── */
   if (submitted) return (
     <div style={{ backgroundColor: C.black, minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: F.ui }}>
@@ -183,7 +315,7 @@ export default function CivicBridgeOnboarding() {
           Welcome,<br /><span style={{ color: C.red }}>{form.name.split(" ")[0]}.</span>
         </h1>
         <p style={{ fontFamily: F.serif, fontStyle: "italic", fontSize: "20px", color: C.mid, margin: 0 }}>
-          Your information is being processed.
+          Your email has been verified. Check your inbox for your first customized update!
         </p>
         <div style={{ marginTop: "40px", width: "40px", height: "2px", backgroundColor: C.red, margin: "40px auto 0" }} />
       </div>

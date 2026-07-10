@@ -92,9 +92,18 @@ const initDB = async () => {
       try {
         await pool.query("ALTER TABLE users ADD COLUMN last_briefed_at TIMESTAMPTZ");
       } catch (e) {}
-      console.log("PostgreSQL users table checked/created.");
+    try {
+      await pool.query(`
+        CREATE TABLE IF NOT EXISTS pending_users (
+          email TEXT PRIMARY KEY,
+          code TEXT NOT NULL,
+          profile_data TEXT NOT NULL,
+          created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
+        )
+      `);
+      console.log("PostgreSQL pending_users table checked/created.");
     } catch (err) {
-      console.error("Error initializing PostgreSQL table:", err);
+      console.error("Error creating PG pending_users table:", err);
     }
   } else {
     sqliteDb.exec(`
@@ -114,6 +123,15 @@ const initDB = async () => {
         education_field TEXT,
         state TEXT,
         last_briefed_at TEXT
+      )
+    `);
+    
+    sqliteDb.exec(`
+      CREATE TABLE IF NOT EXISTS pending_users (
+        email TEXT PRIMARY KEY,
+        code TEXT NOT NULL,
+        profile_data TEXT NOT NULL,
+        created_at TEXT DEFAULT CURRENT_TIMESTAMP
       )
     `);
 

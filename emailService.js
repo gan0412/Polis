@@ -81,4 +81,53 @@ async function sendEmail(userEmail, userName, bill) {
   }
 }
 
-module.exports = { sendEmail };
+async function sendVerificationEmail(userEmail, userName, code) {
+  const emailSubject = `${code} is your Polis verification code`;
+  const htmlTemplate = `
+    <div style="font-family: Arial, sans-serif; max-width: 500px; margin: 0 auto; border: 1px solid #eaeaea; border-radius: 8px; overflow: hidden; background-color: #fafafa;">
+      <div style="background-color: #d63426; color: #f8f4ee; padding: 20px; text-align: center;">
+        <h1 style="margin: 0; font-size: 24px; letter-spacing: 1px;">POLIS</h1>
+      </div>
+      <div style="padding: 30px 20px; text-align: center;">
+        <h2 style="margin-top: 0; font-size: 20px; color: #333;">Confirm Your Email</h2>
+        <p style="color: #555; font-size: 14px; margin-bottom: 24px;">
+          Hi ${userName},<br/>
+          Use the verification code below to complete your sign-up and unlock your personalized civic portal:
+        </p>
+        
+        <div style="display: inline-block; padding: 12px 24px; background-color: #111; color: #d63426; font-size: 32px; font-weight: bold; letter-spacing: 6px; border-radius: 4px; font-family: monospace; border: 1px solid #d63426;">
+          ${code}
+        </div>
+        
+        <p style="color: #888; font-size: 12px; margin-top: 24px;">
+          If you did not request this code, you can safely ignore this email.
+        </p>
+      </div>
+      <div style="background-color: #f4f4f4; padding: 15px; text-align: center; font-size: 12px; color: #888;">
+        © 2026 Polis. Connecting citizens to legislative intelligence.
+      </div>
+    </div>
+  `;
+
+  try {
+    const { data, error } = await resend.emails.send({
+      from: 'Polis <notifications@the-polis.com>',
+      to: userEmail,
+      subject: emailSubject,
+      text: `Your Polis verification code is: ${code}`,
+      html: htmlTemplate,
+    });
+
+    if (error) {
+      console.error("Resend Verification Error:", error);
+      return false;
+    }
+    console.log(`Verification code email successfully sent to: ${userEmail}`);
+    return true;
+  } catch (err) {
+    console.error("Error sending verification email:", err);
+    return false;
+  }
+}
+
+module.exports = { sendEmail, sendVerificationEmail };

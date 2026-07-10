@@ -18,79 +18,128 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'frontend/dist')));
 
 app.post('/api/users', async (req, res) => {
-  const { name, email, zip, housing, income, employment, dependents, health_insurance, age, topics, education, education_field } = req.body;
+  const { name, email } = req.body;
 
   if (!name || !email) {
     return res.status(400).json({ error: 'Name and email are required.' });
   }
 
   try {
-    // 1. Save to Database (gracefully handling existing users for the demo)
+    // 1. Check if email is already verified in active users table
+    const existingUser = await db.get('SELECT email FROM users WHERE email = ?', [email]);
+    if (existingUser) {
+      console.log(`User ${email} already registered in verified table.`);
+      return res.status(409).json({ error: 'This email is already registered.' });
+    }
+
+    // 2. Generate a random 6-digit verification code
+    const verificationCode = String(Math.floor(100000 + Math.random() * 900000)); // 6 digits
+
+    // 3. Save to pending_users (upsert if exists)
+    // To support both SQLite and Postgres upsert syntax safely: delete first, then insert.
+    await db.run('DELETE FROM pending_users WHERE email = ?', [email]);
+    await db.run(
+      `INSERT INTO pending_users (email, code, profile_data) VALUES (?, ?, ?)`,
+      [email, verificationCode, JSON.stringify(req.body)]
+    );
+
+    // 4. Send Verification Code Email
+    console.log(`Generating verification code ${verificationCode} for ${email}...`);
+    const emailSent = await sendVerificationEmail(email, name, verificationCode);
+    if (!emailSent) {
+      return res.status(500).json({ error: 'Failed to send verification email. Please try again.' });
+    }
+
+    res.status(200).json({ message: 'Verification code sent to your email.' });
+  } catch (err) {
+    console.error("Signup error:", err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+app.post('/api/verify', async (req, res) => {
+  const { email, code } = req.body;
+
+  if (!email || !code) {
+    return res.status(400).json({ error: 'Email and verification code are required.' });
+  }
+
+  try {
+    // 1. Fetch pending record
+    const pending = await db.get('SELECT * FROM pending_users WHERE email = ?', [email]);
+    if (!pending) {
+      return res.status(400).json({ error: 'No verification request found for this email. Please sign up again.' });
+    }
+
+    // 2. Verify code
+    if (pending.code.trim() !== code.trim()) {
+      return res.status(400).json({ error: 'Invalid verification code.' });
+    }
+
+    // 3. Parse user profile details from pending data
+    const profile = JSON.parse(pending.profile_data);
+    const { name, zip, housing, income, employment, dependents, health_insurance, age, topics, education, education_field, state } = profile;
+
+    // 4. Save to active users table
     try {
       await db.run(
         `INSERT INTO users (name, email, zip, housing, income, employment, dependents, health_insurance, age, topics, education, education_field, state)
          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-        [name, email, zip, housing, income, employment, dependents, health_insurance, age, JSON.stringify(topics || []), education, education_field, req.body.state]
+        [name, email, zip, housing, income, employment, dependents, health_insurance, age, JSON.stringify(topics || []), education, education_field, state]
       );
     } catch (dbErr) {
-      if (dbErr.code === 'SQLITE_CONSTRAINT_UNIQUE' || dbErr.code === '23505') { // SQLite or Postgres unique constraint violation code
-        console.log(`User ${email} already exists in DB. Returning 409 conflict...`);
+      if (dbErr.code === 'SQLITE_CONSTRAINT_UNIQUE' || dbErr.code === '23505') {
         return res.status(409).json({ error: 'This email is already registered.' });
       }
       throw dbErr;
     }
 
-    // 2. Get relevant bills from NoSQL Database
-    const userState = req.body.state; // e.g. "NY" or "CA" (to be added on frontend later)
-    const stateBills = userState ? billsDb.get(userState) : [];
+    // Remove pending record now that they are verified
+    await db.run('DELETE FROM pending_users WHERE email = ?', [email]);
+
+    // 5. Query and dispatch onboarding briefings immediately
+    const stateBills = state ? billsDb.get(state) : [];
     const federalBills = billsDb.get('federal');
     
-    // Filter out placeholder "Reserved for the Speaker" bills
     const relevantBills = [...stateBills, ...federalBills].filter(
       bill => bill.title && !bill.title.includes("Reserved for the Speaker") && !bill.title.includes("The Big Beautiful Bill Act")
     );
-    let billText;
     
+    let aiResultArray = [];
     if (relevantBills.length > 0) {
-      console.log(`Locally matching pre-processed bill impacts for ${name}...`);
+      console.log(`Locally matching pre-processed bill impacts for verified user ${name}...`);
       const { matchUserToBillImpacts } = require('./matching');
       
-      let aiResultArray = [];
       for (const bill of relevantBills) {
-        const matched = await matchUserToBillImpacts(bill, req.body);
+        const matched = await matchUserToBillImpacts(bill, profile);
         if (matched) {
           aiResultArray.push(matched);
         }
-        if (aiResultArray.length >= 2) break; // Limit to at most 2 bills
+        if (aiResultArray.length >= 2) break;
       }
 
-      // FALLBACK: If local matching is empty (e.g. cache lacks pre-processed criteria), run dynamic matching
+      // Fallback to dynamic AI matching
       if (aiResultArray.length === 0) {
-        console.log(`⚠️ Local matching returned 0 results for ${name}. Falling back to dynamic AI matching...`);
-        aiResultArray = await selectAndSummarizeBills(relevantBills, req.body);
+        console.log(`⚠️ Local matching returned 0 results for verified ${name}. Falling back to dynamic AI matching...`);
+        aiResultArray = await selectAndSummarizeBills(relevantBills, profile);
       }
 
-      // 4. Dispatch Email
+      // Dispatch briefing emails
       if (aiResultArray.length > 0) {
-        console.log(`Sending ${aiResultArray.length} separate emails...`);
+        console.log(`Sending ${aiResultArray.length} onboarding briefs to ${email}...`);
         for (const bill of aiResultArray) {
           await sendEmail(email, name, bill);
           await new Promise(resolve => setTimeout(resolve, 1000));
         }
-        await db.run('UPDATE users SET last_briefed_at = ? WHERE email = ?', [new Date().toISOString(), email]);
-        res.status(201).json({ message: 'User processed and emails dispatched', aiResult: aiResultArray });
-      } else {
-        await db.run('UPDATE users SET last_briefed_at = ? WHERE email = ?', [new Date().toISOString(), email]);
-        res.status(201).json({ message: 'No impactful bills found for this user.' });
       }
-    } else {
-      await db.run('UPDATE users SET last_briefed_at = ? WHERE email = ?', [new Date().toISOString(), email]);
-      res.status(201).json({ message: 'No relevant bills in the database yet.' });
     }
 
+    await db.run('UPDATE users SET last_briefed_at = ? WHERE email = ?', [new Date().toISOString(), email]);
+    res.status(200).json({ message: 'Email verified successfully!', aiResult: aiResultArray });
+
   } catch (err) {
-    console.error("Server error:", err);
-    res.status(500).json({ error: 'Internal server error' });
+    console.error("Verification error:", err);
+    res.status(500).json({ error: 'Internal server error during verification.' });
   }
 });
 
@@ -111,7 +160,8 @@ app.get('/api/users', async (req, res) => {
 app.post('/api/clear-users', async (req, res) => {
   try {
     await db.run('DELETE FROM users');
-    console.log("Database 'users' table cleared successfully.");
+    await db.run('DELETE FROM pending_users');
+    console.log("Database tables cleared successfully.");
     res.status(200).json({ message: "Users cleared successfully." });
   } catch (err) {
     console.error("Database clearing error:", err);
