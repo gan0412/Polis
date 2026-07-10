@@ -129,6 +129,7 @@ app.post('/api/verify', async (req, res) => {
         console.log(`Sending ${aiResultArray.length} onboarding briefs to ${email}...`);
         for (const bill of aiResultArray) {
           // Fetch the full bill object from NoSQL to get description
+          const allBills = billsDb.getAll();
           let fullBill = null;
           for (const key of Object.keys(allBills)) {
             fullBill = allBills[key].find(b => String(b.bill_id) === String(bill.billId));
