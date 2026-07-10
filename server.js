@@ -128,7 +128,25 @@ app.post('/api/verify', async (req, res) => {
       if (aiResultArray.length > 0) {
         console.log(`Sending ${aiResultArray.length} onboarding briefs to ${email}...`);
         for (const bill of aiResultArray) {
-          await sendEmail(email, name, bill);
+          // Fetch the full bill object from NoSQL to get description
+          let fullBill = null;
+          for (const key of Object.keys(allBills)) {
+            fullBill = allBills[key].find(b => String(b.bill_id) === String(bill.billId));
+            if (fullBill) break;
+          }
+          
+          let articlePayload = null;
+          if (fullBill) {
+            try {
+              console.log(`   -> Pre-generating full article for bill ${bill.billId}...`);
+              const billText = `BILL STATE: ${fullBill.state}\nBILL NUMBER: ${fullBill.bill_number || ''}\nBILL TITLE: ${fullBill.title || ''}\nBILL DESCRIPTION: ${fullBill.description || fullBill.title || ''}`;
+              articlePayload = await generatePersonalizedImpact(billText, profile);
+            } catch (pErr) {
+              console.error(`Failed to pre-generate article payload for bill ${bill.billId}:`, pErr.message);
+            }
+          }
+          
+          await sendEmail(email, name, bill, articlePayload);
           await new Promise(resolve => setTimeout(resolve, 1000));
         }
       }
@@ -171,7 +189,7 @@ app.post('/api/clear-users', async (req, res) => {
 
 app.get('/article/:billId', async (req, res) => {
   const { billId } = req.params;
-  const { email } = req.query;
+  const { email, p } = req.query;
 
   if (!email) {
     return res.status(400).send("<h1>Error</h1><p>Email query parameter is required.</p>");
@@ -212,10 +230,28 @@ app.get('/article/:billId', async (req, res) => {
       return res.status(404).send("<h1>Bill Not Found</h1><p>Could not locate the requested bill.</p>");
     }
 
-    // 3. Generate detailed personalized article on the fly
-    console.log(`Generating in-depth article for bill ${billId} and user ${email}...`);
-    const billText = `BILL STATE: ${foundBill.state}\nBILL NUMBER: ${foundBill.bill_number || ''}\nBILL TITLE: ${foundBill.title || ''}\nBILL DESCRIPTION: ${foundBill.description || foundBill.title || ''}`;
-    const article = await generatePersonalizedImpact(billText, user);
+    // 3. Try to decompress and decode pre-generated article payload from URL parameter
+    let article = null;
+    if (p) {
+      try {
+        const zlib = require('zlib');
+        // Restore standard Base64 characters from URL-safe variants
+        const base64Str = p.replace(/-/g, '+').replace(/_/g, '/');
+        const compressedBuffer = Buffer.from(base64Str, 'base64');
+        const decompressed = zlib.inflateRawSync(compressedBuffer).toString('utf8');
+        article = JSON.parse(decompressed);
+        console.log(`Decoded pre-generated article payload from URL for bill ${billId}. Bypassing AI generation.`);
+      } catch (decodeErr) {
+        console.error("Failed to decode URL article payload:", decodeErr.message);
+      }
+    }
+
+    // Fallback: Generate dynamically if no valid payload was provided in the link
+    if (!article) {
+      console.log(`Generating in-depth article for bill ${billId} and user ${email}...`);
+      const billText = `BILL STATE: ${foundBill.state}\nBILL NUMBER: ${foundBill.bill_number || ''}\nBILL TITLE: ${foundBill.title || ''}\nBILL DESCRIPTION: ${foundBill.description || foundBill.title || ''}`;
+      article = await generatePersonalizedImpact(billText, user);
+    }
 
     // 4. Render a premium article web page matching the form UI perfectly!
     const html = `

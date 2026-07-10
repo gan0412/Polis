@@ -3,7 +3,9 @@ const { Resend } = require('resend');
 // In production, this must be set in your .env or Railway variables
 const resend = new Resend(process.env.RESEND_API_KEY || 're_your_api_key_here');
 
-async function sendEmail(userEmail, userName, bill) {
+const zlib = require('zlib');
+
+async function sendEmail(userEmail, userName, bill, articlePayload = null) {
   // Check if there is a bill to send
   if (!bill) return false;
 
@@ -12,10 +14,25 @@ async function sendEmail(userEmail, userName, bill) {
 
   const appUrl = process.env.APP_URL || 'http://localhost:3001';
 
+  // If we have a pre-generated article, compress and encode it to keep URL compact
+  let payloadParam = '';
+  if (articlePayload) {
+    try {
+      const buffer = zlib.deflateRawSync(Buffer.from(JSON.stringify(articlePayload), 'utf8'));
+      const base64Str = buffer.toString('base64')
+        .replace(/\+/g, '-')
+        .replace(/\//g, '_')
+        .replace(/=+$/, ''); // URL-safe base64 encoding
+      payloadParam = `&p=${base64Str}`;
+    } catch (compressErr) {
+      console.error("Failed to compress article payload:", compressErr);
+    }
+  }
+
   // Build the HTML for the single bill
   const articleLink = bill.billId
     ? `<div style="margin-top: 16px; text-align: right;">
-         <a href="${appUrl}/article/${bill.billId}?email=${encodeURIComponent(userEmail)}" style="display: inline-block; font-size: 14px; color: #d63426; font-weight: bold; text-decoration: none; border-bottom: 2px solid #d63426; padding-bottom: 2px;">
+         <a href="${appUrl}/article/${bill.billId}?email=${encodeURIComponent(userEmail)}${payloadParam}" style="display: inline-block; font-size: 14px; color: #d63426; font-weight: bold; text-decoration: none; border-bottom: 2px solid #d63426; padding-bottom: 2px;">
            Click here to view full article &rarr;
          </a>
        </div>`

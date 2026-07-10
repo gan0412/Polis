@@ -67,8 +67,26 @@ async function runDailyUpdates() {
         }
 
         console.log(` -> ✉️ Dispatching ${aiResultArray.length} separate emails to ${user.email}...`);
+        const { generatePersonalizedImpact } = require('./aiService');
         for (const bill of aiResultArray) {
-          await sendEmail(user.email, user.name, bill);
+          // Fetch the full bill object from NoSQL to get description
+          const stateKey = user.state || 'federal';
+          const stateBills = billsDb.get(stateKey) || [];
+          const federalBills = billsDb.get('federal') || [];
+          const fullBill = [...stateBills, ...federalBills].find(b => String(b.bill_id) === String(bill.billId));
+          
+          let articlePayload = null;
+          if (fullBill) {
+            try {
+              console.log(`   -> Pre-generating full article for bill ${bill.billId}...`);
+              const billText = `BILL STATE: ${fullBill.state}\nBILL NUMBER: ${fullBill.bill_number || ''}\nBILL TITLE: ${fullBill.title || ''}\nBILL DESCRIPTION: ${fullBill.description || fullBill.title || ''}`;
+              articlePayload = await generatePersonalizedImpact(billText, user);
+            } catch (pErr) {
+              console.error(`Failed to pre-generate article payload for bill ${bill.billId}:`, pErr.message);
+            }
+          }
+          
+          await sendEmail(user.email, user.name, bill, articlePayload);
           await new Promise(resolve => setTimeout(resolve, 1000));
         }
         console.log(` ✅ Success for ${user.email}\n`);
