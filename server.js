@@ -71,6 +71,14 @@ app.post('/api/verify', async (req, res) => {
       return res.status(400).json({ error: 'No verification request found for this email. Please sign up again.' });
     }
 
+    // 1b. Check if verification code has expired (5 minutes = 300000 milliseconds)
+    const createdAt = new Date(pending.created_at).getTime();
+    const now = Date.now();
+    if (now - createdAt > 300000) {
+      await db.run('DELETE FROM pending_users WHERE email = ?', [email]);
+      return res.status(400).json({ error: 'Verification code has expired. Please sign up again.' });
+    }
+
     // 2. Verify code
     if (pending.code.trim() !== code.trim()) {
       return res.status(400).json({ error: 'Invalid verification code.' });
