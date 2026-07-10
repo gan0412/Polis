@@ -45,7 +45,7 @@ const F = {
 
 export default function CivicBridgeOnboarding() {
   const [form, setForm] = useState({
-    name: "", email: "", state: "",
+    name: "", email: "", state: "", zip: "",
     housing: "", income: "", employment: "",
     dependents: "", health_insurance: "",
     age: "",
@@ -80,6 +80,11 @@ export default function CivicBridgeOnboarding() {
     if (!emailRegex.test(form.email.trim())) return "Please enter a valid email address.";
 
     if (!form.state) return "Please select your state.";
+    
+    const zipRegex = /^\d{5}$/;
+    if (!form.zip || !form.zip.trim()) return "Please enter your ZIP code.";
+    if (!zipRegex.test(form.zip.trim())) return "Please enter a valid 5-digit ZIP code.";
+
     if (!form.housing) return "Please select your housing status.";
     if (!form.income) return "Please select your income level.";
     if (!form.employment) return "Please select your employment status.";
@@ -310,6 +315,20 @@ export default function CivicBridgeOnboarding() {
                 <option value="WI" style={{ color: "black" }}>Wisconsin</option>
                 <option value="WY" style={{ color: "black" }}>Wyoming</option>
               </select>
+            </div>
+            <div style={fieldWrap}>
+              <span style={monoLabel}>ZIP Code</span>
+              <input
+                type="text"
+                pattern="[0-9]*"
+                maxLength={5}
+                value={form.zip}
+                onChange={e => set("zip", e.target.value.replace(/\D/g, ''))}
+                onFocus={() => setFocused("zip")}
+                onBlur={() => setFocused(null)}
+                placeholder="22030"
+                style={inputBase("zip")}
+              />
             </div>
           </div>
 
