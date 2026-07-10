@@ -187,6 +187,112 @@ app.post('/api/clear-users', async (req, res) => {
   }
 });
 
+app.get('/unsubscribe', async (req, res) => {
+  const { email } = req.query;
+
+  if (!email) {
+    return res.status(400).send("<h1>Error</h1><p>Email parameter is required to unsubscribe.</p>");
+  }
+
+  try {
+    console.log(`Unsubscribing email: ${email}`);
+    // Delete from both active and pending tables
+    await db.run('DELETE FROM users WHERE email = ?', [email]);
+    await db.run('DELETE FROM pending_users WHERE email = ?', [email]);
+
+    // Render a high-fidelity confirmation page matching the app's aesthetic
+    const html = `
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Unsubscribed - Polis</title>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@1&family=DM+Sans:wght@300;400;500&family=DM+Mono&display=swap" rel="stylesheet">
+        <style>
+          body {
+            background-color: #080808;
+            color: #f8f4ee;
+            font-family: 'DM Sans', system-ui, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 24px;
+            box-sizing: border-box;
+          }
+          .box {
+            text-align: center;
+            max-width: 480px;
+            border: 1px solid rgba(248, 244, 238, 0.1);
+            background-color: #111111;
+            padding: 48px 32px;
+            border-radius: 4px;
+            box-shadow: 0 0 60px rgba(214, 52, 38, 0.05);
+          }
+          .tag {
+            font-family: 'DM Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 0.18em;
+            color: #d63426;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+          }
+          h1 {
+            font-family: 'Bebas Neue', Impact, sans-serif;
+            font-size: clamp(38px, 6vw, 54px);
+            line-height: 0.95;
+            margin: 0 0 16px;
+            letter-spacing: 0.02em;
+          }
+          p {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-style: italic;
+            font-size: 20px;
+            color: #6b6459;
+            line-height: 1.5;
+            margin: 0 0 32px;
+          }
+          .btn {
+            display: inline-block;
+            background-color: transparent;
+            border: 1px solid rgba(248, 244, 238, 0.2);
+            color: #f8f4ee;
+            font-family: 'DM Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            padding: 14px 28px;
+            text-decoration: none;
+            border-radius: 2px;
+            transition: all 0.2s;
+          }
+          .btn:hover {
+            border-color: #d63426;
+            color: #d63426;
+          }
+        </style>
+      </head>
+      <body>
+        <div class="box">
+          <div class="tag">Unsubscribe Confirmed</div>
+          <h1>You're off the list</h1>
+          <p>
+            You have been removed from Polis. You will no longer receive daily personalized policy summaries or briefings at ${email}.
+          </p>
+          <a href="/" class="btn">Return to Home</a>
+        </div>
+      </body>
+      </html>
+    `;
+    res.status(200).send(html);
+  } catch (err) {
+    console.error("Unsubscribe error:", err);
+    res.status(500).send("<h1>Error</h1><p>Failed to process unsubscribe request. Please try again later.</p>");
+  }
+});
+
 app.get('/article/:billId', async (req, res) => {
   const { billId } = req.params;
   const { email, p } = req.query;

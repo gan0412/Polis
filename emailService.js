@@ -66,8 +66,9 @@ async function sendEmail(userEmail, userName, bill, articlePayload = null) {
         ${billHtml}
 
       </div>
-      <div style="background-color: #f4f4f4; padding: 15px; text-align: center; font-size: 12px; color: #888;">
-        This is a personalized summary based on your Polis profile.
+      <div style="background-color: #f4f4f4; padding: 15px; text-align: center; font-size: 11px; color: #888; border-top: 1px solid #eaeaea;">
+        This is a personalized summary based on your Polis profile.<br/>
+        No longer want alerts? <a href="${appUrl}/unsubscribe?email=${encodeURIComponent(userEmail)}" style="color: #d63426; text-decoration: underline;">Unsubscribe</a>.
       </div>
     </div>
   `;
