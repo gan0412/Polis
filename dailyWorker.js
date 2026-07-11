@@ -15,7 +15,7 @@ async function runDailyUpdates() {
   // 1. Fetch latest bills from LegiScan (updates bills.json and sets is_new_or_updated flags)
   console.log("1. Syncing latest data from LegiScan...");
   await syncAll();
-  
+
   // 2. Fetch all users from database
   const users = await db.all('SELECT * FROM users');
   console.log(`Found ${users.length} users in the database.\n`);
@@ -23,14 +23,14 @@ async function runDailyUpdates() {
   // 3. Loop through users and match bills
   for (const user of users) {
     console.log(`Processing user: ${user.name} (${user.state || 'No State Provided'})`);
-    
+
     // Parse topics back to array (since SQLite stores it as a JSON string)
     user.topics = user.topics ? JSON.parse(user.topics) : [];
 
     // Get bills relevant to this user (Federal + State)
     const stateBills = user.state ? billsDb.get(user.state) : [];
     const federalBills = billsDb.get('federal');
-    
+
     // Filter for bills that are real and added/updated since the user's last briefing
     const userLastBriefed = user.last_briefed_at ? new Date(user.last_briefed_at).getTime() : 0;
 
@@ -57,7 +57,7 @@ async function runDailyUpdates() {
           }
           if (aiResultArray.length >= 2) break; // Limit to at most 2 bills
         }
-        
+
         // Update their briefing timestamp in database so they won't get matched to these bills again
         await db.run('UPDATE users SET last_briefed_at = ? WHERE email = ?', [new Date().toISOString(), user.email]);
 
@@ -74,7 +74,7 @@ async function runDailyUpdates() {
           const stateBills = billsDb.get(stateKey) || [];
           const federalBills = billsDb.get('federal') || [];
           const fullBill = [...stateBills, ...federalBills].find(b => String(b.bill_id) === String(bill.billId));
-          
+
           let articlePayload = null;
           if (fullBill) {
             try {
@@ -85,7 +85,7 @@ async function runDailyUpdates() {
               console.error(`Failed to pre-generate article payload for bill ${bill.billId}:`, pErr.message);
             }
           }
-          
+
           await sendEmail(user.email, user.name, bill, articlePayload);
           await new Promise(resolve => setTimeout(resolve, 1000));
         }
@@ -102,22 +102,45 @@ async function runDailyUpdates() {
   console.log("==========================================");
 }
 
-// Schedule the job to run every evening at 6:22 PM EST
-console.log("Polis Daily Worker started. Waiting for scheduled times (6:22 PM EST & 8:40 PM EST daily)...");
+// Schedule the jobs to run daily
+console.log("Polis Daily Worker started. Waiting for scheduled times (Morning & Evening sessions)...");
+
+// 1. Morning Briefings
+cron.schedule('50 7 * * *', async () => {
+  console.log("Running scheduled 7:50 AM briefing update...");
+  await runDailyUpdates();
+}, {
+  timezone: "America/New_York"
+});
+
+cron.schedule('50 8 * * *', async () => {
+  console.log("Running scheduled 8:50 AM briefing update...");
+  await runDailyUpdates();
+}, {
+  timezone: "America/New_York"
+});
+
+cron.schedule('50 9 * * *', async () => {
+  console.log("Running scheduled 9:50 AM briefing update...");
+  await runDailyUpdates();
+}, {
+  timezone: "America/New_York"
+});
+
+// 2. Evening Briefings
 cron.schedule('22 18 * * *', async () => {
+  console.log("Running scheduled 6:22 PM briefing update...");
   await runDailyUpdates();
 }, {
   timezone: "America/New_York"
 });
 
-// Secondary cron job at 8:40 PM EST
 cron.schedule('40 20 * * *', async () => {
+  console.log("Running scheduled 8:40 PM briefing update...");
   await runDailyUpdates();
 }, {
   timezone: "America/New_York"
 });
-
-
 
 // FOR TESTING: Run the loop immediately only when you run the file directly!
 if (require.main === module) {
